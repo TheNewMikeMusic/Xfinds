@@ -1,0 +1,39 @@
+[
+  {
+    "id": "cat-1",
+    "name": "运动鞋",
+    "slug": "sneakers",
+    "icon": "👟"
+  },
+  {
+    "id": "cat-2",
+    "name": "服装",
+    "slug": "apparel",
+    "icon": "👕"
+  },
+  {
+    "id": "cat-3",
+    "name": "配饰",
+    "slug": "accessories",
+    "icon": "👜"
+  },
+  {
+    "id": "cat-4",
+    "name": "奢侈品",
+    "slug": "luxury",
+    "icon": "💎"
+  },
+  {
+    "id": "cat-5",
+    "name": "电子产品",
+    "slug": "electronics",
+    "icon": "📱"
+  },
+  {
+    "id": "cat-6",
+    "name": "美妆",
+    "slug": "beauty",
+    "icon": "💄"
+  }
+]
+

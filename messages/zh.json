@@ -1,0 +1,233 @@
+{
+  "common": {
+    "search": "搜索",
+    "products": "产品",
+    "agents": "代理",
+    "cart": "购物车",
+    "compare": "比较",
+    "login": "登录",
+    "register": "注册",
+    "logout": "登出",
+    "language": "语言"
+  },
+  "nav": {
+    "searchPlaceholder": "搜索产品...",
+    "cart": "购物车",
+    "userMenu": "用户菜单",
+    "login": "登录",
+    "register": "注册",
+    "logout": "登出"
+  },
+  "home": {
+    "title": "发现最佳产品",
+    "subtitle": "搜索、比较、选择 - 一站式产品搜索与代理比较平台",
+    "searchPlaceholder": "搜索产品...",
+    "categories": "热门分类",
+    "featuredAgents": "推荐代理",
+    "categorySneakers": "运动鞋",
+    "categoryClothing": "服装",
+    "categoryAccessories": "配饰",
+    "categoryLuxury": "奢侈品",
+    "featuredProducts": "精选商品",
+    "agent": "代理",
+    "rating": "评分",
+    "fastDelivery": "快速配送，优质服务",
+    "search": "搜索"
+  },
+  "search": {
+    "title": "搜索结果",
+    "found": "找到 {count} 个产品",
+    "noResults": "未找到产品",
+    "noResultsDesc": "尝试调整搜索条件或筛选器",
+    "filters": "筛选",
+    "category": "分类",
+    "agent": "代理",
+    "priceRange": "价格范围",
+    "minPrice": "最低",
+    "maxPrice": "最高",
+    "priceRangeHint": "可选，设置价格区间以缩小范围",
+    "priceRangeError": "最低价不能高于最高价",
+    "sort": "排序",
+    "sortRelevance": "相关性",
+    "sortPrice": "价格",
+    "sortNew": "最新",
+    "selectCategory": "选择分类",
+    "selectAgent": "选择代理",
+    "all": "全部",
+    "offers": "{count} 个报价"
+  },
+  "product": {
+    "specs": "规格",
+    "size": "尺寸",
+    "color": "颜色",
+    "material": "材质",
+    "offers": "代理报价",
+    "price": "价格",
+    "shipping": "运费",
+    "estimatedDays": "预计天数",
+    "total": "总计",
+    "inStock": "有货",
+    "outOfStock": "缺货",
+    "addToCompare": "添加到比较",
+    "addToCart": "加入购物车",
+    "viewOnAgent": "在代理网站查看",
+    "copyLink": "复制链接",
+    "days": "天",
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "close": "关闭",
+    "viewImage": "查看 {title} 图片 {index}",
+    "priceMinLabel": "最低报价",
+    "priceMaxLabel": "最高报价",
+    "offerCountLabel": "共有 {count} 个实时报价",
+    "viewCategory": "查看该分类更多商品",
+    "tagsTitle": "热门标签"
+  },
+  "cart": {
+    "title": "购物车",
+    "empty": "购物车为空",
+    "emptyDesc": "添加一些产品到购物车",
+    "browseProducts": "浏览产品",
+    "summary": "订单摘要",
+    "itemCount": "商品数量",
+    "total": "总计",
+    "note": "请注意：Xfinds 是一个比较平台。您将被重定向到各个代理网站完成购买。",
+    "openAll": "打开所有链接",
+    "opening": "正在打开...",
+    "clear": "清空购物车",
+    "remove": "移除",
+    "openLink": "打开链接",
+    "productId": "产品 ID",
+    "agentId": "代理 ID",
+    "price": "价格",
+    "shipping": "运费"
+  },
+  "compare": {
+    "title": "产品比较",
+    "empty": "比较列表为空",
+    "emptyDesc": "添加一些产品报价到比较列表",
+    "clear": "清空列表",
+    "agent": "代理",
+    "price": "价格",
+    "shipping": "运费",
+    "estimatedDays": "预计天数",
+    "total": "总计",
+    "actions": "操作",
+    "remove": "移除",
+    "unknownAgent": "未知代理",
+    "days": "天",
+    "viewOnAgentSite": "在代理网站查看",
+    "copyLink": "复制链接"
+  },
+  "agents": {
+    "title": "代理目录",
+    "subtitle": "浏览我们合作的代理服务商，找到最适合您的选择",
+    "rating": "评分",
+    "speed": "配送速度",
+    "features": "特色",
+    "visitSite": "访问网站",
+    "description": "浏览我们合作的代理服务商，找到最适合您的选择"
+  },
+  "agent": {
+    "recommended": "推荐",
+    "copyLink": "复制链接",
+    "linkCopied": "链接已复制到剪贴板",
+    "enter": "进入",
+    "speedTag": "配送速度",
+    "features": "特色",
+    "copied": "已复制",
+    "copyFailed": "复制链接失败"
+  },
+  "auth": {
+    "login": {
+      "title": "登录",
+      "subtitle": "登录您的账户",
+      "email": "邮箱",
+      "password": "密码",
+      "submit": "登录",
+      "submitting": "登录中...",
+      "noAccount": "还没有账户？",
+      "register": "注册",
+      "error": "登录失败",
+      "genericError": "发生错误，请重试"
+    },
+    "register": {
+      "title": "注册",
+      "subtitle": "创建新账户",
+      "email": "邮箱",
+      "password": "密码",
+      "confirmPassword": "确认密码",
+      "submit": "注册",
+      "submitting": "注册中...",
+      "hasAccount": "已有账户？",
+      "login": "登录",
+      "passwordMismatch": "密码不匹配",
+      "error": "注册失败",
+      "genericError": "发生错误，请重试"
+    },
+    "validation": {
+      "invalidEmail": "请输入有效的邮箱地址",
+      "passwordShort": "密码至少需要 8 个字符",
+      "passwordHint": "建议包含数字与符号以提升密码强度",
+      "passwordStrength": "强度：{level}",
+      "strengthWeak": "弱",
+      "strengthMedium": "中",
+      "strengthStrong": "强",
+      "fixErrors": "请先修正标记的字段"
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "服务条款",
+      "lastUpdated": "最后更新"
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "lastUpdated": "最后更新"
+    }
+  },
+  "footer": {
+    "legal": "法律信息",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "quickLinks": "快速链接",
+    "agentDirectory": "代理目录",
+    "searchProducts": "搜索产品",
+    "copyright": "© {year} Xfinds. All rights reserved.",
+    "language": "语言"
+  },
+  "errors": {
+    "404": {
+      "title": "404",
+      "heading": "页面未找到",
+      "description": "抱歉，您访问的页面不存在。可能是链接错误或页面已被删除。",
+      "goHome": "返回首页"
+    },
+    "generic": "发生错误，请重试",
+    "retry": "重试",
+    "title": "出现错误",
+    "goHome": "返回首页"
+  },
+  "pagination": {
+    "previous": "上一页",
+    "next": "下一页"
+  },
+  "dashboard": {
+    "upload": {
+      "title": "上传新产品",
+      "productTitle": "产品标题",
+      "brand": "品牌",
+      "category": "分类",
+      "slug": "Slug (URL)",
+      "slugPlaceholder": "product-slug",
+      "minPrice": "最低价格",
+      "maxPrice": "最高价格",
+      "tags": "标签 (逗号分隔)",
+      "tagsPlaceholder": "tag1, tag2, tag3",
+      "image": "产品图片",
+      "submit": "创建产品",
+      "submitting": "创建中...",
+      "devOnly": "此功能仅在开发模式下可用"
+    }
+  }
+}

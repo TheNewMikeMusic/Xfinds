@@ -1,2 +1,85 @@
 # Xfinds
-A modern dark-themed product search &amp; agent comparison web app inspired by plug4.me and uufinds, built with Next.js, TypeScript, Tailwind, Framer Motion, and shadcn/ui. Designed with liquid-glass aesthetics, smooth animations, and smart keyword search powered by Fuse.js.
+
+一个现代化的深色主题产品搜索与代理比较 Web 应用，灵感来自 plug4.me 和 uufinds，使用 Next.js、TypeScript、Tailwind、Framer Motion 和 shadcn/ui 构建。设计采用液体玻璃美学、流畅动画和由 Fuse.js 驱动的智能关键词搜索。
+
+## 功能特性
+
+- 🔍 **智能搜索**: 使用 Fuse.js 进行模糊搜索，支持关键词、分类、代理筛选
+- 🛍️ **产品比较**: 并排比较不同代理的报价
+- 🛒 **购物车**: 保存选中的产品报价，批量打开代理链接
+- 👥 **代理目录**: 浏览所有合作的代理服务商
+- 📤 **产品上传**: 开发模式下上传新产品（仅开发环境）
+- 🔐 **用户认证**: Stub 模式快速认证系统
+- 🌐 **多语言支持**: 中文（默认）和英文界面
+- 🎨 **液体玻璃美学**: 深色主题，毛玻璃效果，微交互动画
+
+## 技术栈
+
+- **框架**: Next.js 14+ (App Router)
+- **语言**: TypeScript (严格模式)
+- **样式**: Tailwind CSS v3.4
+- **UI 组件**: shadcn/ui
+- **动画**: Framer Motion
+- **状态管理**: Zustand
+- **搜索**: Fuse.js
+- **国际化**: next-intl (准备中)
+
+## 快速开始
+
+1. 安装依赖：
+```bash
+npm install
+```
+
+2. 复制环境变量文件：
+```bash
+cp .env.local.example .env.local
+```
+
+3. 启动开发服务器：
+```bash
+npm run dev
+```
+
+4. 打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+
+## 项目结构
+
+```
+Xfinds-1/
+├── app/                    # Next.js App Router 页面
+├── components/             # React 组件
+│   ├── ui/                # shadcn/ui 基础组件
+│   ├── shared/            # 共享组件（Navbar, Footer等）
+│   ├── search/            # 搜索相关组件
+│   ├── product/           # 产品相关组件
+│   └── ...
+├── lib/                    # 工具函数和库
+├── store/                  # Zustand 状态管理
+├── data/                   # JSON 数据文件
+└── public/                 # 静态资源
+
+```
+
+## 开发
+
+- `npm run dev` - 启动开发服务器
+- `npm run build` - 构建生产版本
+- `npm run start` - 启动生产服务器
+- `npm run lint` - 运行 ESLint
+- `npm run type-check` - 类型检查
+
+## 环境变量
+
+创建 `.env.local` 文件并配置以下变量：
+
+```
+AUTH_MODE=stub
+ADMIN_TOKEN=your-dev-token-here
+NODE_ENV=development
+JWT_SECRET=your-jwt-secret-here
+```
+
+## 许可证
+
+MIT

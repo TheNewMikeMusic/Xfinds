@@ -1,0 +1,233 @@
+{
+  "common": {
+    "search": "Search",
+    "products": "Products",
+    "agents": "Agents",
+    "cart": "Cart",
+    "compare": "Compare",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "language": "Language"
+  },
+  "nav": {
+    "searchPlaceholder": "Search products...",
+    "cart": "Cart",
+    "userMenu": "User Menu",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "home": {
+    "title": "Discover Best Products",
+    "subtitle": "Search, Compare, Choose - One-stop Product Search & Agent Comparison Platform",
+    "searchPlaceholder": "Search products...",
+    "categories": "Popular Categories",
+    "featuredAgents": "Featured Agents",
+    "categorySneakers": "Sneakers",
+    "categoryClothing": "Clothing",
+    "categoryAccessories": "Accessories",
+    "categoryLuxury": "Luxury",
+    "featuredProducts": "Featured Products",
+    "agent": "Agent",
+    "rating": "Rating",
+    "fastDelivery": "Fast delivery, quality service",
+    "search": "Search"
+  },
+  "search": {
+    "title": "Search Results",
+    "found": "Found {count} products",
+    "noResults": "No products found",
+    "noResultsDesc": "Try adjusting your search criteria or filters",
+    "filters": "Filters",
+    "category": "Category",
+    "agent": "Agent",
+    "priceRange": "Price Range",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "priceRangeHint": "Optional filters to narrow the price window",
+    "priceRangeError": "Min price cannot be greater than max price",
+    "sort": "Sort",
+    "sortRelevance": "Relevance",
+    "sortPrice": "Price",
+    "sortNew": "Newest",
+    "selectCategory": "Select Category",
+    "selectAgent": "Select Agent",
+    "all": "All",
+    "offers": "{count} offers"
+  },
+  "product": {
+    "specs": "Specifications",
+    "size": "Size",
+    "color": "Color",
+    "material": "Material",
+    "offers": "Agent Offers",
+    "price": "Price",
+    "shipping": "Shipping",
+    "estimatedDays": "Estimated Days",
+    "total": "Total",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "addToCompare": "Add to Compare",
+    "addToCart": "Add to Cart",
+    "viewOnAgent": "View on Agent Site",
+    "copyLink": "Copy Link",
+    "days": "days",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "close": "Close",
+    "viewImage": "View {title} image {index}",
+    "priceMinLabel": "Lowest offer",
+    "priceMaxLabel": "Highest offer",
+    "offerCountLabel": "{count} active offers",
+    "viewCategory": "View more in this category",
+    "tagsTitle": "Trending tags"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Cart is Empty",
+    "emptyDesc": "Add some products to your cart",
+    "browseProducts": "Browse Products",
+    "summary": "Order Summary",
+    "itemCount": "Items",
+    "total": "Total",
+    "note": "Note: Xfinds is a comparison platform. You will be redirected to individual agent sites to complete your purchase.",
+    "openAll": "Open All Links",
+    "opening": "Opening...",
+    "clear": "Clear Cart",
+    "remove": "Remove",
+    "openLink": "Open Link",
+    "productId": "Product ID",
+    "agentId": "Agent ID",
+    "price": "Price",
+    "shipping": "Shipping"
+  },
+  "compare": {
+    "title": "Product Comparison",
+    "empty": "Compare List is Empty",
+    "emptyDesc": "Add some product offers to the compare list",
+    "clear": "Clear List",
+    "agent": "Agent",
+    "price": "Price",
+    "shipping": "Shipping",
+    "estimatedDays": "Estimated Days",
+    "total": "Total",
+    "actions": "Actions",
+    "remove": "Remove",
+    "unknownAgent": "Unknown Agent",
+    "days": "days",
+    "viewOnAgentSite": "View on Agent Site",
+    "copyLink": "Copy Link"
+  },
+  "agents": {
+    "title": "Agent Directory",
+    "subtitle": "Browse our partner agents to find the best option for you",
+    "rating": "Rating",
+    "speed": "Delivery Speed",
+    "features": "Features",
+    "visitSite": "Visit Site",
+    "description": "Browse our partner agents to find the best option for you"
+  },
+  "agent": {
+    "recommended": "Recommended",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link copied to clipboard",
+    "enter": "Enter",
+    "speedTag": "Delivery Speed",
+    "features": "Features",
+    "copied": "Copied",
+    "copyFailed": "Failed to copy link"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Login to your account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Login",
+      "submitting": "Logging in...",
+      "noAccount": "Don't have an account?",
+      "register": "Register",
+      "error": "Login failed",
+      "genericError": "An error occurred, please try again"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create a new account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Register",
+      "submitting": "Registering...",
+      "hasAccount": "Already have an account?",
+      "login": "Login",
+      "passwordMismatch": "Passwords do not match",
+      "error": "Registration failed",
+      "genericError": "An error occurred, please try again"
+    },
+    "validation": {
+      "invalidEmail": "Please enter a valid email address",
+      "passwordShort": "Use at least 8 characters",
+      "passwordHint": "Use 8+ characters with numbers and symbols for a stronger password",
+      "passwordStrength": "Strength: {level}",
+      "strengthWeak": "Weak",
+      "strengthMedium": "Medium",
+      "strengthStrong": "Strong",
+      "fixErrors": "Please fix the highlighted fields before continuing"
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last Updated"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated"
+    }
+  },
+  "footer": {
+    "legal": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "quickLinks": "Quick Links",
+    "agentDirectory": "Agent Directory",
+    "searchProducts": "Search Products",
+    "copyright": "© {year} Xfinds. All rights reserved.",
+    "language": "Language"
+  },
+  "errors": {
+    "404": {
+      "title": "404",
+      "heading": "Page Not Found",
+      "description": "Sorry, the page you are looking for does not exist. It may have been moved or deleted.",
+      "goHome": "Go Home"
+    },
+    "generic": "An error occurred, please try again",
+    "retry": "Retry",
+    "title": "An Error Occurred",
+    "goHome": "Go Home"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "dashboard": {
+    "upload": {
+      "title": "Upload New Product",
+      "productTitle": "Product Title",
+      "brand": "Brand",
+      "category": "Category",
+      "slug": "Slug (URL)",
+      "slugPlaceholder": "product-slug",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "tags": "Tags (comma-separated)",
+      "tagsPlaceholder": "tag1, tag2, tag3",
+      "image": "Product Image",
+      "submit": "Create Product",
+      "submitting": "Creating...",
+      "devOnly": "This feature is only available in development mode"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { useRouter, useParams } from 'next/navigation'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Search } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
+import { cn } from '@/lib/utils'
+
+export function HeroSearch() {
+  const router = useRouter()
+  const params = useParams()
+  const locale = (params?.locale as string) || 'en'
+  const t = useTranslations('home')
+  const [query, setQuery] = useState('')
+  const [isFocused, setIsFocused] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+  const magnetX = useMotionValue(0)
+  const magnetY = useMotionValue(0)
+  const springX = useSpring(magnetX, { stiffness: 220, damping: 20 })
+  const springY = useSpring(magnetY, { stiffness: 220, damping: 20 })
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (query.trim()) {
+      router.push(`/${locale}/search?q=${encodeURIComponent(query.trim())}`)
+    }
+  }
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (shouldReduceMotion || event.pointerType === 'touch') return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const offsetX = event.clientX - rect.left - rect.width / 2
+    const offsetY = event.clientY - rect.top - rect.height / 2
+    magnetX.set(offsetX * 0.08)
+    magnetY.set(offsetY * 0.08)
+  }
+
+  const resetMagnet = () => {
+    magnetX.set(0)
+    magnetY.set(0)
+  }
+
+  return (
+    <form onSubmit={handleSearch} className="mx-auto w-full max-w-2xl">
+      <motion.div
+        className={cn(
+          'group relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-1',
+          'shadow-[0_35px_120px_rgba(6,9,25,0.65)] transition-all duration-500 will-change-transform',
+          isFocused && 'border-white/40 shadow-[0_0_55px_rgba(125,211,252,0.45)]'
+        )}
+        style={mounted && !shouldReduceMotion ? { x: springX, y: springY } : undefined}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={resetMagnet}
+      >
+        <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-sky-300/20 via-transparent to-violet-300/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="relative flex flex-col gap-3 sm:pr-32">
+          <Input
+            type="text"
+            value={query}
+            aria-label={t('searchPlaceholder')}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t('searchPlaceholder')}
+            className="relative z-10 w-full rounded-2xl border-transparent bg-transparent pl-14 pr-4 py-6 text-lg text-white placeholder:text-slate-400 focus-visible:ring-0 caret-sky-300"
+          />
+          <Button
+            type="submit"
+            className="z-20 w-full rounded-2xl bg-gradient-to-r from-sky-300 via-blue-400 to-violet-400 px-6 py-3 text-base font-semibold text-gray-900 shadow-[0_18px_40px_rgba(59,130,246,0.35)] hover:shadow-[0_25px_45px_rgba(192,132,252,0.35)] sm:absolute sm:right-3 sm:top-1/2 sm:w-auto sm:-translate-y-1/2"
+          >
+            {t('search')}
+          </Button>
+        </div>
+        <Search
+          aria-hidden="true"
+          className="pointer-events-none absolute left-6 top-7 z-20 h-5 w-5 text-slate-300 transition-colors group-focus-within:text-cyan-200 sm:top-1/2 sm:-translate-y-1/2"
+        />
+      </motion.div>
+    </form>
+  )
+}

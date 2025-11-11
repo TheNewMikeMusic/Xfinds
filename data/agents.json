@@ -1,0 +1,80 @@
+[
+  {
+    "id": "kakobuy",
+    "name": "KakoBuy",
+    "slug": "kakobuy",
+    "siteUrl": "https://www.kakobuy.com",
+    "logo": "/agents/kakobuy.png",
+    "rating": 4.7,
+    "badges": ["Popular", "Reverse Image Search"],
+    "speedTag": "fast",
+    "promoText": "Up to $410 coupons for new users",
+    "recommended": true,
+    "notes": "General CN shopping agent; supports link paste and reverse image search."
+  },
+  {
+    "id": "mulebuy",
+    "name": "mulebuy",
+    "slug": "mulebuy",
+    "siteUrl": "https://mulebuy.com",
+    "logo": "/agents/mulebuy.png",
+    "rating": 4.6,
+    "badges": ["App Available"],
+    "speedTag": "fast",
+    "promoText": "Up to $400 new-user coupons",
+    "recommended": false,
+    "notes": "Chinese purchasing agent with app; simple onboarding."
+  },
+  {
+    "id": "hipobuy",
+    "name": "Hipobuy",
+    "slug": "hipobuy",
+    "siteUrl": "https://hipobuy.com",
+    "logo": "/agents/hipobuy.png",
+    "rating": 4.6,
+    "badges": ["Low Price Routes"],
+    "speedTag": "fast",
+    "promoText": "Sign now to get 25% off",
+    "recommended": false,
+    "notes": "Taobao/1688/Weidian agent; streamlined first-purchase flow."
+  },
+  {
+    "id": "rizzitgo",
+    "name": "RizzitGO",
+    "slug": "rizzitgo",
+    "siteUrl": "https://www.rizzitgo.com",
+    "logo": "/agents/rizzitgo.png",
+    "rating": 4.6,
+    "badges": ["Clean UX"],
+    "speedTag": "fast",
+    "promoText": "Up to $400 coupons (campaign text)",
+    "recommended": false,
+    "notes": "Trusted China buying agent; clear 'how it works' flow."
+  },
+  {
+    "id": "eastmallbuy",
+    "name": "eastmallbuy",
+    "slug": "eastmallbuy",
+    "siteUrl": "https://www.eastmallbuy.com",
+    "logo": "/agents/eastmallbuy.png",
+    "rating": 4.3,
+    "badges": ["Multiple Payments"],
+    "speedTag": "standard",
+    "promoText": "Up to $210 coupons",
+    "recommended": false,
+    "notes": "Supports Taobao/Tmall/1688/Xianyu; has help center & policies."
+  },
+  {
+    "id": "tigbuy",
+    "name": "TigBuy",
+    "slug": "tigbuy",
+    "siteUrl": "https://tigbuy.com",
+    "logo": "/agents/tigbuy.png",
+    "rating": 4.4,
+    "badges": ["Warehouse QA"],
+    "speedTag": "standard",
+    "promoText": "Lowest shipping cost!",
+    "recommended": false,
+    "notes": "Procurement, QC, warehousing, customs, international shipping."
+  }
+]
