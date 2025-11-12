@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Search, ShoppingCart, User, LogOut } from 'lucide-react'
+import { Search, ShoppingCart, User, LogOut, ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet'
@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { useEffect, useRef, useState } from 'react'
-import { useRouter, useParams } from 'next/navigation'
+import { useRouter, useParams, usePathname } from 'next/navigation'
 import { useCartStore } from '@/store/cart-store'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
@@ -28,8 +28,12 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const params = useParams()
+  const pathname = usePathname()
   const locale = (params?.locale as string) || 'en'
   const t = useTranslations('nav')
+  
+  // Check if we're on the home page
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
   const [cartItemCount, setCartItemCount] = useState(0)
   const previousCartCount = useRef(0)
   
@@ -123,15 +127,28 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto flex h-14 items-center justify-between px-4 sm:h-16">
-        {/* Logo */}
-        <Link
-          href={`/${locale}`}
-          className="focus-ring flex items-center space-x-2 rounded-full px-3 py-1 transition-transform duration-500 hover:scale-105 active:scale-95 touch-manipulation min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0"
-        >
-          <div className="font-hacker text-xs tracking-[0.6em] text-sky-200 sm:text-sm">
-            Xfinds
-          </div>
-        </Link>
+        {/* Back Button & Logo */}
+        <div className="flex items-center gap-3">
+          {!isHomePage && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => router.push(`/${locale}`)}
+              className="focus-ring touch-manipulation min-h-[44px] min-w-[44px] sm:min-h-[40px] sm:min-w-[40px]"
+              aria-label="Go back to home"
+            >
+              <ArrowLeft className="h-5 w-5 text-sky-200" aria-hidden="true" />
+            </Button>
+          )}
+          <Link
+            href={`/${locale}`}
+            className="focus-ring flex items-center space-x-2 rounded-full px-3 py-1 transition-transform duration-500 hover:scale-105 active:scale-95 touch-manipulation min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0"
+          >
+            <div className="font-hacker text-xs tracking-[0.6em] text-sky-200 sm:text-sm">
+              Xfinds
+            </div>
+          </Link>
+        </div>
 
         {/* Desktop Search */}
         <form onSubmit={handleSearch} className="hidden max-w-md flex-1 px-4 md:flex">

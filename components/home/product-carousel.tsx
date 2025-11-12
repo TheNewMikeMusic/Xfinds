@@ -52,10 +52,10 @@ export function ProductCarousel({ products, locale, agents, itemsPerPage = 6 }: 
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={currentPage}
-            initial={shouldReduceMotion ? undefined : { opacity: 0, x: 100 }}
+            initial={shouldReduceMotion ? undefined : { opacity: 0, x: 20 }}
             animate={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
-            exit={shouldReduceMotion ? undefined : { opacity: 0, x: -100 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            exit={shouldReduceMotion ? undefined : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
             className="grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-2 xl:grid-cols-3"
           >
             {currentProducts.map((product, index) => (

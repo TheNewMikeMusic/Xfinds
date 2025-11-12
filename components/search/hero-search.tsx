@@ -47,15 +47,26 @@ export function HeroSearch() {
     <form onSubmit={handleSearch} className="mx-auto w-full max-w-2xl">
       <motion.div
         className={cn(
-          'group relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-1',
-          'shadow-[0_35px_120px_rgba(6,9,25,0.65)] transition-all duration-500 will-change-transform',
-          isFocused && 'border-white/40 shadow-[0_0_55px_rgba(125,211,252,0.45)]'
+          'group relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-1',
+          'shadow-[0_35px_120px_rgba(6,9,25,0.65)] backdrop-blur-xl transition-all duration-500 will-change-transform',
+          isFocused && 'border-white/40 shadow-[0_0_55px_rgba(125,211,252,0.45)] bg-white/15'
         )}
         style={!shouldReduceMotion ? { x: springX, y: springY } : undefined}
         onPointerMove={handlePointerMove}
         onPointerLeave={resetMagnet}
       >
-        <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-sky-300/20 via-transparent to-violet-300/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+        {/* Glass gradient overlay */}
+        <div className={cn(
+          "pointer-events-none absolute inset-0 z-0 rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-transparent transition-opacity duration-500",
+          isFocused ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+        )} />
+        {/* Colored glow effect */}
+        <div className={cn(
+          "pointer-events-none absolute inset-0 z-0 rounded-3xl bg-gradient-to-r from-sky-300/30 via-blue-400/20 to-violet-300/30 blur-2xl transition-opacity duration-500",
+          isFocused ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+        )} />
+        {/* Background glow */}
+        <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-sky-300/30 via-transparent to-violet-300/30 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
         <div className="relative flex flex-col gap-3 sm:pr-32">
           <Input
             type="text"

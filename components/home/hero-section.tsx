@@ -26,25 +26,23 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
   const headingWords = displayTitle.split(' ')
 
   const headingContainer = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: shouldReduceMotion ? 0 : 0.6,
+        duration: shouldReduceMotion ? 0 : 0.3,
         ease: 'easeOut',
-        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        staggerChildren: shouldReduceMotion ? 0 : 0.03,
       },
     },
   }
 
   const wordVariant = {
-    hidden: { opacity: 0, y: 18 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: shouldReduceMotion ? 0 : 0.45,
+        duration: shouldReduceMotion ? 0 : 0.25,
         ease: 'easeOut',
       },
     },
@@ -84,15 +82,14 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
             shouldReduceMotion
               ? { opacity: 0.5 }
               : {
-                  opacity: [0.35, 0.6, 0.45],
-                  scale: [0.95, 1.05, 0.98],
+                  opacity: [0.4, 0.5, 0.4],
                 }
           }
           transition={
             shouldReduceMotion
               ? undefined
               : {
-                  duration: 14,
+                  duration: 8,
                   repeat: Infinity,
                   repeatType: 'mirror',
                 }
@@ -198,9 +195,9 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
             {displaySubtitle}
           </motion.p>
           <motion.div
-            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
-            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.4, duration: 0.6, ease: 'easeOut' }}
+            initial={shouldReduceMotion ? undefined : { opacity: 0 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: 0.3, ease: 'easeOut' }}
           >
             <HeroSearch />
           </motion.div>

@@ -25,16 +25,16 @@ export function AgentCard({ agent }: AgentCardProps) {
 
   return (
     <motion.article
-      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 12 }}
       whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
       whileHover={
         shouldReduceMotion
           ? undefined
           : {
-              y: -6,
-              scale: 1.01,
+              y: -4,
+              transition: { duration: 0.2, ease: 'easeOut' },
             }
       }
       className="group"

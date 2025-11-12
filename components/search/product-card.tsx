@@ -50,17 +50,16 @@ export function ProductCard({ product, locale, agents = [], priority = false }: 
 
   return (
     <motion.div
-      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 32 }}
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 12 }}
       whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={shouldReduceMotion ? undefined : { once: true, amount: 0.2 }}
-      transition={shouldReduceMotion ? undefined : { duration: 0.45, ease: 'easeOut' }}
+      transition={shouldReduceMotion ? undefined : { duration: 0.3, ease: 'easeOut' }}
       whileHover={
         shouldReduceMotion
           ? undefined
           : {
-              y: -8,
-              scale: 1.01,
-              transition: { duration: 0.35, ease: 'easeOut' },
+              y: -4,
+              transition: { duration: 0.2, ease: 'easeOut' },
             }
       }
       className="pt-2 sm:pt-0"
