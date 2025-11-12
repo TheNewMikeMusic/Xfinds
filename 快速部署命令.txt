@@ -1,0 +1,94 @@
+==========================================
+Xfinds 快速部署命令
+==========================================
+
+方式 1: 直接复制以下命令到服务器执行（最简单）
+
+SSH 连接到服务器：
+ssh root@154.21.200.177
+（密码：dm6b1acaggAoLcln）
+
+然后复制并执行以下完整命令：
+
+cd /var/www && rm -rf xfinds && mkdir -p xfinds && cd xfinds && git clone https://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@github.com/TheNewMikeMusic/Xfinds.git . && npm install && JWT_SECRET=$(openssl rand -base64 32) && cat > .env.local << 'EOF'
+NODE_ENV=production
+JWT_SECRET=${JWT_SECRET}
+AUTH_MODE=stub
+APP_URL=http://154.21.200.177
+NEXT_PUBLIC_APP_URL=http://154.21.200.177
+EXCHANGE_RATE_API=https://api.exchangerate-api.com/v4/latest/CNY
+EOF
+npm run build && pm2 delete xfinds 2>/dev/null || true && pm2 start npm --name "xfinds" -- start && pm2 save && pm2 startup | tail -1 | bash && ufw allow 3000/tcp 2>/dev/null || firewall-cmd --permanent --add-port=3000/tcp 2>/dev/null && firewall-cmd --reload 2>/dev/null || true && echo "" && echo "==========================================" && echo "部署完成！访问: http://154.21.200.177:3000" && echo "==========================================" && pm2 status
+
+
+方式 2: 使用部署脚本（推荐）
+
+1. 在本地 PowerShell 执行：
+   .\一键部署-完整版.ps1
+
+2. 或者手动上传脚本：
+   scp deploy-script.sh root@154.21.200.177:/tmp/
+   ssh root@154.21.200.177
+   chmod +x /tmp/deploy-script.sh
+   /tmp/deploy-script.sh
+
+
+方式 3: 分步执行（适合调试）
+
+1. SSH 连接到服务器：
+   ssh root@154.21.200.177
+
+2. 更新系统并安装工具：
+   apt-get update && apt-get install -y git curl
+   curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+   apt-get install -y nodejs
+   npm install -g pm2
+
+3. 克隆项目：
+   cd /var/www
+   rm -rf xfinds
+   mkdir -p xfinds
+   cd xfinds
+   git clone https://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@github.com/TheNewMikeMusic/Xfinds.git .
+
+4. 安装依赖：
+   npm install
+
+5. 配置环境变量：
+   JWT_SECRET=$(openssl rand -base64 32)
+   cat > .env.local << EOF
+   NODE_ENV=production
+   JWT_SECRET=$JWT_SECRET
+   AUTH_MODE=stub
+   APP_URL=http://154.21.200.177
+   NEXT_PUBLIC_APP_URL=http://154.21.200.177
+   EXCHANGE_RATE_API=https://api.exchangerate-api.com/v4/latest/CNY
+   EOF
+
+6. 构建项目：
+   npm run build
+
+7. 启动应用：
+   pm2 delete xfinds 2>/dev/null || true
+   pm2 start npm --name "xfinds" -- start
+   pm2 save
+   pm2 startup | tail -1 | bash
+
+8. 配置防火墙：
+   ufw allow 3000/tcp || firewall-cmd --permanent --add-port=3000/tcp && firewall-cmd --reload
+
+9. 查看状态：
+   pm2 status
+
+
+部署后访问：
+http://154.21.200.177:3000
+
+
+常用管理命令：
+- 查看日志：pm2 logs xfinds
+- 重启应用：pm2 restart xfinds
+- 停止应用：pm2 stop xfinds
+- 查看状态：pm2 status
+- 更新代码：cd /var/www/xfinds && git pull && npm install && npm run build && pm2 restart xfinds
+
