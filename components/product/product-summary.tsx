@@ -333,7 +333,7 @@ export function ProductSummary({ product, category, locale, agents = [] }: Produ
                 {/* Promo Text */}
                 {selectedAgent.promoText && (
                   <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-2 sm:p-3">
-                    <p className="text-xs sm:text-sm text-blue-300">{selectedAgent.promoText}</p>
+                    <p className="text-xs sm:text-sm text-blue-300 break-words">{selectedAgent.promoText}</p>
                   </div>
                 )}
 
@@ -590,7 +590,7 @@ export function ProductSummary({ product, category, locale, agents = [] }: Produ
 
                           {agent?.promoText && (
                             <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-2">
-                              <p className="text-xs text-blue-300">{agent.promoText}</p>
+                              <p className="text-xs text-blue-300 break-words">{agent.promoText}</p>
                             </div>
                           )}
                         </motion.div>

@@ -267,7 +267,7 @@ export function AgentOfferList({
 
               {agent?.promoText && (
                 <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-2 sm:p-3">
-                  <p className="text-xs sm:text-sm text-blue-300">{agent.promoText}</p>
+                  <p className="text-xs sm:text-sm text-blue-300 break-words">{agent.promoText}</p>
                 </div>
               )}
 

@@ -128,7 +128,7 @@ export default function ComparePage() {
                                 </div>
                               )}
                               {agent?.promoText && (
-                                <div className="text-xs text-blue-400 mt-1 truncate">
+                                <div className="text-xs sm:text-sm text-blue-400 mt-1 break-words">
                                   {agent.promoText}
                                 </div>
                               )}

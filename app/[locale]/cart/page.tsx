@@ -381,7 +381,7 @@ export default function CartPage() {
                             </div>
                             {agent?.promoText && (
                               <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg px-3 py-1">
-                                <p className="text-xs text-blue-300">{agent.promoText}</p>
+                                <p className="text-xs sm:text-sm text-blue-300 break-words">{agent.promoText}</p>
                               </div>
                             )}
                           </div>
