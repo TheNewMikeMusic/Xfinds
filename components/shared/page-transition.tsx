@@ -23,9 +23,9 @@ export function PageTransition({ children }: PageTransitionProps) {
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={shouldReduceMotion ? false : { opacity: 0 }}
+        initial={shouldReduceMotion ? undefined : { opacity: 0 }}
         animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1 }}
-        exit={shouldReduceMotion ? false : { opacity: 0 }}
+        exit={shouldReduceMotion ? undefined : { opacity: 0 }}
         transition={transition}
         className="min-h-screen page-transition-container"
         style={{
