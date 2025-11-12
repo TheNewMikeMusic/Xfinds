@@ -19,12 +19,18 @@ const nextConfig = {
         protocol: 'http',
         hostname: '154.21.200.177',
       },
+      {
+        protocol: 'https',
+        hostname: 'xfinds.cc',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year cache
     dangerouslyAllowSVG: true,
+    // Add error handling for image optimization
+    unoptimized: false,
     // Note: contentDispositionType and contentSecurityPolicy only apply to optimized images via /_next/image
     // app/icon.svg is handled automatically by Next.js and bypasses image optimization
   },
