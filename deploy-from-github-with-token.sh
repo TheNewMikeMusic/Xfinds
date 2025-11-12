@@ -1,53 +1,67 @@
-一键部署命令（已验证成功 ✅）
-
-在服务器上直接执行：
-
-cat > /root/deploy-from-github.sh << 'SCRIPT_END'
 #!/bin/bash
+# 从 GitHub 拉取最新代码并完全替换部署（使用 Token 认证）
+# 使用方法: GITHUB_TOKEN=your_token ./deploy-from-github-with-token.sh
+
 set -e
 
+# 配置变量
 PROJECT_DIR="/var/www/xfinds"
-GITHUB_TOKEN="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"
-GITHUB_REPO_AUTH="https://${GITHUB_TOKEN}@github.com/TheNewMikeMusic/Xfinds.git"
+GITHUB_REPO="https://github.com/TheNewMikeMusic/Xfinds.git"
+GITHUB_TOKEN="${GITHUB_TOKEN:-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}"
 BRANCH="main"
 BACKUP_DIR="/var/www/xfinds-backup-$(date +%Y%m%d-%H%M%S)"
+
+# 使用 token 构建认证的仓库 URL
+GITHUB_REPO_AUTH="https://${GITHUB_TOKEN}@github.com/TheNewMikeMusic/Xfinds.git"
 
 echo "=========================================="
 echo "从 GitHub 拉取并部署 Xfinds（使用 Token 认证）"
 echo "=========================================="
 
+# 1. 停止 PM2 进程
 echo ""
 echo "=== 停止 PM2 进程 ==="
 pm2 stop xfinds 2>/dev/null || true
 pm2 delete xfinds 2>/dev/null || true
 
+# 2. 备份现有项目（如果存在）
 if [ -d "$PROJECT_DIR" ]; then
     echo ""
     echo "=== 备份现有项目 ==="
     mkdir -p "$BACKUP_DIR"
+    
+    # 备份 .env.local（如果存在）
     if [ -f "$PROJECT_DIR/.env.local" ]; then
         cp "$PROJECT_DIR/.env.local" "$BACKUP_DIR/.env.local.backup"
         echo "已备份 .env.local"
     fi
+    
+    # 备份整个项目目录
+    echo "正在备份项目目录到: $BACKUP_DIR"
     cp -r "$PROJECT_DIR" "$BACKUP_DIR/project" 2>/dev/null || true
+    
     echo "备份完成"
 fi
 
+# 3. 删除现有项目目录
 echo ""
 echo "=== 清理现有项目 ==="
 rm -rf "$PROJECT_DIR"
 mkdir -p "$PROJECT_DIR"
 
+# 4. 从 GitHub 克隆最新代码（使用 token）
 echo ""
 echo "=== 从 GitHub 拉取最新代码（使用 Token 认证） ==="
 cd "$PROJECT_DIR"
 git clone "$GITHUB_REPO_AUTH" .
 
+# 5. 切换到指定分支
 echo ""
 echo "=== 切换到 $BRANCH 分支 ==="
 git checkout "$BRANCH"
 git pull origin "$BRANCH"
 
+# 6. 恢复 .env.local（如果备份存在）
 if [ -f "$BACKUP_DIR/.env.local.backup" ]; then
     echo ""
     echo "=== 恢复环境变量配置 ==="
@@ -68,20 +82,26 @@ EOF
     echo "已创建新的 .env.local"
 fi
 
+# 7. 安装依赖
 echo ""
 echo "=== 安装依赖 ==="
 npm install
 
+# 8. 构建项目
 echo ""
 echo "=== 构建项目 ==="
 npm run build
 
+# 9. 启动 PM2 进程
 echo ""
 echo "=== 启动应用 ==="
 pm2 start npm --name "xfinds" -- start
 pm2 save
+
+# 10. 设置开机自启（如果需要）
 pm2 startup | tail -1 | bash || true
 
+# 11. 配置防火墙
 echo ""
 echo "=== 配置防火墙 ==="
 ufw allow 3000/tcp 2>/dev/null || firewall-cmd --permanent --add-port=3000/tcp 2>/dev/null || true
@@ -94,7 +114,8 @@ echo "访问地址: http://154.21.200.177:3000"
 echo "备份位置: $BACKUP_DIR"
 echo "=========================================="
 pm2 status
-SCRIPT_END
 
-chmod +x /root/deploy-from-github.sh
-/root/deploy-from-github.sh
+echo ""
+echo "提示: 如果部署有问题，可以从备份恢复："
+echo "  cp -r $BACKUP_DIR/project/* $PROJECT_DIR/"
+

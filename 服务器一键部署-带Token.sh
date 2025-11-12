@@ -1,6 +1,5 @@
-一键部署命令（已验证成功 ✅）
-
-在服务器上直接执行：
+#!/bin/bash
+# 在服务器上直接创建并执行部署脚本（使用 GitHub Token）
 
 cat > /root/deploy-from-github.sh << 'SCRIPT_END'
 #!/bin/bash
@@ -97,4 +96,6 @@ pm2 status
 SCRIPT_END
 
 chmod +x /root/deploy-from-github.sh
+echo "脚本已创建，开始执行部署..."
 /root/deploy-from-github.sh
+
