@@ -2,8 +2,11 @@
 
 ## 服务器信息
 - **IP 地址**: 154.21.200.177
+- **域名**: xfinds.cc
 - **用户名**: root
 - **密码**: dm6b1acaggAoLcln
+- **应用端口**: 8000
+- **HTTPS**: Let's Encrypt
 
 ## 快速部署方法
 
@@ -73,8 +76,8 @@ else
 NODE_ENV=production
 JWT_SECRET=${JWT_SECRET}
 AUTH_MODE=stub
-APP_URL=http://154.21.200.177
-NEXT_PUBLIC_APP_URL=http://154.21.200.177
+APP_URL=https://xfinds.cc
+NEXT_PUBLIC_APP_URL=https://xfinds.cc
 EXCHANGE_RATE_API=https://api.exchangerate-api.com/v4/latest/CNY
 EOF
     echo "已创建新的 .env.local"
@@ -89,21 +92,41 @@ echo "=== 构建项目 ==="
 npm run build
 
 echo ""
-echo "=== 启动应用 ==="
+echo "=== 启动应用（8000 端口） ==="
 pm2 start npm --name "xfinds" -- start
 pm2 save
 pm2 startup | tail -1 | bash || true
 
 echo ""
 echo "=== 配置防火墙 ==="
-ufw allow 3000/tcp 2>/dev/null || firewall-cmd --permanent --add-port=3000/tcp 2>/dev/null || true
+ufw allow 8000/tcp 2>/dev/null || firewall-cmd --permanent --add-port=8000/tcp 2>/dev/null || true
+ufw allow 80/tcp 2>/dev/null || firewall-cmd --permanent --add-port=80/tcp 2>/dev/null || true
+ufw allow 443/tcp 2>/dev/null || firewall-cmd --permanent --add-port=443/tcp 2>/dev/null || true
 firewall-cmd --reload 2>/dev/null || true
+
+echo ""
+echo "=== 配置 Nginx ==="
+if [ ! -f /etc/nginx/sites-available/xfinds ]; then
+    echo "复制 Nginx 配置文件..."
+    cp nginx.conf /etc/nginx/sites-available/xfinds
+fi
+
+if [ ! -L /etc/nginx/sites-enabled/xfinds ]; then
+    echo "启用 Nginx 站点..."
+    ln -s /etc/nginx/sites-available/xfinds /etc/nginx/sites-enabled/
+fi
+
+echo "测试 Nginx 配置..."
+nginx -t && systemctl reload nginx || echo "Nginx 配置测试失败，请检查配置"
 
 echo ""
 echo "=========================================="
 echo "部署完成！"
-echo "访问地址: http://154.21.200.177:3000"
+echo "访问地址: https://xfinds.cc"
 echo "备份位置: $BACKUP_DIR"
+echo ""
+echo "注意：如果尚未配置 HTTPS，请运行："
+echo "  chmod +x setup-https.sh && ./setup-https.sh"
 echo "=========================================="
 pm2 status
 SCRIPT_END
@@ -233,28 +256,70 @@ firewall-cmd --permanent --add-port=3000/tcp
 firewall-cmd --reload
 ```
 
-## 配置 Nginx 反向代理（可选）
+## 配置 HTTPS（Let's Encrypt）
 
-如果需要通过 80 端口访问，可以配置 Nginx：
+### 前置条件
+- 域名 `xfinds.cc` 已正确解析到服务器 IP `154.21.200.177`
+- 80 和 443 端口已在防火墙中开放
+- Nginx 已安装并运行
 
-### 1. 安装 Nginx
+### 方法一：使用自动配置脚本（推荐）
+
+1. **确保已部署最新代码**（包含 `setup-https.sh` 脚本）
+
+2. **执行 HTTPS 配置脚本**：
 ```bash
-apt-get install -y nginx
+cd /var/www/xfinds
+chmod +x setup-https.sh
+./setup-https.sh
 ```
 
-### 2. 创建配置文件
+脚本会自动：
+- 安装 Certbot
+- 获取 SSL 证书
+- 配置证书自动续期
+
+### 方法二：手动配置
+
+1. **安装 Certbot**：
 ```bash
-nano /etc/nginx/sites-available/xfinds
+apt-get update
+apt-get install -y certbot python3-certbot-nginx
 ```
 
-复制 `nginx.conf` 文件的内容到配置文件中。
-
-### 3. 启用站点
+2. **确保 Nginx 配置已就位**：
 ```bash
+cp /var/www/xfinds/nginx.conf /etc/nginx/sites-available/xfinds
 ln -s /etc/nginx/sites-available/xfinds /etc/nginx/sites-enabled/
 nginx -t
-systemctl restart nginx
+systemctl reload nginx
 ```
+
+3. **获取 SSL 证书**：
+```bash
+certbot --nginx -d xfinds.cc -d www.xfinds.cc
+```
+
+4. **测试证书续期**：
+```bash
+certbot renew --dry-run
+```
+
+### 验证 HTTPS
+
+部署完成后，访问：
+- **HTTPS**: https://xfinds.cc
+- **HTTP 自动重定向**: http://xfinds.cc（会自动跳转到 HTTPS）
+
+## 配置 Nginx 反向代理
+
+Nginx 配置已包含在部署脚本中，会自动配置：
+
+- HTTP 到 HTTPS 重定向
+- SSL/TLS 证书配置
+- 代理到 Next.js 应用（8000 端口）
+- 静态文件缓存
+- Gzip 压缩
 
 ## 常用管理命令
 
@@ -295,8 +360,9 @@ pm2 restart xfinds
 ## 访问应用
 
 部署完成后，可以通过以下地址访问：
-- **直接访问**: http://154.21.200.177:3000
-- **通过 Nginx**: http://154.21.200.177（如果配置了 Nginx）
+- **HTTPS（推荐）**: https://xfinds.cc
+- **HTTP（自动重定向到 HTTPS）**: http://xfinds.cc
+- **直接访问应用端口**: http://154.21.200.177:8000（仅用于测试，生产环境应使用 HTTPS）
 
 ## 故障排查
 
