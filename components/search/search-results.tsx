@@ -92,8 +92,14 @@ export function SearchResults({
       ) : (
         <>
           <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3 mt-6">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} locale={locale} agents={agents} />
+            {products.map((product, index) => (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                locale={locale} 
+                agents={agents}
+                priority={page === 1 && index < 6} // Prioritize first 6 products on first page
+              />
             ))}
           </div>
           <Pagination

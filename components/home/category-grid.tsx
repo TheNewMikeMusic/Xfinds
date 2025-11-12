@@ -160,20 +160,24 @@ export function CategoryGrid({ categories, locale }: CategoryGridProps) {
               {/* Glass Refraction Lines */}
               <div className="absolute inset-0 rounded-b-3xl bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <motion.h3
-                className="text-sm font-bold text-white relative z-10"
-                animate={hoveredIndex === index ? {
-                  background: 'linear-gradient(135deg, #67e8f9, #3b82f6, #a855f7)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                } : {
-                  color: '#ffffff',
-                }}
-                transition={{ duration: 0.3 }}
+              <h3
+                className={`text-sm font-bold relative z-10 transition-all duration-300 ${
+                  hoveredIndex === index
+                    ? 'bg-gradient-to-r from-cyan-300 via-blue-500 to-purple-500 bg-clip-text text-transparent'
+                    : 'text-white'
+                }`}
+                style={
+                  hoveredIndex === index
+                    ? {
+                        WebkitTextFillColor: 'transparent',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                      }
+                    : undefined
+                }
               >
                 {category.name}
-              </motion.h3>
+              </h3>
             </div>
 
             {/* Liquid Glass Edge Highlights */}

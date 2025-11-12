@@ -45,9 +45,9 @@ export function CurrencySelector({ className, variant = 'default' }: CurrencySel
   if (variant === 'compact') {
     return (
       <Select value={selectedCurrency} onValueChange={(value) => setCurrency(value as CurrencyCode)}>
-        <SelectTrigger className={`h-8 w-20 glass border-blue-600/30 bg-gray-800/50 text-xs ${className || ''}`}>
+        <SelectTrigger className={`h-8 w-16 sm:w-20 glass border-blue-600/30 bg-gray-800/50 text-[10px] sm:text-xs ${className || ''}`}>
           <SelectValue>
-            <span className="font-semibold">{selectedCurrency}</span>
+            <span className="font-semibold text-[10px] sm:text-xs">{selectedCurrency}</span>
           </SelectValue>
         </SelectTrigger>
         <SelectContent className="glass border-blue-600/30 bg-gray-900/95 backdrop-blur-xl max-h-[300px]">

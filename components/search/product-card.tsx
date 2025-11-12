@@ -17,12 +17,13 @@ interface ProductCardProps {
   product: Product
   locale?: string
   agents?: Agent[]
+  priority?: boolean // For above-the-fold images
 }
 
 const BLUR_DATA_URL =
   "data:image/svg+xml,%3Csvg%20width%3D'400'%20height%3D'400'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'grad'%20x1%3D'0%25'%20x2%3D'100%25'%20y1%3D'0%25'%20y2%3D'100%25'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%230b1220'/%3E%3Cstop%20offset%3D'60%25'%20stop-color%3D'%2320345c'/%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20fill%3D'url(%23grad)'%20width%3D'400'%20height%3D'400'/%3E%3C/svg%3E"
 
-export function ProductCard({ product, locale, agents = [] }: ProductCardProps) {
+export function ProductCard({ product, locale, agents = [], priority = false }: ProductCardProps) {
   const params = useParams()
   const currentLocale = locale || (params?.locale as string) || 'en'
   const t = useTranslations('search')
@@ -74,7 +75,8 @@ export function ProductCard({ product, locale, agents = [] }: ProductCardProps) 
                 fill
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
-                loading="lazy"
+                priority={priority}
+                loading={priority ? undefined : 'lazy'}
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 onError={() => setImageError(true)}

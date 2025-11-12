@@ -46,10 +46,10 @@ export function RedirectDisclaimer({
     <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onCancel()}>
       <DialogContent className="glass border-blue-600/30 bg-gray-900/95 backdrop-blur-xl">
         <DialogHeader>
-          <DialogTitle className="text-xl text-white">
+          <DialogTitle className="text-lg sm:text-xl text-white">
             {t('title')}
           </DialogTitle>
-          <DialogDescription className="text-gray-300 pt-2">
+          <DialogDescription className="text-sm sm:text-base text-gray-300 pt-2">
             {t('description')}
           </DialogDescription>
         </DialogHeader>
@@ -62,22 +62,22 @@ export function RedirectDisclaimer({
           />
           <label
             htmlFor="dont-show-again"
-            className="text-sm text-gray-300 cursor-pointer"
+            className="text-xs sm:text-sm text-gray-300 cursor-pointer"
           >
             {t('dontShowAgain')}
           </label>
         </div>
-        <DialogFooter>
+        <DialogFooter className="flex-col-reverse sm:flex-row gap-2 sm:gap-0">
           <Button
             variant="outline"
             onClick={onCancel}
-            className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+            className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10"
           >
             {t('cancel')}
           </Button>
           <Button
             onClick={handleContinue}
-            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
           >
             {t('continue')}
           </Button>

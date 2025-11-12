@@ -6,7 +6,6 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts')
 const nextConfig = {
   // Image optimization
   images: {
-    domains: ['localhost', '154.21.200.177'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,14 +13,20 @@ const nextConfig = {
       },
       {
         protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'http',
         hostname: '154.21.200.177',
       },
     ],
-    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000, // 1 year cache
+    dangerouslyAllowSVG: true,
+    // Note: contentDispositionType and contentSecurityPolicy only apply to optimized images via /_next/image
+    // app/icon.svg is handled automatically by Next.js and bypasses image optimization
   },
 
   // Compression
@@ -36,6 +41,16 @@ const nextConfig = {
   eslint: {
     // Allow production builds even with ESLint warnings
     ignoreDuringBuilds: true,
+  },
+
+  // Rewrites to handle icon.svg via API route
+  async rewrites() {
+    return [
+      {
+        source: '/icon.svg',
+        destination: '/icon',
+      },
+    ]
   },
 
   // Security headers
@@ -71,6 +86,36 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+      {
+        // Image cache headers
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Static image cache headers (exclude icon.svg which is handled by Next.js)
+        source: '/:path*\\.(png|jpg|jpeg|gif|webp|avif|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // SVG files cache headers (excluding icon.svg)
+        source: '/:path*\\.svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

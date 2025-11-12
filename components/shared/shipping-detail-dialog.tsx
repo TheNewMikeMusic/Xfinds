@@ -53,13 +53,6 @@ export function ShippingDetailDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
         className="glass border-blue-600/30 bg-gray-900/95 backdrop-blur-xl max-w-2xl max-h-[85vh] overflow-y-auto"
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 50,
-        }}
       >
         <DialogHeader>
           <DialogTitle className="text-xl text-white flex items-center gap-2">

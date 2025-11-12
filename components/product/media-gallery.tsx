@@ -37,6 +37,7 @@ export function MediaGallery({ cover, gallery, title }: MediaGalleryProps) {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
+            quality={90}
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
           <button
@@ -78,6 +79,8 @@ export function MediaGallery({ cover, gallery, title }: MediaGalleryProps) {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 25vw, 12.5vw"
+                loading="lazy"
+                quality={75}
               />
             </motion.button>
           ))}
@@ -107,6 +110,7 @@ export function MediaGallery({ cover, gallery, title }: MediaGalleryProps) {
                 fill
                 className="object-contain"
                 sizes="100vw"
+                quality={95}
               />
               <button
                 className="absolute top-4 right-4 p-2 rounded-full bg-gray-800/80 backdrop-blur-xl hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"

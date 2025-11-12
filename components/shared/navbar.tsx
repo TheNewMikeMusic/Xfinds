@@ -161,8 +161,13 @@ export function Navbar() {
 
         {/* Right Actions */}
         <div className="flex items-center space-x-2 md:space-x-4">
-          {/* Currency Selector */}
+          {/* Currency Selector - Desktop */}
           <div className="hidden sm:block">
+            <CurrencySelector variant="compact" />
+          </div>
+          
+          {/* Currency Selector - Mobile */}
+          <div className="sm:hidden">
             <CurrencySelector variant="compact" />
           </div>
           

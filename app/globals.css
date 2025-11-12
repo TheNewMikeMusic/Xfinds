@@ -391,3 +391,42 @@
   font-family: var(--font-mono), 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'Courier New', monospace;
   letter-spacing: 0.08em;
 }
+
+/* Fix Dialog positioning on mobile and desktop */
+[data-radix-dialog-content]:not([data-side]) {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  max-height: 85vh !important;
+  margin: 0 !important;
+}
+
+/* Ensure Sheet overlay is visible on mobile */
+[data-radix-dialog-overlay] {
+  position: fixed !important;
+  inset: 0 !important;
+}
+
+/* Fix Sheet content positioning for top side on mobile */
+[data-radix-dialog-content][data-side="top"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: auto !important;
+  transform: none !important;
+  max-height: 90vh !important;
+}
+
+/* Ensure Select and DropdownMenu content is visible on mobile */
+[data-radix-select-content],
+[data-radix-dropdown-menu-content] {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
+
+/* Prevent body scroll when dialog is open on mobile */
+body:has([data-radix-dialog-content][data-state="open"]) {
+  overflow: hidden !important;
+}

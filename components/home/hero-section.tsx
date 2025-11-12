@@ -4,7 +4,7 @@ import { HeroSearch } from '@/components/search/hero-search'
 import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import { HERO_COPY, HERO_FALLBACK_BG, type HeroBackground } from '@/content/hero'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 interface HeroSectionProps {
   title?: string
@@ -45,6 +45,9 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
       },
     },
   }
+
+  // CSS class for gradient text to avoid Framer Motion animation conflicts
+  // Using CSS class instead of inline styles prevents animation warnings
 
   // Use fallback if image failed to load, otherwise use configured background
   const currentBg = imageError && bg.kind === 'image' ? HERO_FALLBACK_BG : bg
@@ -104,19 +107,27 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
           animate="visible"
           className="mx-auto max-w-4xl"
         >
-          <motion.h1 className="mb-4 text-balance text-3xl font-semibold text-white sm:mb-5 sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-balance text-3xl font-semibold text-white sm:mb-5 sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl">
             {headingWords.map((word, index) => (
-              <motion.span
+              <span
                 key={`${word}-${index}`}
-                variants={wordVariant}
-                className="bg-gradient-to-r from-sky-300 via-blue-400 to-violet-400 bg-clip-text text-transparent"
-                style={{ WebkitTextFillColor: 'transparent' }}
+                className="bg-gradient-to-r from-sky-300 via-blue-400 to-violet-400 bg-clip-text text-transparent inline-block"
+                style={{
+                  WebkitTextFillColor: 'transparent',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                }}
               >
-                {word}
+                <motion.span
+                  variants={wordVariant}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
                 {index < headingWords.length - 1 ? ' ' : ''}
-              </motion.span>
+              </span>
             ))}
-          </motion.h1>
+          </h1>
           <motion.p
             variants={wordVariant}
             className="mx-auto mb-8 max-w-3xl text-pretty text-base text-slate-200 sm:mb-10 sm:text-lg md:mb-12 md:text-xl"

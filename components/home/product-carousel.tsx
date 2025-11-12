@@ -58,8 +58,14 @@ export function ProductCarousel({ products, locale, agents, itemsPerPage = 6 }: 
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-3"
           >
-            {currentProducts.map((product) => (
-              <ProductCard key={product.id} product={product} locale={locale} agents={agents} />
+            {currentProducts.map((product, index) => (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                locale={locale} 
+                agents={agents}
+                priority={index < 3} // Prioritize first 3 products on first page
+              />
             ))}
           </motion.div>
         </AnimatePresence>
