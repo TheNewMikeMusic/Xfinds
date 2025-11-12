@@ -26,6 +26,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [formError, setFormError] = useState('')
   const [touched, setTouched] = useState({ email: false, password: false })
+  const [emailNotVerified, setEmailNotVerified] = useState(false)
+  const [resendingVerification, setResendingVerification] = useState(false)
 
   const passwordStrength = evaluatePasswordStrength(password)
 
@@ -45,6 +47,34 @@ export default function LoginPage() {
 
   const setFieldTouched = (field: 'email' | 'password') =>
     setTouched((prev) => ({ ...prev, [field]: true }))
+
+  const handleResendVerification = async () => {
+    if (!email) {
+      setFormError(t('enterEmailFirst'))
+      return
+    }
+
+    setResendingVerification(true)
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'resend-verification', email }),
+      })
+
+      const data = await res.json()
+      if (res.ok) {
+        setFormError('')
+        alert(t('verificationSent'))
+      } else {
+        setFormError(data.error || t('resendFailed'))
+      }
+    } catch (err) {
+      setFormError(t('genericError'))
+    } finally {
+      setResendingVerification(false)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -69,8 +99,19 @@ export default function LoginPage() {
       const data = await res.json()
 
       if (res.ok) {
-        router.push(`/${locale}`)
-        router.refresh()
+        // Check if email is verified
+        if (!data.user?.emailVerified) {
+          setEmailNotVerified(true)
+          // Still allow login for demo, but show warning
+          // Wait a bit to show the message, then redirect
+          setTimeout(() => {
+            router.push(`/${locale}/dashboard`)
+            router.refresh()
+          }, 2000)
+        } else {
+          router.push(`/${locale}/dashboard`)
+          router.refresh()
+        }
       } else {
         setFormError(data.error || t('error'))
       }
@@ -101,6 +142,26 @@ export default function LoginPage() {
                     exit={{ opacity: 0, y: -10 }}
                   >
                     {formError}
+                  </motion.div>
+                )}
+                {emailNotVerified && (
+                  <motion.div
+                    className="flex flex-col gap-2 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-3 py-2 text-sm text-yellow-300"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    <p>{t('emailNotVerified')}</p>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={handleResendVerification}
+                      disabled={resendingVerification}
+                      className="w-full"
+                    >
+                      {resendingVerification ? t('sending') : t('resendVerification')}
+                    </Button>
                   </motion.div>
                 )}
               </AnimatePresence>

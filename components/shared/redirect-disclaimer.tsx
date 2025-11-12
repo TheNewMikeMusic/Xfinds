@@ -1,0 +1,97 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { useTranslations } from 'next-intl'
+
+interface RedirectDisclaimerProps {
+  open: boolean
+  onContinue: () => void
+  onCancel: () => void
+}
+
+const STORAGE_KEY = 'xfinds-redirect-disclaimer-dismissed'
+
+export function RedirectDisclaimer({
+  open,
+  onContinue,
+  onCancel,
+}: RedirectDisclaimerProps) {
+  const t = useTranslations('redirect')
+  const [dontShowAgain, setDontShowAgain] = useState(false)
+
+  const handleContinue = () => {
+    if (dontShowAgain) {
+      try {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          localStorage.setItem(STORAGE_KEY, 'true')
+        }
+      } catch (error) {
+        console.error('Failed to save preference:', error)
+      }
+    }
+    onContinue()
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onCancel()}>
+      <DialogContent className="glass border-blue-600/30 bg-gray-900/95 backdrop-blur-xl">
+        <DialogHeader>
+          <DialogTitle className="text-xl text-white">
+            {t('title')}
+          </DialogTitle>
+          <DialogDescription className="text-gray-300 pt-2">
+            {t('description')}
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex items-center space-x-2 py-4">
+          <Checkbox
+            id="dont-show-again"
+            checked={dontShowAgain}
+            onCheckedChange={(checked) => setDontShowAgain(checked === true)}
+            className="border-blue-600/30"
+          />
+          <label
+            htmlFor="dont-show-again"
+            className="text-sm text-gray-300 cursor-pointer"
+          >
+            {t('dontShowAgain')}
+          </label>
+        </div>
+        <DialogFooter>
+          <Button
+            variant="outline"
+            onClick={onCancel}
+            className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+          >
+            {t('cancel')}
+          </Button>
+          <Button
+            onClick={handleContinue}
+            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
+          >
+            {t('continue')}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+/**
+ * Check if user has dismissed the disclaimer
+ */
+export function hasSeenRedirectDisclaimer(): boolean {
+  if (typeof window === 'undefined') return false
+  return localStorage.getItem(STORAGE_KEY) === 'true'
+}
+

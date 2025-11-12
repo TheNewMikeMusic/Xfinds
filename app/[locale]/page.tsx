@@ -4,8 +4,19 @@ import dynamic from 'next/dynamic'
 import { Navbar } from '@/components/shared/navbar'
 import { Footer } from '@/components/shared/footer'
 import { AgentCard } from '@/components/agents/agent-card'
-import { ProductCard } from '@/components/search/product-card'
-import { getAgents, getFeaturedProducts } from '@/lib/data'
+import { getAgents, getFeaturedProducts, getCategoriesWithProducts } from '@/lib/data'
+import { HERO_COPY } from '@/content/hero'
+
+// To switch variants, you can use:
+// Option 1: Use getHeroVariant helper
+// const variant = getHeroVariant('B') // or 'A', 'C'
+// <HeroSection title={variant.title} subtitle={variant.subtitle} />
+//
+// Option 2: Directly use HERO_COPY.variants
+// const variantB = HERO_COPY.variants.find(v => v.key === 'B')
+// <HeroSection title={variantB?.title} subtitle={variantB?.subtitle} />
+//
+// Option 3: Update HERO_COPY.title/subtitle in content/hero.ts
 
 const HeroSection = dynamic(
   () => import('@/components/home/hero-section').then((mod) => mod.HeroSection),
@@ -14,6 +25,11 @@ const HeroSection = dynamic(
 
 const CategoryGrid = dynamic(
   () => import('@/components/home/category-grid').then((mod) => mod.CategoryGrid),
+  { ssr: false }
+)
+
+const ProductCarousel = dynamic(
+  () => import('@/components/home/product-carousel').then((mod) => mod.ProductCarousel),
   { ssr: false }
 )
 
@@ -26,14 +42,10 @@ export default async function LandingPage({ params }: LandingPageProps) {
   setRequestLocale(locale)
   const t = await getTranslations('home')
   const agents = getAgents()
-  const featuredProducts = getFeaturedProducts(6)
-
-  const categories = [
-    { key: 'categorySneakers', name: t('categorySneakers') },
-    { key: 'categoryClothing', name: t('categoryClothing') },
-    { key: 'categoryAccessories', name: t('categoryAccessories') },
-    { key: 'categoryLuxury', name: t('categoryLuxury') },
-  ]
+  // Get more products for pagination (18 products = 3 pages of 6)
+  const featuredProducts = getFeaturedProducts(18)
+  // Get categories with product counts and sample products
+  const categoriesWithProducts = getCategoriesWithProducts()
 
   // Show all 6 agents
   const featuredAgents = agents
@@ -42,35 +54,41 @@ export default async function LandingPage({ params }: LandingPageProps) {
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">
-        <HeroSection title={t('title')} subtitle={t('subtitle')} />
+        {/* Hero section uses HERO_COPY from content/hero.ts
+            Background: If /public/hero/xfinds-hero-default.jpg exists, it will be used;
+            otherwise, CSS gradient fallback will be applied automatically */}
+        <HeroSection title={HERO_COPY.title} subtitle={HERO_COPY.subtitle} />
 
         {/* Categories Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">{t('categories')}</h2>
-            <CategoryGrid categories={categories} />
-          </div>
-        </section>
+        {categoriesWithProducts.length > 0 && (
+          <section className="py-8 px-4 sm:py-12 md:py-16">
+            <div className="container mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-12">{t('categories')}</h2>
+              <CategoryGrid categories={categoriesWithProducts} locale={locale} />
+            </div>
+          </section>
+        )}
 
         {/* Featured Products Section */}
         {featuredProducts.length > 0 && (
-          <section className="py-16 px-4">
+          <section className="py-8 px-4 sm:py-12 md:py-16">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12">{t('featuredProducts')}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {featuredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} locale={locale} />
-                ))}
-              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-12">{t('featuredProducts')}</h2>
+              <ProductCarousel 
+                products={featuredProducts} 
+                locale={locale} 
+                agents={agents}
+                itemsPerPage={6}
+              />
             </div>
           </section>
         )}
 
         {/* Featured Agents Section */}
-        <section className="py-16 px-4 bg-gray-900/50">
+        <section className="py-8 px-4 sm:py-12 md:py-16 bg-gray-900/50">
           <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">{t('featuredAgents')}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-12">{t('featuredAgents')}</h2>
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
               {featuredAgents.map((agent) => (
                 <AgentCard key={agent.id} agent={agent} />
               ))}

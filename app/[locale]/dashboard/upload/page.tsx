@@ -1,15 +1,18 @@
 import { setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Navbar } from '@/components/shared/navbar'
 import { Footer } from '@/components/shared/footer'
 import { UploadForm } from '@/components/dashboard/upload-form'
 import { Card, CardContent } from '@/components/ui/card'
 
 interface UploadPageProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default function UploadPage({ params }: UploadPageProps) {
-  setRequestLocale(params.locale)
+export default async function UploadPage({ params }: UploadPageProps) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('dashboard.upload')
   
   // Check if in development mode
   if (
@@ -23,7 +26,7 @@ export default function UploadPage({ params }: UploadPageProps) {
           <Card className="glass max-w-md mx-auto">
             <CardContent className="p-6">
               <p className="text-center text-red-400">
-                此功能仅在开发模式下可用
+                {t('devOnly')}
               </p>
             </CardContent>
           </Card>

@@ -8,7 +8,8 @@
     "login": "Login",
     "register": "Register",
     "logout": "Logout",
-    "language": "Language"
+    "language": "Language",
+    "recommended": "Recommended"
   },
   "nav": {
     "searchPlaceholder": "Search products...",
@@ -54,7 +55,11 @@
     "selectCategory": "Select Category",
     "selectAgent": "Select Agent",
     "all": "All",
-    "offers": "{count} offers"
+    "offers": "{count} offers",
+    "remove": "Remove",
+    "noImage": "No Image",
+    "bestFrom": "Best offer from {agent}",
+    "viewOnAgent": "View on {agent}"
   },
   "product": {
     "specs": "Specifications",
@@ -64,12 +69,15 @@
     "offers": "Agent Offers",
     "price": "Price",
     "shipping": "Shipping",
+    "viewShippingDetails": "View shipping details",
     "estimatedDays": "Estimated Days",
     "total": "Total",
     "inStock": "In Stock",
     "outOfStock": "Out of Stock",
     "addToCompare": "Add to Compare",
     "addToCart": "Add to Cart",
+    "addToList": "Add to List",
+    "buyOnAgent": "Buy on {agent}",
     "viewOnAgent": "View on Agent Site",
     "copyLink": "Copy Link",
     "days": "days",
@@ -81,16 +89,84 @@
     "priceMaxLabel": "Highest offer",
     "offerCountLabel": "{count} active offers",
     "viewCategory": "View more in this category",
-    "tagsTitle": "Trending tags"
+    "viewSource": "Visit Product Source",
+    "noSourceAvailable": "Source link not available",
+    "selectOptions": "Select Options",
+    "pleaseSelectAllOptions": "Please select all options before adding to cart",
+    "tagsTitle": "Trending tags",
+    "compareAgents": "Compare agents",
+    "collapseComparison": "Collapse comparison",
+    "rank": "Rank",
+    "score": "Score",
+    "selectAgent": "Select",
+    "noAgentsAvailable": "No agents available",
+    "noAgentsDesc": "This product currently has no available agent offers. Please check back later or browse other products.",
+    "agentLoadError": "Failed to load agent information",
+    "agentLoadErrorDesc": "There may be a network connection issue. Please refresh the page and try again.",
+    "retry": "Retry",
+    "scoreReasons": {
+      "best_value": "Best Value",
+      "fast_delivery": "Fast Delivery",
+      "promo_available": "Promo Available",
+      "high_rating": "High Rating",
+      "good_option": "Good Option"
+    }
+  },
+  "redirect": {
+    "title": "Redirecting to Agent Website",
+    "description": "You will complete payment on the agent's website. Xfinds does not process any payment information.",
+    "dontShowAgain": "Don't show this again",
+    "continue": "Continue",
+    "cancel": "Cancel"
+  },
+  "shippingDetail": {
+    "title": "Shipping Details - {agent}",
+    "description": "Detailed breakdown of shipping costs and calculation method",
+    "summary": "Shipping Summary",
+    "shippingFee": "Shipping Fee",
+    "estimatedShipping": "Estimated Shipping",
+    "dimensions": "Dimensions & Weight",
+    "itemWeight": "Item Weight",
+    "totalWeight": "Total Weight",
+    "itemVolume": "Item Volume",
+    "totalVolume": "Total Volume",
+    "itemBreakdown": "Item Breakdown",
+    "weight": "Weight",
+    "volume": "Volume",
+    "noDimensions": "Dimensions not available",
+    "calculationMethod": "Calculation Method",
+    "singleItemMethod": "Shipping fee is based on the individual item's shipping cost provided by the agent.",
+    "multiItemMethod": "Shipping fee is calculated by summing individual item shipping costs. Actual shipping may vary based on package consolidation.",
+    "noWeightWarning": "Some items don't have weight information. Shipping estimate may be less accurate.",
+    "agentInfo": "Agent Information",
+    "deliverySpeed": "Delivery Speed",
+    "rating": "Rating",
+    "disclaimer": "Note: Shipping costs are estimates based on available information. Actual shipping fees may vary depending on package consolidation, customs, and other factors. Please confirm final shipping costs on the agent's website."
+  },
+  "assistant": {
+    "suggestions": "Savings Suggestions",
+    "noSuggestions": "Current grouping is optimal",
+    "noSuggestionsDesc": "Your item grouping is already the most economical combination. No adjustments needed.",
+    "apply": "Apply",
+    "dismiss": "Dismiss",
+    "savings": "Savings",
+    "before": "Before",
+    "after": "After",
+    "shipping": "Shipping",
+    "promoOptimization": "Promo Optimization",
+    "agentSwitch": "Agent Switch",
+    "splitParcel": "Split Parcel",
+    "savingsApplied": "Saved approximately {amount} compared to previous grouping"
   },
   "cart": {
     "title": "Shopping Cart",
     "empty": "Cart is Empty",
-    "emptyDesc": "Add some products to your cart",
+    "emptyDesc": "Add some products to your cart, then use the smart assistant to optimize shipping costs.",
     "browseProducts": "Browse Products",
     "summary": "Order Summary",
     "itemCount": "Items",
     "total": "Total",
+    "estimatedTotal": "Estimated Total",
     "note": "Note: Xfinds is a comparison platform. You will be redirected to individual agent sites to complete your purchase.",
     "openAll": "Open All Links",
     "opening": "Opening...",
@@ -100,7 +176,20 @@
     "productId": "Product ID",
     "agentId": "Agent ID",
     "price": "Price",
-    "shipping": "Shipping"
+    "shipping": "Shipping",
+    "viewShippingDetails": "View shipping details",
+    "checkoutAtAgent": "Checkout at {agent}",
+    "switchAgent": "Switch Agent",
+    "optimizeWithAssistant": "Optimize with Assistant",
+    "hideAssistant": "Hide Assistant",
+    "itemsInGroup": "{count} items",
+    "subtotal": "Subtotal",
+    "groupShipping": "Shipping",
+    "groupTotal": "Group Total",
+    "totalWeight": "Total Weight",
+    "weightUnknown": "Weight Unknown",
+    "shippingEstimate": "Shipping Estimate",
+    "shippingInquiry": "Shipping TBD"
   },
   "compare": {
     "title": "Product Comparison",
@@ -130,6 +219,7 @@
   },
   "agent": {
     "recommended": "Recommended",
+    "rating": "Rating",
     "copyLink": "Copy Link",
     "linkCopied": "Link copied to clipboard",
     "enter": "Enter",
@@ -149,7 +239,11 @@
       "noAccount": "Don't have an account?",
       "register": "Register",
       "error": "Login failed",
-      "genericError": "An error occurred, please try again"
+      "genericError": "An error occurred, please try again",
+      "emailNotVerified": "Your email is not verified",
+      "resendVerification": "Resend verification email",
+      "enterEmailFirst": "Please enter your email address first",
+      "sending": "Sending..."
     },
     "register": {
       "title": "Register",
@@ -163,7 +257,11 @@
       "login": "Login",
       "passwordMismatch": "Passwords do not match",
       "error": "Registration failed",
-      "genericError": "An error occurred, please try again"
+      "genericError": "An error occurred, please try again",
+      "verificationSent": "Verification email sent",
+      "checkEmail": "Please check your email (or console) to complete verification",
+      "demoMode": "Demo mode: Verification link",
+      "redirecting": "Redirecting to dashboard in 3 seconds..."
     },
     "validation": {
       "invalidEmail": "Please enter a valid email address",
@@ -194,7 +292,146 @@
     "agentDirectory": "Agent Directory",
     "searchProducts": "Search Products",
     "copyright": "© {year} Xfinds. All rights reserved.",
-    "language": "Language"
+    "language": "Language",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "description": "Your trusted product search and agent comparison platform. Discover, compare, and find the best deals."
+  },
+  "about": {
+    "hero": {
+      "title": "About Xfinds",
+      "subtitle": "Empowering smart shopping decisions through comprehensive product search and agent comparison"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To revolutionize online shopping by providing users with transparent, comprehensive, and reliable product information and agent comparisons, enabling informed purchasing decisions and exceptional shopping experiences."
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Xfinds was founded with a simple yet powerful vision: to make online shopping easier, smarter, and more transparent. We recognized that consumers were struggling to navigate the complex landscape of product options, pricing variations, and agent services.",
+      "paragraph2": "Our platform aggregates product information from multiple trusted agent services, providing users with comprehensive comparisons, detailed specifications, and transparent pricing. We believe that every shopper deserves access to accurate information and fair comparisons.",
+      "paragraph3": "Today, Xfinds serves thousands of users worldwide, helping them discover products, compare prices, and make informed purchasing decisions. We continue to innovate and improve our platform to better serve our community."
+    },
+    "values": {
+      "title": "Our Values",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We continuously innovate to provide cutting-edge features and improve user experience through technology."
+      },
+      "userFirst": {
+        "title": "User First",
+        "description": "Our users are at the heart of everything we do. We prioritize their needs, feedback, and satisfaction."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "We believe in honest, transparent information and clear communication with our users and partners."
+      },
+      "efficiency": {
+        "title": "Efficiency",
+        "description": "We streamline the shopping process, saving users time and effort in finding the best products and deals."
+      },
+      "global": {
+        "title": "Global Reach",
+        "description": "We serve users worldwide, breaking down barriers and making global products accessible to everyone."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive for excellence in every aspect of our service, from data accuracy to user experience."
+      }
+    },
+    "whatWeDo": {
+      "title": "What We Do",
+      "productSearch": {
+        "title": "Product Search",
+        "description": "Our powerful search engine helps you find products across multiple categories with advanced filtering and sorting options."
+      },
+      "priceComparison": {
+        "title": "Price Comparison",
+        "description": "Compare prices from different agent services to find the best deals and save money on your purchases."
+      },
+      "agentDirectory": {
+        "title": "Agent Directory",
+        "description": "Browse and compare trusted agent services with ratings, reviews, and detailed service information."
+      },
+      "smartTools": {
+        "title": "Smart Shopping Tools",
+        "description": "Use our intelligent cart optimization, comparison features, and personalized recommendations to enhance your shopping experience."
+      }
+    },
+    "cta": {
+      "title": "Join Our Community",
+      "description": "Start discovering products, comparing prices, and making smarter shopping decisions today.",
+      "exploreProducts": "Explore Products",
+      "contactUs": "Contact Us"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "We're here to help. Reach out to us with any questions, feedback, or concerns."
+    },
+    "methods": {
+      "title": "Contact Methods",
+      "email": {
+        "title": "General Support",
+        "description": "For general inquiries, account issues, or product questions."
+      },
+      "general": {
+        "title": "General Inquiries",
+        "description": "For business inquiries, partnerships, or media requests."
+      },
+      "support": {
+        "title": "Technical Support",
+        "description": "For technical issues, bug reports, or feature requests."
+      },
+      "security": {
+        "title": "Security & Privacy",
+        "description": "For security concerns, privacy questions, or data protection inquiries."
+      }
+    },
+    "hours": {
+      "title": "Support Hours",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "closed": "Closed",
+      "note": "All times are in UTC. We aim to respond within 24-48 hours during business days."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "question1": {
+        "title": "How do I create an account?",
+        "answer": "Click on 'Register' in the navigation menu, provide your email and create a password. You'll receive a verification email to complete registration."
+      },
+      "question2": {
+        "title": "Is Xfinds free to use?",
+        "answer": "Yes, Xfinds is completely free to use. We provide product search and comparison services at no cost to our users."
+      },
+      "question3": {
+        "title": "How accurate is the pricing information?",
+        "answer": "We strive to provide accurate pricing information, but prices may vary. Always verify final prices on the agent's website before completing a purchase."
+      }
+    },
+    "additional": {
+      "title": "Additional Information",
+      "response": {
+        "title": "Response Time",
+        "description": "We typically respond to inquiries within 24-48 hours during business days. For urgent matters, please mark your email as urgent."
+      },
+      "feedback": {
+        "title": "Feedback & Suggestions",
+        "description": "We value your feedback! If you have suggestions for improving our platform or have encountered any issues, please don't hesitate to reach out."
+      },
+      "partnership": {
+        "title": "Partnerships & Business",
+        "description": "Interested in partnering with Xfinds or have a business inquiry? Contact us at info@xfinds.com and we'll get back to you promptly."
+      }
+    }
   },
   "errors": {
     "404": {
@@ -213,6 +450,44 @@
     "next": "Next"
   },
   "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Manage your account information and settings",
+    "overview": "Overview",
+    "profile": "Profile",
+    "settings": "Settings",
+    "name": "Name",
+    "email": "Email",
+    "verification": "Email Verification",
+    "verified": "Verified",
+    "notVerified": "Not Verified",
+    "accountInfo": "Account Information",
+    "memberSince": "Member Since",
+    "notSet": "Not Set",
+    "editProfile": "Edit Profile",
+    "editProfileDesc": "Update your personal information",
+    "personalInfo": "Personal Information",
+    "emailCannotChange": "Email address cannot be changed",
+    "save": "Save",
+    "saving": "Saving...",
+    "profileUpdated": "Profile updated successfully",
+    "updateFailed": "Update failed",
+    "emailVerification": "Email Verification",
+    "verificationStatus": "Verification Status",
+    "verificationStatusDesc": "Verify your email to secure your account",
+    "verifyEmail": "Please verify your email",
+    "verifyEmailDesc": "Click resend button to get verification link",
+    "resend": "Resend",
+    "sending": "Sending...",
+    "verificationSent": "Verification email sent, please check console",
+    "resendFailed": "Failed to send, please try again",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordUpdated": "Password updated successfully",
+    "updatePassword": "Update Password",
     "upload": {
       "title": "Upload New Product",
       "productTitle": "Product Title",
@@ -229,5 +504,15 @@
       "submitting": "Creating...",
       "devOnly": "This feature is only available in development mode"
     }
+  },
+  "currency": {
+    "title": "Currency",
+    "selectCurrency": "Select Currency",
+    "autoDetect": "Auto-detect",
+    "autoDetectDesc": "Automatically detect currency based on your location",
+    "ratesUpdated": "Exchange rates updated",
+    "ratesError": "Failed to load exchange rates",
+    "convertedFrom": "Converted from",
+    "originalPrice": "Original price"
   }
 }

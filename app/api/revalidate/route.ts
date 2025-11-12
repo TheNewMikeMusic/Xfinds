@@ -1,31 +1,35 @@
 import { revalidatePath } from 'next/cache'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+import { createErrorResponse, createSuccessResponse, AppError } from '@/lib/api-utils'
+import { env } from '@/lib/env'
+import { invalidateCache } from '@/lib/data'
 
 export async function POST(request: NextRequest) {
-  // Check if in development mode
-  if (
-    process.env.NODE_ENV !== 'development' &&
-    !request.headers.get('x-admin-token')
-  ) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+  // Check authorization
+  if (!env.isDevelopment && request.headers.get('x-admin-token') !== env.adminToken) {
+    return createErrorResponse(
+      new AppError('Unauthorized', 403, 'UNAUTHORIZED'),
+      'Unauthorized'
+    )
   }
 
   try {
-    const { path } = await request.json()
+    const body = await request.json()
+    const { path } = body
 
-    if (path) {
+    if (path && typeof path === 'string') {
       revalidatePath(path)
     } else {
       revalidatePath('/')
       revalidatePath('/search')
     }
 
-    return NextResponse.json({ success: true })
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message || 'Failed to revalidate' },
-      { status: 500 }
-    )
+    // Also invalidate data cache
+    invalidateCache()
+
+    return createSuccessResponse({ success: true })
+  } catch (error) {
+    return createErrorResponse(error, 'Failed to revalidate')
   }
 }
 

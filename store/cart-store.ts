@@ -1,6 +1,10 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
+export interface CartItemSKU {
+  [key: string]: string // e.g., { "Color": "Black", "Size": "M" }
+}
+
 export interface CartItem {
   productId: string
   offerId: string
@@ -8,12 +12,18 @@ export interface CartItem {
   price: number
   shipFee: number
   link: string
+  title?: string
+  thumbnail?: string
+  weight?: number
+  volume?: number
+  sku?: CartItemSKU // Selected SKU options
 }
 
 interface CartStore {
   items: CartItem[]
   addItem: (item: CartItem) => void
   removeItem: (offerId: string) => void
+  updateItemAgent: (offerId: string, newAgentId: string, newPrice: number, newShipFee: number, newLink: string) => void
   clear: () => void
   getTotal: () => number
   getItemCount: () => number
@@ -33,6 +43,15 @@ export const useCartStore = create<CartStore>()(
           items: state.items.filter((item) => item.offerId !== offerId),
         }))
       },
+      updateItemAgent: (offerId, newAgentId, newPrice, newShipFee, newLink) => {
+        set((state) => ({
+          items: state.items.map((item) =>
+            item.offerId === offerId
+              ? { ...item, agentId: newAgentId, price: newPrice, shipFee: newShipFee, link: newLink }
+              : item
+          ),
+        }))
+      },
       clear: () => {
         set({ items: [] })
       },
@@ -48,6 +67,7 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: 'xfinds-cart',
+      skipHydration: true, // Skip hydration to prevent SSR mismatch
     }
   )
 )

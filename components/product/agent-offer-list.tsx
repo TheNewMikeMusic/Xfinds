@@ -1,113 +1,230 @@
 'use client'
 
+import { useState, useMemo } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ProductOffer, Agent } from '@/lib/data'
-import { formatPrice } from '@/lib/utils'
-import { ExternalLink, CheckCircle, XCircle } from 'lucide-react'
+import { PriceDisplay } from '@/components/shared/price-display'
+import { ExternalLink, CheckCircle, XCircle, ChevronDown, ChevronUp } from 'lucide-react'
 import { useCartStore } from '@/store/cart-store'
-import { useCompareStore } from '@/store/compare-store'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { getAgentTrackingUrl, getCleanSiteUrl } from '@/lib/agent-utils'
 import { CopyLinkButton } from '@/components/shared/copy-link-button'
+import { rankOffers, RankedOffer } from '@/lib/ranking'
+import { RedirectDisclaimer, hasSeenRedirectDisclaimer } from '@/components/shared/redirect-disclaimer'
+import { RecommendRibbon } from '@/components/shared/recommend-ribbon'
+import { EmptyState } from '@/components/shared/empty-state'
+import { ShippingDetailDialog } from '@/components/shared/shipping-detail-dialog'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { Product } from '@/lib/data'
+import { SKUSelector, SelectedSKU } from '@/components/product/sku-selector'
 
 interface AgentOfferListProps {
   offers: ProductOffer[]
   agents: Agent[]
   productId: string
+  product?: Product // Optional product for SKU options
 }
 
 export function AgentOfferList({
   offers,
   agents,
   productId,
+  product,
 }: AgentOfferListProps) {
   const t = useTranslations('product')
   const addToCart = useCartStore((state) => state.addItem)
-  const addToCompare = useCompareStore((state) => state.addOffer)
+  const [isComparisonExpanded, setIsComparisonExpanded] = useState(false)
+  const [redirectDialogOpen, setRedirectDialogOpen] = useState(false)
+  const [pendingRedirectUrl, setPendingRedirectUrl] = useState<string | null>(null)
+  const [shippingDetailOpen, setShippingDetailOpen] = useState(false)
+  const [selectedShippingOffer, setSelectedShippingOffer] = useState<ProductOffer | null>(null)
+  const [selectedSKU, setSelectedSKU] = useState<SelectedSKU>({})
+  const shouldReduceMotion = useReducedMotion()
 
-  const getAgent = (agentId: string) => {
-    return agents.find((a) => a.id === agentId)
+  // Rank offers
+  const rankedOffers = useMemo(() => {
+    if (offers.length === 0) return []
+    return rankOffers(offers, agents)
+  }, [offers, agents])
+
+  // Initialize selectedAgentId with first offer (consistent for SSR and client)
+  const defaultAgentId = rankedOffers.length > 0 ? rankedOffers[0].agentId : null
+  const [selectedAgentId, setSelectedAgentId] = useState<string | null>(defaultAgentId)
+
+  // Get selected offer - ensure consistent server/client rendering
+  const selectedOffer = useMemo(() => {
+    if (rankedOffers.length === 0) return null
+    // Always use first offer as default to ensure SSR consistency
+    const defaultOffer = rankedOffers[0]
+    // Use selectedAgentId if set, otherwise use default
+    const agentIdToUse = selectedAgentId || defaultAgentId
+    return rankedOffers.find((o) => o.agentId === agentIdToUse) || defaultOffer
+  }, [rankedOffers, selectedAgentId, defaultAgentId])
+  
+  const selectedAgent = useMemo(() => {
+    if (!selectedOffer) return null
+    return agents.find((a) => a.id === selectedOffer.agentId) || null
+  }, [selectedOffer, agents])
+
+  // Handle redirect with disclaimer
+  const handleRedirect = (url: string) => {
+    if (hasSeenRedirectDisclaimer()) {
+      try {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (!newWindow) {
+          console.warn('Popup blocked. Please allow popups for this site.')
+        }
+      } catch (error) {
+        console.error('Failed to open link:', error)
+      }
+    } else {
+      setPendingRedirectUrl(url)
+      setRedirectDialogOpen(true)
+    }
   }
 
-  return (
-    <Card className="glass">
-      <CardHeader>
-        <CardTitle>{t('offers')}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        {offers.map((offer, index) => {
-          const agent = getAgent(offer.agentId)
-          const total = offer.price + offer.shipFee
-          const trackingUrl = agent ? getAgentTrackingUrl(agent, offer.link) : `${offer.link}?source=xfinds`
-          const cleanUrl = agent ? getCleanSiteUrl(agent) : offer.link
+  const handleRedirectContinue = () => {
+    if (pendingRedirectUrl) {
+      try {
+        const newWindow = window.open(pendingRedirectUrl, '_blank', 'noopener,noreferrer')
+        if (!newWindow) {
+          console.warn('Popup blocked. Please allow popups for this site.')
+        }
+      } catch (error) {
+        console.error('Failed to open link:', error)
+      }
+    }
+    setRedirectDialogOpen(false)
+    setPendingRedirectUrl(null)
+  }
 
-          return (
-            <div
-              key={index}
-              className="glass border border-blue-600/30 bg-gray-800/30 backdrop-blur-xl p-4 rounded-xl space-y-3"
-            >
+  const handleRedirectCancel = () => {
+    setRedirectDialogOpen(false)
+    setPendingRedirectUrl(null)
+  }
+
+  // Handle add to list
+  const handleAddToList = () => {
+    if (!selectedOffer) return
+    
+    // Check if SKU options are required and all selected
+    if (product?.skuOptions && product.skuOptions.length > 0) {
+      const allSelected = product.skuOptions.every((option) => selectedSKU[option.name])
+      if (!allSelected) {
+        // Show error or prevent adding
+        return
+      }
+    }
+    
+    addToCart({
+      productId,
+      offerId: `${productId}-${selectedOffer.agentId}-${JSON.stringify(selectedSKU)}`,
+      agentId: selectedOffer.agentId,
+      price: selectedOffer.price,
+      shipFee: selectedOffer.shipFee,
+      link: selectedOffer.link,
+      sku: Object.keys(selectedSKU).length > 0 ? selectedSKU : undefined,
+    })
+  }
+
+  // Empty state
+  if (offers.length === 0) {
+    return (
+      <Card className="glass border-blue-600/30 bg-gray-900/75">
+        <CardContent className="p-8">
+          <EmptyState
+            title={t('noAgentsAvailable')}
+            description={t('noAgentsDesc')}
+          />
+        </CardContent>
+      </Card>
+    )
+  }
+
+  // Single agent - no comparison needed
+  if (rankedOffers.length === 1) {
+    const offer = rankedOffers[0]
+    const agent = agents.find((a) => a.id === offer.agentId)
+    const total = offer.price + offer.shipFee
+    const trackingUrl = agent ? getAgentTrackingUrl(agent, offer.link) : `${offer.link}?source=xfinds`
+
+    return (
+      <>
+        <Card className="glass border-blue-600/30 bg-gray-900/75">
+          <CardHeader>
+            <CardTitle>{t('offers')}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="glass border border-blue-600/30 bg-gray-800/30 backdrop-blur-xl p-6 rounded-xl space-y-4">
+              {agent?.recommended && (
+                <div className="relative">
+                  <RecommendRibbon />
+                </div>
+              )}
               <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3 flex-1 min-w-0">
-                  {agent?.logo ? (
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 flex-shrink-0">
+                <div className="flex items-center gap-4 flex-1 min-w-0">
+                  {agent?.logo && (
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 flex-shrink-0">
                       <Image
                         src={agent.logo}
                         alt={agent.name}
                         fill
-                        className="object-contain p-1.5"
-                        sizes="40px"
+                        className="object-contain p-2"
+                        sizes="64px"
                       />
                     </div>
-                  ) : null}
+                  )}
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold mb-1 truncate">{offer.title}</h4>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <p className="text-sm text-gray-400">{agent?.name || offer.agentId}</p>
-                      {agent?.badges && agent.badges.length > 0 && (
-                        <div className="flex gap-1">
-                          {agent.badges.slice(0, 2).map((badge) => (
-                            <Badge
-                              key={badge}
-                              className="text-xs bg-blue-600/20 text-blue-300 border-blue-600/30"
-                            >
-                              {badge}
-                            </Badge>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                    <h4 className="font-semibold text-lg mb-1">{agent?.name || offer.agentId}</h4>
+                    {agent?.badges && agent.badges.length > 0 && (
+                      <div className="flex gap-2 flex-wrap">
+                        {agent.badges.map((badge) => (
+                          <Badge
+                            key={badge}
+                            className="text-xs bg-blue-600/20 text-blue-300 border-blue-600/30"
+                          >
+                            {badge}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  {offer.inStock ? (
-                    <span className="flex items-center gap-1 text-sm text-green-400">
-                      <CheckCircle className="h-4 w-4" />
-                      {t('inStock')}
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-1 text-sm text-red-400">
-                      <XCircle className="h-4 w-4" />
-                      {t('outOfStock')}
-                    </span>
-                  )}
-                </div>
+                {offer.inStock ? (
+                  <span className="flex items-center gap-1 text-sm text-green-400">
+                    <CheckCircle className="h-4 w-4" />
+                    {t('inStock')}
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1 text-sm text-red-400">
+                    <XCircle className="h-4 w-4" />
+                    {t('outOfStock')}
+                  </span>
+                )}
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-gray-400">{t('price')}:</span>
-                  <span className="ml-2 font-semibold text-blue-400">
-                    {formatPrice(offer.price, offer.currency)}
+                  <span className="ml-2">
+                    <PriceDisplay amount={offer.price} originalCurrency={offer.currency as any} />
                   </span>
                 </div>
                 <div>
                   <span className="text-gray-400">{t('shipping')}:</span>
-                  <span className="ml-2">
-                    {formatPrice(offer.shipFee, offer.currency)}
-                  </span>
+                  <button
+                    onClick={() => {
+                      setSelectedShippingOffer(offer)
+                      setShippingDetailOpen(true)
+                    }}
+                    className="ml-2 text-blue-400 hover:text-blue-300 underline cursor-pointer transition-colors"
+                    aria-label={t('viewShippingDetails')}
+                  >
+                    <PriceDisplay amount={offer.shipFee} originalCurrency={offer.currency as any} />
+                  </button>
                 </div>
                 <div>
                   <span className="text-gray-400">{t('estimatedDays')}:</span>
@@ -115,76 +232,354 @@ export function AgentOfferList({
                 </div>
                 <div>
                   <span className="text-gray-400">{t('total')}:</span>
-                  <span className="ml-2 font-bold text-lg">
-                    {formatPrice(total, offer.currency)}
+                  <span className="ml-2">
+                    <PriceDisplay amount={total} originalCurrency={offer.currency as any} size="lg" />
                   </span>
                 </div>
               </div>
 
               {agent?.promoText && (
-                <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-2">
-                  <p className="text-xs text-blue-300">{agent.promoText}</p>
+                <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-3">
+                  <p className="text-sm text-blue-300">{agent.promoText}</p>
                 </div>
               )}
 
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    addToCompare({
-                      productId,
-                      offerId: `${productId}-${index}`,
-                      ...offer,
-                    })
-                  }}
-                  className="flex-1 glass border-blue-600/30 bg-gray-800/50 backdrop-blur-xl"
-                >
-                  {t('addToCompare')}
-                </Button>
+              {product?.skuOptions && product.skuOptions.length > 0 && (
+                <div className="pt-2">
+                  <SKUSelector
+                    options={product.skuOptions}
+                    value={selectedSKU}
+                    onChange={setSelectedSKU}
+                  />
+                </div>
+              )}
+
+              <div className="flex gap-2 pt-2">
                 <Button
                   size="sm"
-                  onClick={() => {
-                    addToCart({
-                      productId,
-                      offerId: `${productId}-${index}`,
-                      ...offer,
-                    })
-                  }}
+                  onClick={() => handleRedirect(trackingUrl)}
                   disabled={!offer.inStock}
                   className="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
                 >
-                  {t('addToCart')}
+                  {t('buyOnAgent', { agent: agent?.name || offer.agentId })}
                 </Button>
                 <Button
+                  size="sm"
+                  onClick={handleAddToList}
+                  disabled={
+                    !offer.inStock ||
+                    (product?.skuOptions && product.skuOptions.length > 0 &&
+                     !product.skuOptions.every((option) => selectedSKU[option.name]))
+                  }
                   variant="outline"
-                  size="icon"
-                  asChild
-                  className="glass border-blue-600/30 bg-gray-800/50 backdrop-blur-xl"
+                  className="flex-1 glass border-blue-600/30 bg-gray-800/50 backdrop-blur-xl"
                 >
-                  <a
-                    href={trackingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={t('viewOnAgent')}
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
+                  {t('addToList')}
                 </Button>
-                {agent && (
-                  <CopyLinkButton
-                    url={cleanUrl}
-                    variant="outline"
-                    size="icon"
-                    className="glass border-blue-600/30 bg-gray-800/50 backdrop-blur-xl"
-                    ariaLabel={t('copyLink')}
-                  />
-                )}
               </div>
             </div>
-          )
-        })}
-      </CardContent>
-    </Card>
+          </CardContent>
+        </Card>
+        <RedirectDisclaimer
+          open={redirectDialogOpen}
+          onContinue={handleRedirectContinue}
+          onCancel={handleRedirectCancel}
+        />
+      </>
+    )
+  }
+
+  // Multiple agents - show default selected and comparison panel
+  const total = selectedOffer ? selectedOffer.price + selectedOffer.shipFee : 0
+  const trackingUrl = selectedAgent && selectedOffer
+    ? getAgentTrackingUrl(selectedAgent, selectedOffer.link)
+    : selectedOffer?.link || ''
+
+  return (
+    <>
+      <Card className="glass border-blue-600/30 bg-gray-900/75">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle>{t('offers')}</CardTitle>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsComparisonExpanded(!isComparisonExpanded)}
+              className="text-blue-300 hover:text-blue-200"
+            >
+              {isComparisonExpanded ? (
+                <>
+                  {t('collapseComparison')}
+                  <ChevronUp className="ml-2 h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  {t('compareAgents')}
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Default selected agent */}
+          {selectedOffer && selectedAgent && (
+            <motion.div
+              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+              animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+              className="glass border border-blue-600/30 bg-gray-800/30 backdrop-blur-xl p-6 rounded-xl space-y-4 relative"
+            >
+              {selectedAgent.recommended && (
+                <div className="absolute top-0 right-0">
+                  <RecommendRibbon />
+                </div>
+              )}
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-4 flex-1 min-w-0">
+                  {selectedAgent.logo && (
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 flex-shrink-0">
+                      <Image
+                        src={selectedAgent.logo}
+                        alt={selectedAgent.name}
+                        fill
+                        className="object-contain p-2"
+                        sizes="64px"
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="font-semibold text-lg">{selectedAgent.name}</h4>
+                      <Badge className="bg-blue-600/20 text-blue-300 border-blue-600/30">
+                        #{selectedOffer.rank}
+                      </Badge>
+                      <Badge className="bg-green-600/20 text-green-300 border-green-600/30">
+                        {selectedOffer.score}/100
+                      </Badge>
+                    </div>
+                    <Badge variant="outline" className="text-xs border-blue-600/30 text-blue-300">
+                      {t(`scoreReasons.${selectedOffer.scoreReason}`)}
+                    </Badge>
+                    {selectedAgent.badges && selectedAgent.badges.length > 0 && (
+                      <div className="flex gap-2 flex-wrap mt-2">
+                        {selectedAgent.badges.map((badge) => (
+                          <Badge
+                            key={badge}
+                            className="text-xs bg-blue-600/20 text-blue-300 border-blue-600/30"
+                          >
+                            {badge}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                {selectedOffer.inStock ? (
+                  <span className="flex items-center gap-1 text-sm text-green-400">
+                    <CheckCircle className="h-4 w-4" />
+                    {t('inStock')}
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1 text-sm text-red-400">
+                    <XCircle className="h-4 w-4" />
+                    {t('outOfStock')}
+                  </span>
+                )}
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <span className="text-gray-400">{t('price')}:</span>
+                  <span className="ml-2">
+                    <PriceDisplay amount={selectedOffer.price} originalCurrency={selectedOffer.currency as any} />
+                  </span>
+                </div>
+                <div>
+                  <span className="text-gray-400">{t('shipping')}:</span>
+                  <button
+                    onClick={() => {
+                      setSelectedShippingOffer(selectedOffer)
+                      setShippingDetailOpen(true)
+                    }}
+                    className="ml-2 text-blue-400 hover:text-blue-300 underline cursor-pointer transition-colors"
+                    aria-label={t('viewShippingDetails')}
+                  >
+                    <PriceDisplay amount={selectedOffer.shipFee} originalCurrency={selectedOffer.currency as any} />
+                  </button>
+                </div>
+                <div>
+                  <span className="text-gray-400">{t('estimatedDays')}:</span>
+                  <span className="ml-2">{selectedOffer.estDays} {t('days')}</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">{t('total')}:</span>
+                  <span className="ml-2">
+                    <PriceDisplay amount={total} originalCurrency={selectedOffer.currency as any} size="lg" />
+                  </span>
+                </div>
+              </div>
+
+              {selectedAgent.promoText && (
+                <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-3">
+                  <p className="text-sm text-blue-300">{selectedAgent.promoText}</p>
+                </div>
+              )}
+
+              {product?.skuOptions && product.skuOptions.length > 0 && (
+                <div className="pt-2">
+                  <SKUSelector
+                    options={product.skuOptions}
+                    value={selectedSKU}
+                    onChange={setSelectedSKU}
+                  />
+                </div>
+              )}
+
+              <div className="flex gap-2 pt-2">
+                <Button
+                  size="sm"
+                  onClick={() => handleRedirect(trackingUrl)}
+                  disabled={!selectedOffer.inStock}
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400"
+                >
+                  {t('buyOnAgent', { agent: selectedAgent.name })}
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={handleAddToList}
+                  disabled={
+                    !selectedOffer.inStock ||
+                    (product?.skuOptions && product.skuOptions.length > 0 &&
+                     !product.skuOptions.every((option) => selectedSKU[option.name]))
+                  }
+                  variant="outline"
+                  className="flex-1 glass border-blue-600/30 bg-gray-800/50 backdrop-blur-xl"
+                >
+                  {t('addToList')}
+                </Button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Comparison panel */}
+          <AnimatePresence>
+            {isComparisonExpanded && (
+              <motion.div
+                initial={shouldReduceMotion ? undefined : { opacity: 0, height: 0 }}
+                animate={shouldReduceMotion ? undefined : { opacity: 1, height: 'auto' }}
+                exit={shouldReduceMotion ? undefined : { opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-3 overflow-hidden"
+              >
+                <h3 className="text-lg font-semibold text-white mb-4">{t('compareAgents')}</h3>
+                {rankedOffers.map((offer) => {
+                  const agent = agents.find((a) => a.id === offer.agentId)
+                  const isSelected = offer.agentId === selectedAgentId
+                  const offerTotal = offer.price + offer.shipFee
+
+                  return (
+                    <motion.div
+                      key={offer.agentId}
+                      initial={shouldReduceMotion ? undefined : { opacity: 0, x: -20 }}
+                      animate={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+                      className={`glass border ${
+                        isSelected
+                          ? 'border-blue-500 bg-blue-600/10'
+                          : 'border-blue-600/30 bg-gray-800/30'
+                      } backdrop-blur-xl p-4 rounded-xl space-y-3 cursor-pointer transition-all hover:border-blue-500/50`}
+                      onClick={() => setSelectedAgentId(offer.agentId)}
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          {agent?.logo && (
+                            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 flex-shrink-0">
+                              <Image
+                                src={agent.logo}
+                                alt={agent.name}
+                                fill
+                                className="object-contain p-1.5"
+                                sizes="48px"
+                              />
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h4 className="font-semibold">{agent?.name || offer.agentId}</h4>
+                              <Badge className="bg-blue-600/20 text-blue-300 border-blue-600/30">
+                                #{offer.rank}
+                              </Badge>
+                              <Badge className="bg-green-600/20 text-green-300 border-green-600/30">
+                                {offer.score}/100
+                              </Badge>
+                            </div>
+                            <Badge variant="outline" className="text-xs border-blue-600/30 text-blue-300">
+                              {t(`scoreReasons.${offer.scoreReason}`)}
+                            </Badge>
+                          </div>
+                        </div>
+                        {isSelected && (
+                          <Badge className="bg-green-600/20 text-green-300 border-green-600/30">
+                            {t('selectAgent')}
+                          </Badge>
+                        )}
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-400">{t('price')}:</span>
+                          <span className="ml-2">
+                            <PriceDisplay amount={offer.price} originalCurrency={offer.currency as any} />
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('shipping')}:</span>
+                          <button
+                            onClick={() => {
+                              setSelectedShippingOffer(offer)
+                              setShippingDetailOpen(true)
+                            }}
+                            className="ml-2 text-blue-400 hover:text-blue-300 underline cursor-pointer transition-colors"
+                            aria-label={t('viewShippingDetails')}
+                          >
+                            <PriceDisplay amount={offer.shipFee} originalCurrency={offer.currency as any} />
+                          </button>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('estimatedDays')}:</span>
+                          <span className="ml-2">{offer.estDays} {t('days')}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400">{t('total')}:</span>
+                          <span className="ml-2">
+                            <PriceDisplay amount={offerTotal} originalCurrency={offer.currency as any} />
+                          </span>
+                        </div>
+                      </div>
+
+                      {agent?.promoText && (
+                        <div className="bg-blue-600/20 border border-blue-600/30 rounded-lg p-2">
+                          <p className="text-xs text-blue-300">{agent.promoText}</p>
+                        </div>
+                      )}
+                    </motion.div>
+                  )
+                })}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </CardContent>
+      </Card>
+      <RedirectDisclaimer
+        open={redirectDialogOpen}
+        onContinue={handleRedirectContinue}
+        onCancel={handleRedirectCancel}
+      />
+      <ShippingDetailDialog
+        open={shippingDetailOpen}
+        onOpenChange={setShippingDetailOpen}
+        agent={selectedShippingOffer ? agents.find((a) => a.id === selectedShippingOffer.agentId) || null : null}
+        offer={selectedShippingOffer || undefined}
+      />
+    </>
   )
 }

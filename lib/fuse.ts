@@ -13,12 +13,15 @@ export interface SearchOptions {
 export function buildFuseIndex(products: Product[]): Fuse<Product> {
   return new Fuse(products, {
     keys: [
-      { name: 'title', weight: 0.6 },
-      { name: 'tags', weight: 0.25 },
-      { name: 'brand', weight: 0.15 },
+      { name: 'title', weight: 0.5 },
+      { name: 'description', weight: 0.2 },
+      { name: 'tags', weight: 0.2 },
+      { name: 'brand', weight: 0.1 },
     ],
-    threshold: 0.3,
+    threshold: 0.4,
     includeScore: true,
+    ignoreLocation: true,
+    minMatchCharLength: 2,
   })
 }
 

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Search, ShoppingCart, User, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +16,8 @@ import { useRouter, useParams } from 'next/navigation'
 import { useCartStore } from '@/store/cart-store'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
+import { CurrencySelector } from '@/components/shared/currency-selector'
+import { useExchangeRates } from '@/hooks/use-currency'
 
 export function Navbar() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -28,19 +30,48 @@ export function Navbar() {
   const params = useParams()
   const locale = (params?.locale as string) || 'en'
   const t = useTranslations('nav')
-  const cartItemCount = useCartStore((state) => state.getItemCount())
-  const previousCartCount = useRef(cartItemCount)
-
+  const [cartItemCount, setCartItemCount] = useState(0)
+  const previousCartCount = useRef(0)
+  
+  // Initialize exchange rates
+  useExchangeRates()
+  
+  // Only access store after mount to prevent SSR mismatch
   useEffect(() => {
     setMounted(true)
+    // Rehydrate cart store
+    useCartStore.persist.rehydrate()
+    // Get cart count after rehydration
+    const updateCartCount = () => {
+      setCartItemCount(useCartStore.getState().getItemCount())
+    }
+    updateCartCount()
+    // Subscribe to cart changes
+    const unsubscribe = useCartStore.subscribe(updateCartCount)
+    return unsubscribe
   }, [])
+  
+  // Initialize previousCartCount after mount
+  useEffect(() => {
+    if (mounted) {
+      previousCartCount.current = cartItemCount
+    }
+  }, [mounted, cartItemCount])
 
   useEffect(() => {
     if (!mounted) return
     fetch('/api/auth')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch auth status')
+        }
+        return res.json()
+      })
       .then((data) => setUser(data.user))
-      .catch(() => setUser(null))
+      .catch((error) => {
+        console.error('Failed to fetch auth status:', error)
+        setUser(null)
+      })
   }, [mounted])
 
   useEffect(() => {
@@ -52,6 +83,7 @@ export function Navbar() {
   }, [mounted])
 
   useEffect(() => {
+    if (!mounted) return
     let timeout: NodeJS.Timeout | null = null
     if (cartItemCount > previousCartCount.current) {
       setHasNewCartItem(true)
@@ -61,7 +93,7 @@ export function Navbar() {
     return () => {
       if (timeout) clearTimeout(timeout)
     }
-  }, [cartItemCount])
+  }, [cartItemCount, mounted])
 
   const handleLogout = async () => {
     await fetch('/api/auth', {
@@ -90,13 +122,13 @@ export function Navbar() {
           : 'bg-transparent backdrop-blur-xl'
       )}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-14 items-center justify-between px-4 sm:h-16">
         {/* Logo */}
         <Link
           href={`/${locale}`}
-          className="focus-ring flex items-center space-x-2 rounded-full px-3 py-1 transition-transform duration-500 hover:scale-105"
+          className="focus-ring flex items-center space-x-2 rounded-full px-3 py-1 transition-transform duration-500 hover:scale-105 active:scale-95 touch-manipulation min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0"
         >
-          <div className="font-hacker text-sm uppercase tracking-[0.6em] text-sky-200">
+          <div className="font-hacker text-xs uppercase tracking-[0.6em] text-sky-200 sm:text-sm">
             Xfinds
           </div>
         </Link>
@@ -129,29 +161,48 @@ export function Navbar() {
 
         {/* Right Actions */}
         <div className="flex items-center space-x-2 md:space-x-4">
+          {/* Currency Selector */}
+          <div className="hidden sm:block">
+            <CurrencySelector variant="compact" />
+          </div>
+          
           {/* Mobile Search */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden focus-ring" aria-label={t('searchPlaceholder')}>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="md:hidden focus-ring touch-manipulation" 
+                aria-label={t('searchPlaceholder')}
+                type="button"
+              >
                 <Search className="h-5 w-5" aria-hidden="true" />
               </Button>
             </SheetTrigger>
             <SheetContent
               side="top"
-              className="glass border-white/10 bg-[#01060a]/95 backdrop-blur-3xl motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:fade-in-0 motion-safe:data-[state=open]:slide-in-from-top"
+              className="glass border-white/10 bg-[#01060a]/95 backdrop-blur-3xl"
             >
+              <SheetHeader>
+                <SheetTitle className="sr-only">{t('searchPlaceholder')}</SheetTitle>
+                <SheetDescription className="sr-only">
+                  Search for products across our platform
+                </SheetDescription>
+              </SheetHeader>
               <form onSubmit={handleSearch} className="mt-6 space-y-3">
-                <label className="text-xs uppercase tracking-[0.2em] text-gray-400">
+                <label htmlFor="mobile-search-input" className="text-xs uppercase tracking-[0.2em] text-gray-400">
                   {t('searchPlaceholder')}
                 </label>
                 <div className="relative">
                   <Input
+                    id="mobile-search-input"
                     type="text"
                     aria-label={t('searchPlaceholder')}
                     placeholder={t('searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full rounded-full border-white/10 bg-white/5 pl-12 pr-4 py-3 font-mono text-base text-white placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-lime-300/40"
+                    autoFocus
                   />
                   <Search
                     aria-hidden="true"
@@ -163,27 +214,31 @@ export function Navbar() {
           </Sheet>
 
           {/* Cart */}
-          <Button variant="ghost" size="icon" asChild className="relative focus-ring" aria-live="polite">
-            <Link href={`/${locale}/cart`}>
-              <ShoppingCart className="h-5 w-5" aria-hidden="true" />
-              <span className="sr-only">{t('cart')}</span>
-              {cartItemCount > 0 && (
-                <span
-                  className={cn(
-                    'absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-lime-300 to-cyan-400 text-[11px] font-semibold text-gray-900 shadow-[0_8px_18px_rgba(94,243,140,0.35)]',
-                    hasNewCartItem && 'badge-pulse'
-                  )}
-                >
-                  {cartItemCount > 9 ? '9+' : cartItemCount}
-                </span>
-              )}
-            </Link>
-          </Button>
+          <div className="relative">
+            <Button variant="ghost" size="icon" asChild className="relative !overflow-visible focus-ring touch-manipulation" aria-live="polite">
+              <Link href={`/${locale}/cart`} className="relative !overflow-visible touch-manipulation">
+                <ShoppingCart className="h-5 w-5" aria-hidden="true" />
+                <span className="sr-only">{t('cart')}</span>
+              </Link>
+            </Button>
+            {mounted && cartItemCount > 0 && (
+              <span
+                className={cn(
+                  'absolute top-0 right-0 z-20 flex min-w-[18px] h-[18px] items-center justify-center rounded-full bg-gradient-to-br from-lime-300 to-cyan-400 px-1 text-[10px] font-bold leading-none text-gray-900 shadow-[0_2px_8px_rgba(94,243,140,0.4)] pointer-events-none',
+                  cartItemCount > 9 && 'px-0.5',
+                  hasNewCartItem && 'badge-pulse'
+                )}
+                aria-label={`${cartItemCount} items in cart`}
+              >
+                {cartItemCount > 9 ? '9+' : cartItemCount}
+              </span>
+            )}
+          </div>
 
           {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="focus-ring">
+              <Button variant="ghost" size="icon" className="focus-ring touch-manipulation">
                 <User className="h-5 w-5" aria-hidden="true" />
                 <span className="sr-only">{t('userMenu')}</span>
               </Button>

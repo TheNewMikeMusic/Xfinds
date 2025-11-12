@@ -16,16 +16,11 @@ export function HeroSearch() {
   const t = useTranslations('home')
   const [query, setQuery] = useState('')
   const [isFocused, setIsFocused] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const magnetX = useMotionValue(0)
   const magnetY = useMotionValue(0)
   const springX = useSpring(magnetX, { stiffness: 220, damping: 20 })
   const springY = useSpring(magnetY, { stiffness: 220, damping: 20 })
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -56,7 +51,7 @@ export function HeroSearch() {
           'shadow-[0_35px_120px_rgba(6,9,25,0.65)] transition-all duration-500 will-change-transform',
           isFocused && 'border-white/40 shadow-[0_0_55px_rgba(125,211,252,0.45)]'
         )}
-        style={mounted && !shouldReduceMotion ? { x: springX, y: springY } : undefined}
+        style={!shouldReduceMotion ? { x: springX, y: springY } : undefined}
         onPointerMove={handlePointerMove}
         onPointerLeave={resetMagnet}
       >
@@ -70,18 +65,18 @@ export function HeroSearch() {
             onBlur={() => setIsFocused(false)}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t('searchPlaceholder')}
-            className="relative z-10 w-full rounded-2xl border-transparent bg-transparent pl-14 pr-4 py-6 text-lg text-white placeholder:text-slate-400 focus-visible:ring-0 caret-sky-300"
+            className="relative z-10 w-full rounded-2xl border-transparent bg-transparent pl-12 sm:pl-14 pr-4 py-4 sm:py-5 md:py-6 text-base sm:text-lg text-white placeholder:text-slate-400 focus-visible:ring-0 caret-sky-300 touch-manipulation"
           />
           <Button
             type="submit"
-            className="z-20 w-full rounded-2xl bg-gradient-to-r from-sky-300 via-blue-400 to-violet-400 px-6 py-3 text-base font-semibold text-gray-900 shadow-[0_18px_40px_rgba(59,130,246,0.35)] hover:shadow-[0_25px_45px_rgba(192,132,252,0.35)] sm:absolute sm:right-3 sm:top-1/2 sm:w-auto sm:-translate-y-1/2"
+            className="z-20 w-full rounded-2xl bg-gradient-to-r from-sky-300 via-blue-400 to-violet-400 px-6 py-3 text-sm sm:text-base font-semibold text-gray-900 shadow-[0_18px_40px_rgba(59,130,246,0.35)] hover:shadow-[0_25px_45px_rgba(192,132,252,0.35)] sm:absolute sm:right-3 sm:top-1/2 sm:w-auto sm:-translate-y-1/2 touch-manipulation"
           >
             {t('search')}
           </Button>
         </div>
         <Search
           aria-hidden="true"
-          className="pointer-events-none absolute left-6 top-7 z-20 h-5 w-5 text-slate-300 transition-colors group-focus-within:text-cyan-200 sm:top-1/2 sm:-translate-y-1/2"
+          className="pointer-events-none absolute left-4 sm:left-6 top-5 sm:top-7 z-20 h-4 w-4 sm:h-5 sm:w-5 text-slate-300 transition-colors group-focus-within:text-cyan-200 sm:top-1/2 sm:-translate-y-1/2"
         />
       </motion.div>
     </form>

@@ -1,445 +1,5 @@
 [
   {
-    "id": "prod-1",
-    "slug": "air-jordan-1-retro-high",
-    "title": "Air Jordan 1 Retro High OG",
-    "brand": "Nike",
-    "categoryId": "cat-1",
-    "cover": "/images/products/jordan-1-cover.jpg",
-    "gallery": [
-      "/images/products/jordan-1-1.jpg",
-      "/images/products/jordan-1-2.jpg",
-      "/images/products/jordan-1-3.jpg"
-    ],
-    "priceGuide": {
-      "min": 1200,
-      "max": 1800,
-      "currency": "CNY"
-    },
-    "tags": ["Jordan", "Nike", "篮球鞋", "经典", "复古"],
-    "specs": {
-      "size": "35-46",
-      "color": "黑红",
-      "material": "真皮"
-    },
-    "createdAt": "2024-01-15T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-1",
-        "title": "Air Jordan 1 Retro High OG - 快速配送",
-        "price": 1350,
-        "shipFee": 150,
-        "estDays": 4,
-        "currency": "CNY",
-        "link": "https://example.com/fast-buy/jordan-1",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-2",
-        "title": "Air Jordan 1 Retro High OG - 全球代购",
-        "price": 1280,
-        "shipFee": 120,
-        "estDays": 6,
-        "currency": "CNY",
-        "link": "https://example.com/global-buy/jordan-1",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-5",
-        "title": "Air Jordan 1 Retro High OG - 闪电配送",
-        "price": 1450,
-        "shipFee": 200,
-        "estDays": 3,
-        "currency": "CNY",
-        "link": "https://example.com/lightning-buy/jordan-1",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-2",
-    "slug": "yeezy-boost-350-v2",
-    "title": "Yeezy Boost 350 V2",
-    "brand": "Adidas",
-    "categoryId": "cat-1",
-    "cover": "/images/products/yeezy-350-cover.jpg",
-    "gallery": [
-      "/images/products/yeezy-350-1.jpg",
-      "/images/products/yeezy-350-2.jpg"
-    ],
-    "priceGuide": {
-      "min": 2000,
-      "max": 2800,
-      "currency": "CNY"
-    },
-    "tags": ["Yeezy", "Adidas", "运动鞋", "潮流", "Kanye"],
-    "specs": {
-      "size": "36-48",
-      "color": "多种配色",
-      "material": "Primeknit"
-    },
-    "createdAt": "2024-01-20T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-1",
-        "title": "Yeezy Boost 350 V2 - 快速配送",
-        "price": 2350,
-        "shipFee": 180,
-        "estDays": 5,
-        "currency": "CNY",
-        "link": "https://example.com/fast-buy/yeezy-350",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-3",
-        "title": "Yeezy Boost 350 V2 - 精品代购",
-        "price": 2450,
-        "shipFee": 200,
-        "estDays": 8,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/yeezy-350",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-3",
-    "slug": "dunk-low-retro",
-    "title": "Nike Dunk Low Retro",
-    "brand": "Nike",
-    "categoryId": "cat-1",
-    "cover": "/images/products/dunk-low-cover.jpg",
-    "gallery": [
-      "/images/products/dunk-low-1.jpg",
-      "/images/products/dunk-low-2.jpg"
-    ],
-    "priceGuide": {
-      "min": 800,
-      "max": 1200,
-      "currency": "CNY"
-    },
-    "tags": ["Dunk", "Nike", "滑板鞋", "经典"],
-    "specs": {
-      "size": "35-46",
-      "color": "多种配色",
-      "material": "皮革/麂皮"
-    },
-    "createdAt": "2024-02-01T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-2",
-        "title": "Nike Dunk Low Retro - 全球代购",
-        "price": 950,
-        "shipFee": 100,
-        "estDays": 7,
-        "currency": "CNY",
-        "link": "https://example.com/global-buy/dunk-low",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-4",
-        "title": "Nike Dunk Low Retro - 经济代购",
-        "price": 880,
-        "shipFee": 80,
-        "estDays": 12,
-        "currency": "CNY",
-        "link": "https://example.com/economy-buy/dunk-low",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-4",
-    "slug": "supreme-box-logo-hoodie",
-    "title": "Supreme Box Logo Hoodie",
-    "brand": "Supreme",
-    "categoryId": "cat-2",
-    "cover": "/images/products/supreme-hoodie-cover.jpg",
-    "gallery": [
-      "/images/products/supreme-hoodie-1.jpg",
-      "/images/products/supreme-hoodie-2.jpg"
-    ],
-    "priceGuide": {
-      "min": 2500,
-      "max": 4000,
-      "currency": "CNY"
-    },
-    "tags": ["Supreme", "卫衣", "街头", "限量"],
-    "specs": {
-      "size": "S-XXL",
-      "color": "多种配色",
-      "material": "棉"
-    },
-    "createdAt": "2024-02-10T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-3",
-        "title": "Supreme Box Logo Hoodie - 精品代购",
-        "price": 3200,
-        "shipFee": 250,
-        "estDays": 9,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/supreme-hoodie",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-5",
-        "title": "Supreme Box Logo Hoodie - 闪电配送",
-        "price": 3400,
-        "shipFee": 300,
-        "estDays": 4,
-        "currency": "CNY",
-        "link": "https://example.com/lightning-buy/supreme-hoodie",
-        "inStock": false
-      }
-    ]
-  },
-  {
-    "id": "prod-5",
-    "slug": "gucci-gg-marmont-bag",
-    "title": "Gucci GG Marmont 迷你手袋",
-    "brand": "Gucci",
-    "categoryId": "cat-4",
-    "cover": "/images/products/gucci-bag-cover.jpg",
-    "gallery": [
-      "/images/products/gucci-bag-1.jpg",
-      "/images/products/gucci-bag-2.jpg",
-      "/images/products/gucci-bag-3.jpg"
-    ],
-    "priceGuide": {
-      "min": 12000,
-      "max": 15000,
-      "currency": "CNY"
-    },
-    "tags": ["Gucci", "奢侈品", "手袋", "经典"],
-    "specs": {
-      "size": "迷你",
-      "color": "黑色/粉色/红色",
-      "material": "真皮"
-    },
-    "createdAt": "2024-02-15T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-3",
-        "title": "Gucci GG Marmont 迷你手袋 - 精品代购",
-        "price": 13500,
-        "shipFee": 500,
-        "estDays": 10,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/gucci-bag",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-6",
-    "slug": "off-white-x-nike-air-force-1",
-    "title": "Off-White x Nike Air Force 1",
-    "brand": "Nike",
-    "categoryId": "cat-1",
-    "cover": "/images/products/offwhite-af1-cover.jpg",
-    "gallery": [
-      "/images/products/offwhite-af1-1.jpg",
-      "/images/products/offwhite-af1-2.jpg"
-    ],
-    "priceGuide": {
-      "min": 5000,
-      "max": 8000,
-      "currency": "CNY"
-    },
-    "tags": ["Off-White", "Nike", "联名", "限量", "Virgil"],
-    "specs": {
-      "size": "36-46",
-      "color": "白色/黑色",
-      "material": "皮革"
-    },
-    "createdAt": "2024-02-20T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-3",
-        "title": "Off-White x Nike Air Force 1 - 精品代购",
-        "price": 6500,
-        "shipFee": 400,
-        "estDays": 9,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/offwhite-af1",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-5",
-        "title": "Off-White x Nike Air Force 1 - 闪电配送",
-        "price": 6800,
-        "shipFee": 450,
-        "estDays": 4,
-        "currency": "CNY",
-        "link": "https://example.com/lightning-buy/offwhite-af1",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-7",
-    "slug": "balenciaga-triple-s",
-    "title": "Balenciaga Triple S",
-    "brand": "Balenciaga",
-    "categoryId": "cat-1",
-    "cover": "/images/products/balenciaga-triple-s-cover.jpg",
-    "gallery": [
-      "/images/products/balenciaga-triple-s-1.jpg"
-    ],
-    "priceGuide": {
-      "min": 4000,
-      "max": 6000,
-      "currency": "CNY"
-    },
-    "tags": ["Balenciaga", "老爹鞋", "奢侈品", "潮流"],
-    "specs": {
-      "size": "35-45",
-      "color": "多种配色",
-      "material": "真皮/网面"
-    },
-    "createdAt": "2024-03-01T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-3",
-        "title": "Balenciaga Triple S - 精品代购",
-        "price": 5200,
-        "shipFee": 350,
-        "estDays": 10,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/balenciaga-triple-s",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-8",
-    "slug": "travis-scott-x-nike-sb-dunk",
-    "title": "Travis Scott x Nike SB Dunk Low",
-    "brand": "Nike",
-    "categoryId": "cat-1",
-    "cover": "/images/products/travis-dunk-cover.jpg",
-    "gallery": [
-      "/images/products/travis-dunk-1.jpg",
-      "/images/products/travis-dunk-2.jpg"
-    ],
-    "priceGuide": {
-      "min": 8000,
-      "max": 12000,
-      "currency": "CNY"
-    },
-    "tags": ["Travis Scott", "Nike", "SB Dunk", "联名", "限量"],
-    "specs": {
-      "size": "36-46",
-      "color": "棕色/蓝色",
-      "material": "真皮/麂皮"
-    },
-    "createdAt": "2024-03-05T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-3",
-        "title": "Travis Scott x Nike SB Dunk Low - 精品代购",
-        "price": 9800,
-        "shipFee": 500,
-        "estDays": 9,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/travis-dunk",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-5",
-        "title": "Travis Scott x Nike SB Dunk Low - 闪电配送",
-        "price": 10200,
-        "shipFee": 550,
-        "estDays": 4,
-        "currency": "CNY",
-        "link": "https://example.com/lightning-buy/travis-dunk",
-        "inStock": false
-      }
-    ]
-  },
-  {
-    "id": "prod-9",
-    "slug": "lv-neverfull-mm",
-    "title": "Louis Vuitton Neverfull MM",
-    "brand": "Louis Vuitton",
-    "categoryId": "cat-4",
-    "cover": "/images/products/lv-neverfull-cover.jpg",
-    "gallery": [
-      "/images/products/lv-neverfull-1.jpg",
-      "/images/products/lv-neverfull-2.jpg"
-    ],
-    "priceGuide": {
-      "min": 12000,
-      "max": 15000,
-      "currency": "CNY"
-    },
-    "tags": ["Louis Vuitton", "LV", "奢侈品", "手袋", "经典"],
-    "specs": {
-      "size": "MM",
-      "color": "多种配色",
-      "material": "Monogram帆布"
-    },
-    "createdAt": "2024-03-10T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-3",
-        "title": "Louis Vuitton Neverfull MM - 精品代购",
-        "price": 13800,
-        "shipFee": 600,
-        "estDays": 10,
-        "currency": "CNY",
-        "link": "https://example.com/premium-buy/lv-neverfull",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "prod-10",
-    "slug": "bape-shark-hoodie",
-    "title": "BAPE Shark Full Zip Hoodie",
-    "brand": "BAPE",
-    "categoryId": "cat-2",
-    "cover": "/images/products/bape-hoodie-cover.jpg",
-    "gallery": [
-      "/images/products/bape-hoodie-1.jpg"
-    ],
-    "priceGuide": {
-      "min": 2000,
-      "max": 3000,
-      "currency": "CNY"
-    },
-    "tags": ["BAPE", "卫衣", "街头", "日本"],
-    "specs": {
-      "size": "S-XXL",
-      "color": "多种配色",
-      "material": "棉"
-    },
-    "createdAt": "2024-03-15T00:00:00Z",
-    "offers": [
-      {
-        "agentId": "agent-1",
-        "title": "BAPE Shark Full Zip Hoodie - 快速配送",
-        "price": 2450,
-        "shipFee": 180,
-        "estDays": 5,
-        "currency": "CNY",
-        "link": "https://example.com/fast-buy/bape-hoodie",
-        "inStock": true
-      },
-      {
-        "agentId": "agent-2",
-        "title": "BAPE Shark Full Zip Hoodie - 全球代购",
-        "price": 2300,
-        "shipFee": 150,
-        "estDays": 7,
-        "currency": "CNY",
-        "link": "https://example.com/global-buy/bape-hoodie",
-        "inStock": true
-      }
-    ]
-  },
-  {
     "id": "prod-11",
     "slug": "adidas-retropy-e5-boost-jq0006",
     "title": "Adidas RETROPY E5 Classic Boost Running Shoes",
@@ -447,14 +7,23 @@
     "categoryId": "cat-1",
     "cover": "/JQ0006.png",
     "gallery": [
-      "/JQ0006.png"
+      "/JQ0006-2.png",
+      "/JQ0006-3.png"
     ],
     "priceGuide": {
       "min": 450,
       "max": 460,
       "currency": "CNY"
     },
-    "tags": ["Adidas", "Retropy", "Boost", "Running", "Classic", "Sneakers", "Unisex"],
+    "tags": [
+      "Adidas",
+      "Retropy",
+      "Boost",
+      "Running",
+      "Classic",
+      "Sneakers",
+      "Unisex"
+    ],
     "description": "The Adidas RETROPY E5 Classic Boost Running Shoes draw inspiration from classic running silhouettes, combining authentic retro lines with a comfortable feel and vibrant BOOST technology. These shoes deliver a smooth running experience, help you take energetic steps, and maintain a stylish look. The upper features leather and synthetic leather construction with a simple stitched finish, serrated three stripes, and a lychee-textured BOOST midsole for a striking appearance. Equipped with a slim, serrated rubber outsole for solid footing and confident steps, these versatile shoes can be paired with jeans or sporty business casual attire. Available in multiple colorways including Soft Brown/Miracle Clay Brown, Dotted Grey/Bright White/Grey, and Metallic Flax Green/Pink White/Silver Grey Green.",
     "specs": {
       "size": "35.5-47",
@@ -466,7 +35,7 @@
       {
         "agentId": "kakobuy",
         "title": "Adidas RETROPY E5 Boost - Fast Delivery",
-        "price": 453.6,
+        "price": 450,
         "shipFee": 120,
         "estDays": 5,
         "currency": "CNY",
@@ -476,8 +45,8 @@
       {
         "agentId": "mulebuy",
         "title": "Adidas RETROPY E5 Boost - App Available",
-        "price": 453.6,
-        "shipFee": 110,
+        "price": 436.5,
+        "shipFee": 130,
         "estDays": 6,
         "currency": "CNY",
         "link": "https://detail.tmall.com/item.htm?abbucket=16&id=852750142941&mi_id=00009It-5jCYqa2uXT_NGajSXVWatggw6mFgj7dLgTIcKjA&ns=1&priceTId=2150490f17628769555463493e1045&skuId=5908160486199&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%223e367e96c19a7638274bdc9796b2621c%22%7D&xxc=taobaoSearch",
@@ -486,8 +55,8 @@
       {
         "agentId": "hipobuy",
         "title": "Adidas RETROPY E5 Boost - Low Price Route",
-        "price": 453.6,
-        "shipFee": 105,
+        "price": 472.5,
+        "shipFee": 110,
         "estDays": 7,
         "currency": "CNY",
         "link": "https://detail.tmall.com/item.htm?abbucket=16&id=852750142941&mi_id=00009It-5jCYqa2uXT_NGajSXVWatggw6mFgj7dLgTIcKjA&ns=1&priceTId=2150490f17628769555463493e1045&skuId=5908160486199&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%223e367e96c19a7638274bdc9796b2621c%22%7D&xxc=taobaoSearch",
@@ -496,8 +65,8 @@
       {
         "agentId": "rizzitgo",
         "title": "Adidas RETROPY E5 Boost - Clean UX",
-        "price": 453.6,
-        "shipFee": 115,
+        "price": 427.5,
+        "shipFee": 135,
         "estDays": 6,
         "currency": "CNY",
         "link": "https://detail.tmall.com/item.htm?abbucket=16&id=852750142941&mi_id=00009It-5jCYqa2uXT_NGajSXVWatggw6mFgj7dLgTIcKjA&ns=1&priceTId=2150490f17628769555463493e1045&skuId=5908160486199&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%223e367e96c19a7638274bdc9796b2621c%22%7D&xxc=taobaoSearch",
@@ -506,8 +75,8 @@
       {
         "agentId": "eastmallbuy",
         "title": "Adidas RETROPY E5 Boost - Multiple Payments",
-        "price": 453.6,
-        "shipFee": 125,
+        "price": 486,
+        "shipFee": 105,
         "estDays": 8,
         "currency": "CNY",
         "link": "https://detail.tmall.com/item.htm?abbucket=16&id=852750142941&mi_id=00009It-5jCYqa2uXT_NGajSXVWatggw6mFgj7dLgTIcKjA&ns=1&priceTId=2150490f17628769555463493e1045&skuId=5908160486199&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%223e367e96c19a7638274bdc9796b2621c%22%7D&xxc=taobaoSearch",
@@ -516,14 +85,1551 @@
       {
         "agentId": "tigbuy",
         "title": "Adidas RETROPY E5 Boost - Warehouse QA",
-        "price": 453.6,
-        "shipFee": 100,
+        "price": 414,
+        "shipFee": 140,
         "estDays": 9,
         "currency": "CNY",
         "link": "https://detail.tmall.com/item.htm?abbucket=16&id=852750142941&mi_id=00009It-5jCYqa2uXT_NGajSXVWatggw6mFgj7dLgTIcKjA&ns=1&priceTId=2150490f17628769555463493e1045&skuId=5908160486199&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%223e367e96c19a7638274bdc9796b2621c%22%7D&xxc=taobaoSearch",
         "inStock": true
       }
+    ],
+    "skuOptions": [
+      {
+        "name": "Size",
+        "values": [
+          "35.5",
+          "36",
+          "36.5",
+          "37",
+          "37.5",
+          "38",
+          "38.5",
+          "39",
+          "39.5",
+          "40",
+          "40.5",
+          "41",
+          "41.5",
+          "42",
+          "42.5",
+          "43",
+          "43.5",
+          "44",
+          "44.5",
+          "45",
+          "45.5",
+          "46",
+          "46.5",
+          "47"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Soft Brown",
+          "Miracle Clay Brown",
+          "Dotted Grey",
+          "Bright White",
+          "Grey",
+          "Metallic Flax Green",
+          "Pink White",
+          "Silver Grey Green"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-12",
+    "slug": "nike-men-casual-comfortable-training-running-shoes-415445-103",
+    "title": "Nike Men's Casual Comfortable Training Running Shoes Lightweight Sneakers 415445-103",
+    "brand": "Nike",
+    "categoryId": "cat-1",
+    "cover": "/NIKE耐克男鞋休闲舒适运动训练鞋轻便跑步鞋415445-103.png",
+    "gallery": [
+      "/NIKE耐克男鞋休闲舒适运动训练鞋轻便跑步鞋415445-103-2.png"
+    ],
+    "priceGuide": {
+      "min": 400,
+      "max": 600,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Nike",
+      "Men's Shoes",
+      "Sneakers",
+      "Training Shoes",
+      "Running Shoes",
+      "Casual",
+      "Comfortable",
+      "Lightweight"
+    ],
+    "description": "Nike men's casual comfortable training running shoes, lightweight sneakers. Model 415445-103, designed for daily training and running, providing excellent comfort and support.",
+    "specs": {
+      "size": "39-46",
+      "color": "Multiple Colorways",
+      "material": "Synthetic Leather/ Mesh"
+    },
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Nike 415445-103 Training Shoes - Fast Delivery",
+        "price": 400,
+        "shipFee": 120,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1681002616%3AH%3AsMhiGJF%2BPFqJVQhsyKE0UWy0zRcF8Sa%2F%3A10e7c017f5b3dd8bd0b0079a9ab95f1c&ali_trackid=282_10e7c017f5b3dd8bd0b0079a9ab95f1c&id=945743491125&mi_id=0000uRTxlJgLa0yOVGbXIxhowg9-qHhtrJfC5c2ybZRcIWQ&mm_sceneid=1_0_4316843801_0&priceTId=213e0a7d17629122897656735e0fdb&skuId=5852891796939&spm=a21n57.1.hoverItem.4&utparam=%7B%22aplus_abtest%22%3A%229f735dc9aea86cff6a3684f6ab43db47%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Nike 415445-103 Training Shoes - App Available",
+        "price": 388,
+        "shipFee": 130,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1681002616%3AH%3AsMhiGJF%2BPFqJVQhsyKE0UWy0zRcF8Sa%2F%3A10e7c017f5b3dd8bd0b0079a9ab95f1c&ali_trackid=282_10e7c017f5b3dd8bd0b0079a9ab95f1c&id=945743491125&mi_id=0000uRTxlJgLa0yOVGbXIxhowg9-qHhtrJfC5c2ybZRcIWQ&mm_sceneid=1_0_4316843801_0&priceTId=213e0a7d17629122897656735e0fdb&skuId=5852891796939&spm=a21n57.1.hoverItem.4&utparam=%7B%22aplus_abtest%22%3A%229f735dc9aea86cff6a3684f6ab43db47%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Nike 415445-103 Training Shoes - Low Price Route",
+        "price": 420,
+        "shipFee": 110,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1681002616%3AH%3AsMhiGJF%2BPFqJVQhsyKE0UWy0zRcF8Sa%2F%3A10e7c017f5b3dd8bd0b0079a9ab95f1c&ali_trackid=282_10e7c017f5b3dd8bd0b0079a9ab95f1c&id=945743491125&mi_id=0000uRTxlJgLa0yOVGbXIxhowg9-qHhtrJfC5c2ybZRcIWQ&mm_sceneid=1_0_4316843801_0&priceTId=213e0a7d17629122897656735e0fdb&skuId=5852891796939&spm=a21n57.1.hoverItem.4&utparam=%7B%22aplus_abtest%22%3A%229f735dc9aea86cff6a3684f6ab43db47%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Nike 415445-103 Training Shoes - Clean UX",
+        "price": 380,
+        "shipFee": 135,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1681002616%3AH%3AsMhiGJF%2BPFqJVQhsyKE0UWy0zRcF8Sa%2F%3A10e7c017f5b3dd8bd0b0079a9ab95f1c&ali_trackid=282_10e7c017f5b3dd8bd0b0079a9ab95f1c&id=945743491125&mi_id=0000uRTxlJgLa0yOVGbXIxhowg9-qHhtrJfC5c2ybZRcIWQ&mm_sceneid=1_0_4316843801_0&priceTId=213e0a7d17629122897656735e0fdb&skuId=5852891796939&spm=a21n57.1.hoverItem.4&utparam=%7B%22aplus_abtest%22%3A%229f735dc9aea86cff6a3684f6ab43db47%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Nike 415445-103 Training Shoes - Multiple Payments",
+        "price": 432,
+        "shipFee": 105,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1681002616%3AH%3AsMhiGJF%2BPFqJVQhsyKE0UWy0zRcF8Sa%2F%3A10e7c017f5b3dd8bd0b0079a9ab95f1c&ali_trackid=282_10e7c017f5b3dd8bd0b0079a9ab95f1c&id=945743491125&mi_id=0000uRTxlJgLa0yOVGbXIxhowg9-qHhtrJfC5c2ybZRcIWQ&mm_sceneid=1_0_4316843801_0&priceTId=213e0a7d17629122897656735e0fdb&skuId=5852891796939&spm=a21n57.1.hoverItem.4&utparam=%7B%22aplus_abtest%22%3A%229f735dc9aea86cff6a3684f6ab43db47%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Nike 415445-103 Training Shoes - Warehouse QA",
+        "price": 368,
+        "shipFee": 140,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1681002616%3AH%3AsMhiGJF%2BPFqJVQhsyKE0UWy0zRcF8Sa%2F%3A10e7c017f5b3dd8bd0b0079a9ab95f1c&ali_trackid=282_10e7c017f5b3dd8bd0b0079a9ab95f1c&id=945743491125&mi_id=0000uRTxlJgLa0yOVGbXIxhowg9-qHhtrJfC5c2ybZRcIWQ&mm_sceneid=1_0_4316843801_0&priceTId=213e0a7d17629122897656735e0fdb&skuId=5852891796939&spm=a21n57.1.hoverItem.4&utparam=%7B%22aplus_abtest%22%3A%229f735dc9aea86cff6a3684f6ab43db47%22%7D&xxc=ad_ztc",
+        "inStock": true
+      }
+    ],
+    "skuOptions": [
+      {
+        "name": "Size",
+        "values": [
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White",
+          "Gray",
+          "Red",
+          "Blue",
+          "Green"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-13",
+    "slug": "nasa-stusy-suede-cotton-jacket-men-winter-warm-coat",
+    "title": "NASA STUSY Suede Cotton Jacket Men's Streetwear Winter Warm Coat Unisex Couple Outwear",
+    "brand": "NASA STUSY",
+    "categoryId": "cat-2",
+    "cover": "/Nasa stusy.png",
+    "gallery": [
+      "/Nasa stusy2.png",
+      "/Nasa stusy3.png"
+    ],
+    "priceGuide": {
+      "min": 244,
+      "max": 288,
+      "currency": "CNY"
+    },
+    "tags": [
+      "NASA STUSY",
+      "Suede",
+      "Cotton Jacket",
+      "Winter",
+      "Warm",
+      "Streetwear",
+      "Unisex",
+      "Couple",
+      "Coat",
+      "Thick"
+    ],
+    "description": "NASA STUSY suede cotton jacket, men's streetwear winter warm coat, unisex couple outwear. Thick design, perfect for winter wear. Material: 95% Polyester, 5% Spandex. Filling: Imitation Silk Cotton. Loose fit, stand collar design, side seam pockets, zipper closure. Over 4000+ sold, 5000+ added to cart, 123 reviews saying \"Size fits perfectly\". Product Code: MYY88052.",
+    "specs": {
+      "size": "S(100-115lbs), M(115-130lbs), L(130-145lbs), XL(145-160lbs), 2XL(160-180lbs), 3XL(180-230lbs)",
+      "color": "Dark Gray, Black, Coffee, Light Gray",
+      "material": "95% Polyester, 5% Spandex, Filling: Imitation Silk Cotton"
+    },
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "NASA STUSY Suede Cotton Jacket - Fast Delivery",
+        "price": 244,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1527000058%3AH%3AO8LtJonf8Sk6UVyDwoBac36QW2DGGLpt%3A9171a81e98838a559d490a34e1c0085a&ali_trackid=318_9171a81e98838a559d490a34e1c0085a&id=692302308827&mi_id=0000QqZZG7u-ijLKTQlY8TJVYcnvvKUjTu9ierk-S0vcuN4&mm_sceneid=0_0_2029490179_0&priceTId=213e08d317629144432332042e0fc5&skuId=4920447029996&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22b63a041a01f88e1686940d5fcc48d56e%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "NASA STUSY Suede Cotton Jacket - App Available",
+        "price": 236.68,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1527000058%3AH%3AO8LtJonf8Sk6UVyDwoBac36QW2DGGLpt%3A9171a81e98838a559d490a34e1c0085a&ali_trackid=318_9171a81e98838a559d490a34e1c0085a&id=692302308827&mi_id=0000QqZZG7u-ijLKTQlY8TJVYcnvvKUjTu9ierk-S0vcuN4&mm_sceneid=0_0_2029490179_0&priceTId=213e08d317629144432332042e0fc5&skuId=4920447029996&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22b63a041a01f88e1686940d5fcc48d56e%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "NASA STUSY Suede Cotton Jacket - Low Price Route",
+        "price": 256.2,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1527000058%3AH%3AO8LtJonf8Sk6UVyDwoBac36QW2DGGLpt%3A9171a81e98838a559d490a34e1c0085a&ali_trackid=318_9171a81e98838a559d490a34e1c0085a&id=692302308827&mi_id=0000QqZZG7u-ijLKTQlY8TJVYcnvvKUjTu9ierk-S0vcuN4&mm_sceneid=0_0_2029490179_0&priceTId=213e08d317629144432332042e0fc5&skuId=4920447029996&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22b63a041a01f88e1686940d5fcc48d56e%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "NASA STUSY Suede Cotton Jacket - Clean UX",
+        "price": 231.8,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1527000058%3AH%3AO8LtJonf8Sk6UVyDwoBac36QW2DGGLpt%3A9171a81e98838a559d490a34e1c0085a&ali_trackid=318_9171a81e98838a559d490a34e1c0085a&id=692302308827&mi_id=0000QqZZG7u-ijLKTQlY8TJVYcnvvKUjTu9ierk-S0vcuN4&mm_sceneid=0_0_2029490179_0&priceTId=213e08d317629144432332042e0fc5&skuId=4920447029996&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22b63a041a01f88e1686940d5fcc48d56e%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "NASA STUSY Suede Cotton Jacket - Multiple Payments",
+        "price": 263.52,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1527000058%3AH%3AO8LtJonf8Sk6UVyDwoBac36QW2DGGLpt%3A9171a81e98838a559d490a34e1c0085a&ali_trackid=318_9171a81e98838a559d490a34e1c0085a&id=692302308827&mi_id=0000QqZZG7u-ijLKTQlY8TJVYcnvvKUjTu9ierk-S0vcuN4&mm_sceneid=0_0_2029490179_0&priceTId=213e08d317629144432332042e0fc5&skuId=4920447029996&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22b63a041a01f88e1686940d5fcc48d56e%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "NASA STUSY Suede Cotton Jacket - Warehouse QA",
+        "price": 224.48,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1527000058%3AH%3AO8LtJonf8Sk6UVyDwoBac36QW2DGGLpt%3A9171a81e98838a559d490a34e1c0085a&ali_trackid=318_9171a81e98838a559d490a34e1c0085a&id=692302308827&mi_id=0000QqZZG7u-ijLKTQlY8TJVYcnvvKUjTu9ierk-S0vcuN4&mm_sceneid=0_0_2029490179_0&priceTId=213e08d317629144432332042e0fc5&skuId=4920447029996&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22b63a041a01f88e1686940d5fcc48d56e%22%7D&xxc=ad_ztc",
+        "inStock": true
+      }
+    ],
+    "skuOptions": [
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Dark Gray",
+          "Black",
+          "Coffee",
+          "Light Gray"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-14",
+    "slug": "achock-acac-series-hoodie-patch-embroidery-sweatshirt",
+    "title": "Achock ACAC Series Streetwear Simple Patch Embroidery Hoodie American Style Pullover",
+    "brand": "Achock",
+    "categoryId": "cat-2",
+    "cover": "/【Achock官方店】acac系列潮牌简约贴布刺绣连帽卫衣美式套头外套.png",
+    "gallery": [
+      "/【Achock官方店】acac系列潮牌简约贴布刺绣连帽卫衣美式套头外套-2.png"
+    ],
+    "priceGuide": {
+      "min": 167,
+      "max": 226,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Achock",
+      "ACAC Series",
+      "Hoodie",
+      "Streetwear",
+      "Patch",
+      "Embroidery",
+      "Pullover",
+      "Unisex"
+    ],
+    "description": "Achock ACAC series streetwear simple patch embroidery hoodie, American style pullover. Features patch embroidery details, hood design, and comfortable fit. Perfect for casual wear in spring, autumn, and winter. Made with cotton lining, 480g weight, with slight elasticity. Over 9000+ sold.",
+    "specs": {
+      "size": "S, M, L, XL",
+      "color": "Gray, White Flower Gray, Navy Blue, Black",
+      "material": "Cotton Lining, 480g Weight"
+    },
+    "skuOptions": [
+      {
+        "name": "Color",
+        "values": [
+          "Gray",
+          "White Flower Gray",
+          "Navy Blue",
+          "Black"
+        ]
+      },
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Achock ACAC Hoodie - Fast Delivery",
+        "price": 167,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1526740038%3AH%3Atngxq7mq1jjRWFj%2BglMDCQ%3D%3D%3Ad7aefc1d39c3cbdd824a21ab75a5866a&ali_trackid=282_d7aefc1d39c3cbdd824a21ab75a5866a&id=950718556991&mi_id=0000mIiqh1o6F0mvUIjwQy4LBVlhQLE3LfEooMjSnkL1i1I&mm_sceneid=1_0_2039770010_0&priceTId=2147883417629154750408943e0e5f&skuId=6028904434055&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22ded6d31cd9a302bf38d50df8b2fee36c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Achock ACAC Hoodie - App Available",
+        "price": 161.99,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1526740038%3AH%3Atngxq7mq1jjRWFj%2BglMDCQ%3D%3D%3Ad7aefc1d39c3cbdd824a21ab75a5866a&ali_trackid=282_d7aefc1d39c3cbdd824a21ab75a5866a&id=950718556991&mi_id=0000mIiqh1o6F0mvUIjwQy4LBVlhQLE3LfEooMjSnkL1i1I&mm_sceneid=1_0_2039770010_0&priceTId=2147883417629154750408943e0e5f&skuId=6028904434055&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22ded6d31cd9a302bf38d50df8b2fee36c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Achock ACAC Hoodie - Low Price Route",
+        "price": 175.35,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1526740038%3AH%3Atngxq7mq1jjRWFj%2BglMDCQ%3D%3D%3Ad7aefc1d39c3cbdd824a21ab75a5866a&ali_trackid=282_d7aefc1d39c3cbdd824a21ab75a5866a&id=950718556991&mi_id=0000mIiqh1o6F0mvUIjwQy4LBVlhQLE3LfEooMjSnkL1i1I&mm_sceneid=1_0_2039770010_0&priceTId=2147883417629154750408943e0e5f&skuId=6028904434055&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22ded6d31cd9a302bf38d50df8b2fee36c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Achock ACAC Hoodie - Clean UX",
+        "price": 158.65,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1526740038%3AH%3Atngxq7mq1jjRWFj%2BglMDCQ%3D%3D%3Ad7aefc1d39c3cbdd824a21ab75a5866a&ali_trackid=282_d7aefc1d39c3cbdd824a21ab75a5866a&id=950718556991&mi_id=0000mIiqh1o6F0mvUIjwQy4LBVlhQLE3LfEooMjSnkL1i1I&mm_sceneid=1_0_2039770010_0&priceTId=2147883417629154750408943e0e5f&skuId=6028904434055&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22ded6d31cd9a302bf38d50df8b2fee36c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Achock ACAC Hoodie - Multiple Payments",
+        "price": 180.36,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1526740038%3AH%3Atngxq7mq1jjRWFj%2BglMDCQ%3D%3D%3Ad7aefc1d39c3cbdd824a21ab75a5866a&ali_trackid=282_d7aefc1d39c3cbdd824a21ab75a5866a&id=950718556991&mi_id=0000mIiqh1o6F0mvUIjwQy4LBVlhQLE3LfEooMjSnkL1i1I&mm_sceneid=1_0_2039770010_0&priceTId=2147883417629154750408943e0e5f&skuId=6028904434055&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22ded6d31cd9a302bf38d50df8b2fee36c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Achock ACAC Hoodie - Warehouse QA",
+        "price": 153.64,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_430582_1006%3A1526740038%3AH%3Atngxq7mq1jjRWFj%2BglMDCQ%3D%3D%3Ad7aefc1d39c3cbdd824a21ab75a5866a&ali_trackid=282_d7aefc1d39c3cbdd824a21ab75a5866a&id=950718556991&mi_id=0000mIiqh1o6F0mvUIjwQy4LBVlhQLE3LfEooMjSnkL1i1I&mm_sceneid=1_0_2039770010_0&priceTId=2147883417629154750408943e0e5f&skuId=6028904434055&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22ded6d31cd9a302bf38d50df8b2fee36c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-15",
+    "slug": "fingercroxx-american-flight-leather-jacket-fake-two-piece-men-workwear-2025",
+    "title": "FINGERCROXX American Flight Leather Jacket Fake Two-Piece Men's Workwear 2025 Unisex Autumn Men's Coat",
+    "brand": "FINGERCROXX",
+    "categoryId": "cat-2",
+    "cover": "/it FINGERCROXX美式飞行皮夹克假两件男工装2025情侣秋季男士外套.png",
+    "gallery": [
+      "/it FINGERCROXX美式飞行皮夹克假两件男工装2025情侣秋季男士外套-2.png",
+      "/it FINGERCROXX美式飞行皮夹克假两件男工装2025情侣秋季男士外套-3.png"
+    ],
+    "priceGuide": {
+      "min": 212,
+      "max": 254,
+      "currency": "CNY"
+    },
+    "tags": [
+      "FINGERCROXX",
+      "Leather Jacket",
+      "Flight Jacket",
+      "Workwear",
+      "Fake Two-Piece",
+      "Unisex",
+      "Autumn",
+      "Casual"
+    ],
+    "description": "FINGERCROXX American flight leather jacket, fake two-piece men's workwear, unisex autumn men's coat. Features hood design, drop shoulder sleeves, loose fit, and zipper closure. Made with 100% Polyester PU material. Perfect for casual wear in autumn. Product Code: FGXLEW0005920. Over 2000+ sold.",
+    "specs": {
+      "size": "M(90-110lbs), L(110-130lbs), XL(130-150lbs), 2XL(150-170lbs), 3XL(170-185lbs), 4XL(185-200lbs)",
+      "color": "Black, Brown, Khaki, Black (Thickened Upgrade), Khaki (Thickened Upgrade), Brown (Thickened Upgrade)",
+      "material": "100% Polyester PU"
+    },
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "FINGERCROXX Flight Jacket - Fast Delivery",
+        "price": 212,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=967980108487&mi_id=0000_QrGA22Fp0sSbVswsi2QvQSrFqqxfMFik0inLB00iEY&ns=1&priceTId=2147883417629156383048087e0e5f&skuId=6078757230309&spm=a21n57.1.hoverItem.12&utparam=%7B%22aplus_abtest%22%3A%22abd8903612b7b97b479ff72b9c92629d%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "FINGERCROXX Flight Jacket - App Available",
+        "price": 205.64,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=967980108487&mi_id=0000_QrGA22Fp0sSbVswsi2QvQSrFqqxfMFik0inLB00iEY&ns=1&priceTId=2147883417629156383048087e0e5f&skuId=6078757230309&spm=a21n57.1.hoverItem.12&utparam=%7B%22aplus_abtest%22%3A%22abd8903612b7b97b479ff72b9c92629d%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "FINGERCROXX Flight Jacket - Low Price Route",
+        "price": 222.6,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=967980108487&mi_id=0000_QrGA22Fp0sSbVswsi2QvQSrFqqxfMFik0inLB00iEY&ns=1&priceTId=2147883417629156383048087e0e5f&skuId=6078757230309&spm=a21n57.1.hoverItem.12&utparam=%7B%22aplus_abtest%22%3A%22abd8903612b7b97b479ff72b9c92629d%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "FINGERCROXX Flight Jacket - Clean UX",
+        "price": 201.4,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=967980108487&mi_id=0000_QrGA22Fp0sSbVswsi2QvQSrFqqxfMFik0inLB00iEY&ns=1&priceTId=2147883417629156383048087e0e5f&skuId=6078757230309&spm=a21n57.1.hoverItem.12&utparam=%7B%22aplus_abtest%22%3A%22abd8903612b7b97b479ff72b9c92629d%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "FINGERCROXX Flight Jacket - Multiple Payments",
+        "price": 228.96,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=967980108487&mi_id=0000_QrGA22Fp0sSbVswsi2QvQSrFqqxfMFik0inLB00iEY&ns=1&priceTId=2147883417629156383048087e0e5f&skuId=6078757230309&spm=a21n57.1.hoverItem.12&utparam=%7B%22aplus_abtest%22%3A%22abd8903612b7b97b479ff72b9c92629d%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "FINGERCROXX Flight Jacket - Warehouse QA",
+        "price": 195.04,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=967980108487&mi_id=0000_QrGA22Fp0sSbVswsi2QvQSrFqqxfMFik0inLB00iEY&ns=1&priceTId=2147883417629156383048087e0e5f&skuId=6078757230309&spm=a21n57.1.hoverItem.12&utparam=%7B%22aplus_abtest%22%3A%22abd8903612b7b97b479ff72b9c92629d%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ],
+    "skuOptions": [
+      {
+        "name": "Size",
+        "values": [
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Brown",
+          "Khaki"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-16",
+    "slug": "american-retro-bear-embroidery-sport-sweatpants-men-casual-wide-leg-cargo-pants",
+    "title": "American Retro Bear Embroidery Sport Sweatpants Men's Casual Wide Leg Cargo Pants",
+    "brand": "Unbranded",
+    "categoryId": "cat-2",
+    "cover": "/美式复古小熊刺绣运动卫裤男春秋季潮牌宽松休闲阔腿多口袋工装裤.png",
+    "gallery": [
+      "/美式复古小熊刺绣运动卫裤男春秋季潮牌宽松休闲阔腿多口袋工装裤-2.png",
+      "/美式复古小熊刺绣运动卫裤男春秋季潮牌宽松休闲阔腿多口袋工装裤-3.png"
+    ],
+    "priceGuide": {
+      "min": 73.6,
+      "max": 89,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Sweatpants",
+      "Cargo Pants",
+      "Bear Embroidery",
+      "Retro",
+      "Wide Leg",
+      "Casual",
+      "Multi-Pocket",
+      "Workwear"
+    ],
+    "description": "American retro bear embroidery sport sweatpants, men's casual wide leg cargo pants. Features bear embroidery pattern, multiple pockets, drawstring closure, and straight-leg design. Made with 60% Cotton, 40% Polyester. Perfect for casual wear in spring and autumn.",
+    "specs": {
+      "size": "S, M, L, XL, 2XL, 3XL",
+      "color": "Black, Apricot",
+      "material": "60% Cotton, 40% Polyester"
+    },
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Retro Bear Sweatpants - Fast Delivery",
+        "price": 73.6,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=991156957775&mi_id=00005VzcmnlSY2YxF3uro5cD-MNpwXWpw8r8Kwp7RNtc5Y0&ns=1&priceTId=2147883417629157573016255e0e5f&skuId=5959425192313&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222e432c87daefad4a2e67fc69b244d09f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Retro Bear Sweatpants - App Available",
+        "price": 71.39,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=991156957775&mi_id=00005VzcmnlSY2YxF3uro5cD-MNpwXWpw8r8Kwp7RNtc5Y0&ns=1&priceTId=2147883417629157573016255e0e5f&skuId=5959425192313&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222e432c87daefad4a2e67fc69b244d09f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Retro Bear Sweatpants - Low Price Route",
+        "price": 77.28,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=991156957775&mi_id=00005VzcmnlSY2YxF3uro5cD-MNpwXWpw8r8Kwp7RNtc5Y0&ns=1&priceTId=2147883417629157573016255e0e5f&skuId=5959425192313&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222e432c87daefad4a2e67fc69b244d09f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Retro Bear Sweatpants - Clean UX",
+        "price": 69.92,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=991156957775&mi_id=00005VzcmnlSY2YxF3uro5cD-MNpwXWpw8r8Kwp7RNtc5Y0&ns=1&priceTId=2147883417629157573016255e0e5f&skuId=5959425192313&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222e432c87daefad4a2e67fc69b244d09f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Retro Bear Sweatpants - Multiple Payments",
+        "price": 79.49,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=991156957775&mi_id=00005VzcmnlSY2YxF3uro5cD-MNpwXWpw8r8Kwp7RNtc5Y0&ns=1&priceTId=2147883417629157573016255e0e5f&skuId=5959425192313&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222e432c87daefad4a2e67fc69b244d09f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Retro Bear Sweatpants - Warehouse QA",
+        "price": 67.71,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=991156957775&mi_id=00005VzcmnlSY2YxF3uro5cD-MNpwXWpw8r8Kwp7RNtc5Y0&ns=1&priceTId=2147883417629157573016255e0e5f&skuId=5959425192313&spm=a21n57.1.hoverItem.20&utparam=%7B%22aplus_abtest%22%3A%222e432c87daefad4a2e67fc69b244d09f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ],
+    "skuOptions": [
+      {
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Apricot"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-17",
+    "slug": "asaprocky-stk-necklace-hip-hop-cross-chain",
+    "title": "ASAPROCKY Aizhiheng Asen Same Style STK Necklace Hip Hop Style Small Brand Colorful Cross Chain",
+    "brand": "ASAP Rocky",
+    "categoryId": "cat-3",
+    "cover": "/ASAPROCKY艾志恒Asen同款STK项链潮流帅嘻哈风小众彩色十字架项链.png",
+    "gallery": [
+      "/ASAPROCKY艾志恒Asen同款STK项链潮流帅嘻哈风小众彩色十字架项链-2.png"
+    ],
+    "priceGuide": {
+      "min": 73.04,
+      "max": 88,
+      "currency": "CNY"
+    },
+    "tags": [
+      "ASAP Rocky",
+      "STK",
+      "Necklace",
+      "Hip Hop",
+      "Cross Chain",
+      "Accessories",
+      "Celebrity Style",
+      "Zircon"
+    ],
+    "description": "ASAPROCKY Aizhiheng Asen same style STK necklace, hip hop style small brand colorful cross chain. Features STK pendant with full diamond, available in gold and silver colors. Chain length: 50cm-60cm. Made with alloy material, zircon stones. Perfect for hip hop fashion enthusiasts. Over 900+ added to cart.",
+    "specs": {
+      "size": "50cm-60cm",
+      "color": "Gold STK Full Diamond Set (Original), Gold TSK Pendant + Twist Chain 60cm, Gold TSK Pendant + Twist Chain 50cm, Silver TSK Pendant + Twist Chain 60cm, Silver TSK Pendant + Twist Chain 50cm",
+      "material": "Alloy, Zircon"
+    },
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "ASAPROCKY STK Necklace - Fast Delivery",
+        "price": 73.04,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A1124500491%3AH%3AS2%2FC5Q5n05eseZbjMnV8mQ%3D%3D%3Ab803d8027371959bbce921f8289dc271&ali_trackid=282_b803d8027371959bbce921f8289dc271&id=928929666441&mi_id=0000q7-YTTKF2m2ZCy0AVHg45jDxwYJ1Tld9rGx3GdJZIO4&mm_sceneid=1_0_118184116_0&priceTId=2147883417629158992776108e0e5f&skuId=5980409311948&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22d89b94d5712db2a6de605372d70d249a%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "ASAPROCKY STK Necklace - App Available",
+        "price": 70.85,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A1124500491%3AH%3AS2%2FC5Q5n05eseZbjMnV8mQ%3D%3D%3Ab803d8027371959bbce921f8289dc271&ali_trackid=282_b803d8027371959bbce921f8289dc271&id=928929666441&mi_id=0000q7-YTTKF2m2ZCy0AVHg45jDxwYJ1Tld9rGx3GdJZIO4&mm_sceneid=1_0_118184116_0&priceTId=2147883417629158992776108e0e5f&skuId=5980409311948&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22d89b94d5712db2a6de605372d70d249a%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "ASAPROCKY STK Necklace - Low Price Route",
+        "price": 76.69,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A1124500491%3AH%3AS2%2FC5Q5n05eseZbjMnV8mQ%3D%3D%3Ab803d8027371959bbce921f8289dc271&ali_trackid=282_b803d8027371959bbce921f8289dc271&id=928929666441&mi_id=0000q7-YTTKF2m2ZCy0AVHg45jDxwYJ1Tld9rGx3GdJZIO4&mm_sceneid=1_0_118184116_0&priceTId=2147883417629158992776108e0e5f&skuId=5980409311948&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22d89b94d5712db2a6de605372d70d249a%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "ASAPROCKY STK Necklace - Clean UX",
+        "price": 69.39,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A1124500491%3AH%3AS2%2FC5Q5n05eseZbjMnV8mQ%3D%3D%3Ab803d8027371959bbce921f8289dc271&ali_trackid=282_b803d8027371959bbce921f8289dc271&id=928929666441&mi_id=0000q7-YTTKF2m2ZCy0AVHg45jDxwYJ1Tld9rGx3GdJZIO4&mm_sceneid=1_0_118184116_0&priceTId=2147883417629158992776108e0e5f&skuId=5980409311948&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22d89b94d5712db2a6de605372d70d249a%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "ASAPROCKY STK Necklace - Multiple Payments",
+        "price": 78.88,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A1124500491%3AH%3AS2%2FC5Q5n05eseZbjMnV8mQ%3D%3D%3Ab803d8027371959bbce921f8289dc271&ali_trackid=282_b803d8027371959bbce921f8289dc271&id=928929666441&mi_id=0000q7-YTTKF2m2ZCy0AVHg45jDxwYJ1Tld9rGx3GdJZIO4&mm_sceneid=1_0_118184116_0&priceTId=2147883417629158992776108e0e5f&skuId=5980409311948&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22d89b94d5712db2a6de605372d70d249a%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "ASAPROCKY STK Necklace - Warehouse QA",
+        "price": 67.2,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?ali_refid=a3_430582_1006%3A1124500491%3AH%3AS2%2FC5Q5n05eseZbjMnV8mQ%3D%3D%3Ab803d8027371959bbce921f8289dc271&ali_trackid=282_b803d8027371959bbce921f8289dc271&id=928929666441&mi_id=0000q7-YTTKF2m2ZCy0AVHg45jDxwYJ1Tld9rGx3GdJZIO4&mm_sceneid=1_0_118184116_0&priceTId=2147883417629158992776108e0e5f&skuId=5980409311948&spm=a21n57.1.hoverItem.1&utparam=%7B%22aplus_abtest%22%3A%22d89b94d5712db2a6de605372d70d249a%22%7D&xxc=ad_ztc",
+        "inStock": true
+      }
+    ],
+    "skuOptions": [
+      {
+        "name": "Size",
+        "values": [
+          "50cm",
+          "55cm",
+          "60cm"
+        ]
+      },
+      {
+        "name": "Color",
+        "values": [
+          "Gold STK Full Diamond Set (Original)",
+          "Gold TSK Pendant + Twist Chain 60cm",
+          "Gold TSK Pendant + Twist Chain 50cm",
+          "Silver TSK Pendant + Twist Chain 60cm",
+          "Silver TSK Pendant + Twist Chain 50cm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prod-18",
+    "slug": "ye-shu-onion-chinese-style-iphone-case-imd-double-layer",
+    "title": "Ye Shu Original Custom \"Onion\" New Chinese Style National Wind IMD Double Layer iPhone Case for iPhone 17/14/15/16 Pro Max Matte Autumn Fun Phone Case",
+    "brand": "Ye Shu",
+    "categoryId": "cat-3",
+    "cover": "/新中式国风清冷小众高级感IMD双层适用苹果磨砂iPhone秋天趣味.png",
+    "gallery": [
+      "/新中式国风清冷小众高级感IMD双层适用苹果磨砂iPhone秋天趣味-2.png"
+    ],
+    "priceGuide": {
+      "min": 37.3,
+      "max": 43.9,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Ye Shu",
+      "iPhone Case",
+      "Chinese Style",
+      "National Wind",
+      "IMD",
+      "Double Layer",
+      "Matte",
+      "Custom",
+      "Onion"
+    ],
+    "description": "Ye Shu original custom \"Onion\" new Chinese style national wind phone case. Features IMD double layer design, matte finish, suitable for iPhone 13/14/15/16/17 series. Unique autumn-themed design with elegant Chinese aesthetic. Made with acrylic material, providing excellent protection for your iPhone.",
+    "specs": {
+      "size": "iPhone 13/14/15/16/17 Series",
+      "color": "Phone Case",
+      "material": "Acrylic, IMD Technology"
+    },
+    "skuOptions": [
+      {
+        "name": "Phone Model",
+        "values": [
+          "iPhone 17 Pro Max",
+          "iPhone 17 Pro",
+          "iPhone 17",
+          "iPhone 16 Pro Max",
+          "iPhone 16 Pro",
+          "iPhone 16",
+          "iPhone 15 Pro Max",
+          "iPhone 15 Pro",
+          "iPhone 15",
+          "iPhone 14 Pro Max",
+          "iPhone 14 Pro",
+          "iPhone 14",
+          "iPhone 13 Pro Max",
+          "iPhone 13 Pro",
+          "iPhone 13"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Ye Shu Onion iPhone Case - Fast Delivery",
+        "price": 37.3,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=970495254299&mi_id=0000wY22kZvj8fgtwAWw09k5mrSGenCyj45v4qqLSKsLyF8&ns=1&priceTId=213e05e717629166004257736e10d6&skuId=6111021166543&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%2289b7092b7b0f68e83cf69d1db50e5a45%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Ye Shu Onion iPhone Case - App Available",
+        "price": 36.18,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=970495254299&mi_id=0000wY22kZvj8fgtwAWw09k5mrSGenCyj45v4qqLSKsLyF8&ns=1&priceTId=213e05e717629166004257736e10d6&skuId=6111021166543&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%2289b7092b7b0f68e83cf69d1db50e5a45%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Ye Shu Onion iPhone Case - Low Price Route",
+        "price": 39.17,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=970495254299&mi_id=0000wY22kZvj8fgtwAWw09k5mrSGenCyj45v4qqLSKsLyF8&ns=1&priceTId=213e05e717629166004257736e10d6&skuId=6111021166543&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%2289b7092b7b0f68e83cf69d1db50e5a45%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Ye Shu Onion iPhone Case - Clean UX",
+        "price": 35.44,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=970495254299&mi_id=0000wY22kZvj8fgtwAWw09k5mrSGenCyj45v4qqLSKsLyF8&ns=1&priceTId=213e05e717629166004257736e10d6&skuId=6111021166543&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%2289b7092b7b0f68e83cf69d1db50e5a45%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Ye Shu Onion iPhone Case - Multiple Payments",
+        "price": 40.28,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=970495254299&mi_id=0000wY22kZvj8fgtwAWw09k5mrSGenCyj45v4qqLSKsLyF8&ns=1&priceTId=213e05e717629166004257736e10d6&skuId=6111021166543&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%2289b7092b7b0f68e83cf69d1db50e5a45%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Ye Shu Onion iPhone Case - Warehouse QA",
+        "price": 34.32,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=970495254299&mi_id=0000wY22kZvj8fgtwAWw09k5mrSGenCyj45v4qqLSKsLyF8&ns=1&priceTId=213e05e717629166004257736e10d6&skuId=6111021166543&spm=a21n57.1.hoverItem.6&utparam=%7B%22aplus_abtest%22%3A%2289b7092b7b0f68e83cf69d1db50e5a45%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-19",
+    "slug": "yogmedi-fleming-mk870-pro-mechanical-keyboard-wireless-bluetooth-triple-mode",
+    "title": "YOGMEDI Fleming MK870 Pro Mechanical Keyboard Wireless Bluetooth Triple Mode Gaming Keyboard with RGB Backlight",
+    "brand": "YOGMEDI",
+    "categoryId": "cat-5",
+    "cover": "/腹灵MK870pro纯白侧刻机械键盘无线蓝牙三模女生办公电竞游戏静音.png",
+    "gallery": [
+      "/腹灵MK870pro纯白侧刻机械键盘无线蓝牙三模女生办公电竞游戏静音-2.png"
+    ],
+    "priceGuide": {
+      "min": 229,
+      "max": 282,
+      "currency": "CNY"
+    },
+    "tags": [
+      "YOGMEDI",
+      "Mechanical Keyboard",
+      "Wireless",
+      "Bluetooth",
+      "RGB",
+      "Gaming",
+      "87 Keys",
+      "Triple Mode"
+    ],
+    "description": "YOGMEDI Fleming MK870 Pro mechanical keyboard with wireless Bluetooth triple mode connectivity. Features RGB backlight, 87-key layout, ergonomic design, and supports Windows, Android, macOS, and iOS. Perfect for gaming and office work. Available in multiple color combinations and switch options including TTC Flame Snow V2, Moonlight, and Star Flower switches.",
+    "specs": {
+      "size": "87 Keys",
+      "color": "Multiple Options",
+      "material": "Plastic, Mechanical Switches",
+      "connection": "Wireless, Bluetooth, USB",
+      "compatibility": "Windows, Android, macOS, iOS",
+      "warranty": "1 Year"
+    },
+    "skuOptions": [
+      {
+        "name": "Color & Keycap",
+        "values": [
+          "MK870Pro White + Pure White Side Print",
+          "MK870Pro Midnight Black + Pure Black Side Print",
+          "MK870Pro White + White Contour 4.0",
+          "MK870Pro Midnight Black + Black Contour 4.0",
+          "MK870Pro Midnight Black + Spider Web",
+          "MK870Pro Midnight Black + Lightning",
+          "MK870Pro Winter Melon White + Pure White Side Print",
+          "MK870Pro Obsidian + Pure Black Side Print",
+          "MK870Pro Winter Melon White + White Contour 4.0",
+          "MK870Pro Obsidian + Black Contour 4.0",
+          "MK870Pro Obsidian + Spider Web",
+          "MK870Pro Obsidian + Lightning",
+          "[108 Key Set] MK870Pro+Pad Obsidian + Pure Black Side Print",
+          "[108 Key Set] MK870Pro+Pad Obsidian + Black Contour 4.0"
+        ]
+      },
+      {
+        "name": "Switch Type",
+        "values": [
+          "TTC Flame Snow V2 [All-Rounder - Crisp Bottom - Office & Gaming]",
+          "Regular Switch - Unlubed - Black Switch",
+          "Regular Switch - Unlubed - Blue Switch",
+          "Regular Switch - Unlubed - Red Switch",
+          "Regular Switch - Unlubed - Brown Switch",
+          "Moonlight Switch [Rebound Follow - Micro Tactile - Stone Sound]",
+          "Moonlight Switch [Light Pressure - Smooth Linear - HIFI Mahjong Sound]",
+          "Star Flower Switch [High Smoothness - High Rebound - Muted Crisp - Office Typing Preferred]"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "YOGMEDI MK870 Pro Keyboard - Fast Delivery",
+        "price": 229,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1106487645%3AH%3AwC%2Bev0UYJnI%2B9%2FWqKGhTCg%3D%3D%3Af5ea6677e8f94b16dd4f231377f37819&ali_trackid=282_f5ea6677e8f94b16dd4f231377f37819&id=743808953219&mi_id=0000CKQkzrJE69f99SrZ4XUZNA03b5PWqC3GPLP8VeH-ABE&mm_sceneid=1_0_46357125_0&priceTId=213e05e717629167604873128e10d6&skuId=6114598323977&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22c8b850143651dde08734ad973e9c683c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "YOGMEDI MK870 Pro Keyboard - App Available",
+        "price": 222.13,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1106487645%3AH%3AwC%2Bev0UYJnI%2B9%2FWqKGhTCg%3D%3D%3Af5ea6677e8f94b16dd4f231377f37819&ali_trackid=282_f5ea6677e8f94b16dd4f231377f37819&id=743808953219&mi_id=0000CKQkzrJE69f99SrZ4XUZNA03b5PWqC3GPLP8VeH-ABE&mm_sceneid=1_0_46357125_0&priceTId=213e05e717629167604873128e10d6&skuId=6114598323977&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22c8b850143651dde08734ad973e9c683c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "YOGMEDI MK870 Pro Keyboard - Low Price Route",
+        "price": 240.45,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1106487645%3AH%3AwC%2Bev0UYJnI%2B9%2FWqKGhTCg%3D%3D%3Af5ea6677e8f94b16dd4f231377f37819&ali_trackid=282_f5ea6677e8f94b16dd4f231377f37819&id=743808953219&mi_id=0000CKQkzrJE69f99SrZ4XUZNA03b5PWqC3GPLP8VeH-ABE&mm_sceneid=1_0_46357125_0&priceTId=213e05e717629167604873128e10d6&skuId=6114598323977&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22c8b850143651dde08734ad973e9c683c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "YOGMEDI MK870 Pro Keyboard - Clean UX",
+        "price": 217.55,
+        "shipFee": 20,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1106487645%3AH%3AwC%2Bev0UYJnI%2B9%2FWqKGhTCg%3D%3D%3Af5ea6677e8f94b16dd4f231377f37819&ali_trackid=282_f5ea6677e8f94b16dd4f231377f37819&id=743808953219&mi_id=0000CKQkzrJE69f99SrZ4XUZNA03b5PWqC3GPLP8VeH-ABE&mm_sceneid=1_0_46357125_0&priceTId=213e05e717629167604873128e10d6&skuId=6114598323977&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22c8b850143651dde08734ad973e9c683c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "YOGMEDI MK870 Pro Keyboard - Multiple Payments",
+        "price": 247.68,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1106487645%3AH%3AwC%2Bev0UYJnI%2B9%2FWqKGhTCg%3D%3D%3Af5ea6677e8f94b16dd4f231377f37819&ali_trackid=282_f5ea6677e8f94b16dd4f231377f37819&id=743808953219&mi_id=0000CKQkzrJE69f99SrZ4XUZNA03b5PWqC3GPLP8VeH-ABE&mm_sceneid=1_0_46357125_0&priceTId=213e05e717629167604873128e10d6&skuId=6114598323977&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22c8b850143651dde08734ad973e9c683c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "YOGMEDI MK870 Pro Keyboard - Warehouse QA",
+        "price": 211.68,
+        "shipFee": 25,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1106487645%3AH%3AwC%2Bev0UYJnI%2B9%2FWqKGhTCg%3D%3D%3Af5ea6677e8f94b16dd4f231377f37819&ali_trackid=282_f5ea6677e8f94b16dd4f231377f37819&id=743808953219&mi_id=0000CKQkzrJE69f99SrZ4XUZNA03b5PWqC3GPLP8VeH-ABE&mm_sceneid=1_0_46357125_0&priceTId=213e05e717629167604873128e10d6&skuId=6114598323977&spm=a21n57.1.hoverItem.3&utparam=%7B%22aplus_abtest%22%3A%22c8b850143651dde08734ad973e9c683c%22%7D&xxc=ad_ztc",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-20",
+    "slug": "leaplight-magsafe-magnetic-phone-stand-foldable-rotating-aluminum-tripod",
+    "title": "Leaplight MagSafe Magnetic Phone Stand Foldable Rotating Aluminum Tripod Desktop Clamp Selfie Stick Multi-Function Portable",
+    "brand": "Leaplight",
+    "categoryId": "cat-3",
+    "cover": "/Leaplight力普莱手机磁吸支架magsafe折叠旋转铝合金属夹桌面三脚架飞机高铁自拍杆多功能懒人神器迷你便携.png",
+    "gallery": [
+      "/Leaplight力普莱手机磁吸支架magsafe折叠旋转铝合金属夹桌面三脚架飞机高铁自拍杆多功能懒人神器迷你便携-2.png",
+      "/Leaplight力普莱手机磁吸支架magsafe折叠旋转铝合金属夹桌面三脚架飞机高铁自拍杆多功能懒人神器迷你便携-3.png"
+    ],
+    "priceGuide": {
+      "min": 84,
+      "max": 103,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Leaplight",
+      "Phone Stand",
+      "MagSafe",
+      "Magnetic",
+      "Foldable",
+      "Rotating",
+      "Aluminum",
+      "Tripod",
+      "Selfie Stick",
+      "Portable"
+    ],
+    "description": "Leaplight MagSafe magnetic phone stand with foldable and rotating design. Made from aluminum alloy, features desktop clamp and tripod functionality. Perfect for use on planes, trains, or as a selfie stick. Compact and portable design makes it ideal for travel and daily use.",
+    "specs": {
+      "size": "Mini Portable",
+      "color": "LMA2 Magnetic Foldable Stand",
+      "material": "Aluminum Alloy",
+      "compatibility": "MagSafe Compatible Phones",
+      "features": "Foldable, Rotating, Desktop Clamp, Tripod, Selfie Stick"
+    },
+    "skuOptions": [
+      {
+        "name": "Model",
+        "values": [
+          "LMA2 Magnetic Foldable Stand"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Leaplight MagSafe Stand - Fast Delivery",
+        "price": 84,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=845273999864&mi_id=000057QJ63cRCNuFe5SKAnbDi1w3GwSdCxPKfgBrl0YVdtE&ns=1&priceTId=213e05e717629168915905920e10d6&skuId=5626958961669&spm=a21n57.1.hoverItem.40&utparam=%7B%22aplus_abtest%22%3A%22ec35fab65654d1eaa497ba46f4bb13ac%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Leaplight MagSafe Stand - App Available",
+        "price": 81.48,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=845273999864&mi_id=000057QJ63cRCNuFe5SKAnbDi1w3GwSdCxPKfgBrl0YVdtE&ns=1&priceTId=213e05e717629168915905920e10d6&skuId=5626958961669&spm=a21n57.1.hoverItem.40&utparam=%7B%22aplus_abtest%22%3A%22ec35fab65654d1eaa497ba46f4bb13ac%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Leaplight MagSafe Stand - Low Price Route",
+        "price": 88.2,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=845273999864&mi_id=000057QJ63cRCNuFe5SKAnbDi1w3GwSdCxPKfgBrl0YVdtE&ns=1&priceTId=213e05e717629168915905920e10d6&skuId=5626958961669&spm=a21n57.1.hoverItem.40&utparam=%7B%22aplus_abtest%22%3A%22ec35fab65654d1eaa497ba46f4bb13ac%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Leaplight MagSafe Stand - Clean UX",
+        "price": 79.8,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=845273999864&mi_id=000057QJ63cRCNuFe5SKAnbDi1w3GwSdCxPKfgBrl0YVdtE&ns=1&priceTId=213e05e717629168915905920e10d6&skuId=5626958961669&spm=a21n57.1.hoverItem.40&utparam=%7B%22aplus_abtest%22%3A%22ec35fab65654d1eaa497ba46f4bb13ac%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Leaplight MagSafe Stand - Multiple Payments",
+        "price": 90.72,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=845273999864&mi_id=000057QJ63cRCNuFe5SKAnbDi1w3GwSdCxPKfgBrl0YVdtE&ns=1&priceTId=213e05e717629168915905920e10d6&skuId=5626958961669&spm=a21n57.1.hoverItem.40&utparam=%7B%22aplus_abtest%22%3A%22ec35fab65654d1eaa497ba46f4bb13ac%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Leaplight MagSafe Stand - Warehouse QA",
+        "price": 77.28,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=845273999864&mi_id=000057QJ63cRCNuFe5SKAnbDi1w3GwSdCxPKfgBrl0YVdtE&ns=1&priceTId=213e05e717629168915905920e10d6&skuId=5626958961669&spm=a21n57.1.hoverItem.40&utparam=%7B%22aplus_abtest%22%3A%22ec35fab65654d1eaa497ba46f4bb13ac%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-21",
+    "slug": "cobra-tactical-belt-mens-nylon-canvas-belt-extended-buckle",
+    "title": "Cobra Tactical Belt Men's Nylon Canvas Belt Extended Strap Fashion Versatile Belt with Hook Buckle",
+    "brand": "Canvas",
+    "categoryId": "cat-3",
+    "cover": "/眼镜蛇战术腰带裤带男加长皮带男潮百搭尼龙腰带男士皮带帆布腰带-1.png",
+    "gallery": [
+      "/眼镜蛇战术腰带裤带男加长皮带男潮百搭尼龙腰带男士皮带帆布腰带-2.png",
+      "/眼镜蛇战术腰带裤带男加长皮带男潮百搭尼龙腰带男士皮带帆布腰带-3.png"
+    ],
+    "priceGuide": {
+      "min": 7.93,
+      "max": 9.9,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Tactical Belt",
+      "Nylon",
+      "Canvas",
+      "Cobra",
+      "Hook Buckle",
+      "Extended",
+      "Versatile",
+      "Men's Belt"
+    ],
+    "description": "Cobra tactical belt made from durable nylon canvas material. Features hook buckle design, extended length for adjustable fit, and versatile style suitable for daily wear. Available in multiple colors. Perfect for casual and tactical use.",
+    "specs": {
+      "size": "Extended Length",
+      "color": "Black, Khaki, Army Green",
+      "material": "Nylon Canvas",
+      "width": "3.8cm",
+      "buckle": "Alloy Hook",
+      "style": "Tactical",
+      "gender": "Unisex"
+    },
+    "skuOptions": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Khaki",
+          "Army Green"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Cobra Tactical Belt - Fast Delivery",
+        "price": 7.93,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=695184042123&mi_id=0000woil8HYHMcawuARDTtiRbQLnHQ-KTkl_dGfCO4FsoVE&ns=1&priceTId=213e05e717629170233277502e10d6&skuId=4937717084108&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22faa5b2ea004558866eb8db71594d6912%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Cobra Tactical Belt - App Available",
+        "price": 7.69,
+        "shipFee": 5,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=695184042123&mi_id=0000woil8HYHMcawuARDTtiRbQLnHQ-KTkl_dGfCO4FsoVE&ns=1&priceTId=213e05e717629170233277502e10d6&skuId=4937717084108&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22faa5b2ea004558866eb8db71594d6912%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Cobra Tactical Belt - Low Price Route",
+        "price": 8.33,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=695184042123&mi_id=0000woil8HYHMcawuARDTtiRbQLnHQ-KTkl_dGfCO4FsoVE&ns=1&priceTId=213e05e717629170233277502e10d6&skuId=4937717084108&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22faa5b2ea004558866eb8db71594d6912%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Cobra Tactical Belt - Clean UX",
+        "price": 7.54,
+        "shipFee": 8,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=695184042123&mi_id=0000woil8HYHMcawuARDTtiRbQLnHQ-KTkl_dGfCO4FsoVE&ns=1&priceTId=213e05e717629170233277502e10d6&skuId=4937717084108&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22faa5b2ea004558866eb8db71594d6912%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Cobra Tactical Belt - Multiple Payments",
+        "price": 8.58,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=695184042123&mi_id=0000woil8HYHMcawuARDTtiRbQLnHQ-KTkl_dGfCO4FsoVE&ns=1&priceTId=213e05e717629170233277502e10d6&skuId=4937717084108&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22faa5b2ea004558866eb8db71594d6912%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Cobra Tactical Belt - Warehouse QA",
+        "price": 7.32,
+        "shipFee": 10,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=695184042123&mi_id=0000woil8HYHMcawuARDTtiRbQLnHQ-KTkl_dGfCO4FsoVE&ns=1&priceTId=213e05e717629170233277502e10d6&skuId=4937717084108&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22faa5b2ea004558866eb8db71594d6912%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-22",
+    "slug": "kitchen-tools-set-5-piece-peeler-fruit-knife-bottle-opener-whisk-scraper-scissors",
+    "title": "Kitchen Tools Set 5-Piece Home Peeler Fruit Knife Bottle Opener Whisk Scraper Scissors Combo",
+    "brand": "Home Essentials",
+    "categoryId": "cat-3",
+    "cover": "/厨房小工具套装家用削皮水果刀开瓶器打蛋器刮皮刀剪刀组合五件套-1.png",
+    "gallery": [
+      "/厨房小工具套装家用削皮水果刀开瓶器打蛋器刮皮刀剪刀组合五件套-2.png",
+      "/厨房小工具套装家用削皮水果刀开瓶器打蛋器刮皮刀剪刀组合五件套-3.png"
+    ],
+    "priceGuide": {
+      "min": 33.87,
+      "max": 46.95,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Kitchen Tools",
+      "5-Piece Set",
+      "Peeler",
+      "Fruit Knife",
+      "Bottle Opener",
+      "Whisk",
+      "Scraper",
+      "Scissors",
+      "Home Essentials"
+    ],
+    "description": "Complete 5-piece kitchen tools set including peeler, fruit knife, bottle opener, whisk, scraper, and scissors. Perfect for daily kitchen tasks. Made from quality materials with elegant design. Available in Cherry and Happy Home styles.",
+    "specs": {
+      "size": "5-Piece Set",
+      "color": "Cherry, Happy Home",
+      "material": "Stainless Steel, Plastic",
+      "pieces": "5",
+      "includes": "Peeler, Fruit Knife, Bottle Opener, Whisk, Scraper, Scissors"
+    },
+    "skuOptions": [
+      {
+        "name": "Style",
+        "values": [
+          "Cherry - Kitchen Tools Set [5-Piece]",
+          "Happy Home - Kitchen Tools Set [5-Piece]"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Kitchen Tools Set - Fast Delivery",
+        "price": 33.87,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=987698460388&mi_id=0000wy5b3-ekq7tXvEyDKMsnuPM0G8SWCcDK8-slFfB0yZI&ns=1&priceTId=213e05e717629171449537788e10d6&skuId=6116201567056&spm=a21n57.1.hoverItem.30&utparam=%7B%22aplus_abtest%22%3A%22d01d3cb6691dc56b13e4d5f81e432e8f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Kitchen Tools Set - App Available",
+        "price": 32.85,
+        "shipFee": 8,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=987698460388&mi_id=0000wy5b3-ekq7tXvEyDKMsnuPM0G8SWCcDK8-slFfB0yZI&ns=1&priceTId=213e05e717629171449537788e10d6&skuId=6116201567056&spm=a21n57.1.hoverItem.30&utparam=%7B%22aplus_abtest%22%3A%22d01d3cb6691dc56b13e4d5f81e432e8f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Kitchen Tools Set - Low Price Route",
+        "price": 35.55,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=987698460388&mi_id=0000wy5b3-ekq7tXvEyDKMsnuPM0G8SWCcDK8-slFfB0yZI&ns=1&priceTId=213e05e717629171449537788e10d6&skuId=6116201567056&spm=a21n57.1.hoverItem.30&utparam=%7B%22aplus_abtest%22%3A%22d01d3cb6691dc56b13e4d5f81e432e8f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Kitchen Tools Set - Clean UX",
+        "price": 32.18,
+        "shipFee": 12,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=987698460388&mi_id=0000wy5b3-ekq7tXvEyDKMsnuPM0G8SWCcDK8-slFfB0yZI&ns=1&priceTId=213e05e717629171449537788e10d6&skuId=6116201567056&spm=a21n57.1.hoverItem.30&utparam=%7B%22aplus_abtest%22%3A%22d01d3cb6691dc56b13e4d5f81e432e8f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Kitchen Tools Set - Multiple Payments",
+        "price": 36.48,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=987698460388&mi_id=0000wy5b3-ekq7tXvEyDKMsnuPM0G8SWCcDK8-slFfB0yZI&ns=1&priceTId=213e05e717629171449537788e10d6&skuId=6116201567056&spm=a21n57.1.hoverItem.30&utparam=%7B%22aplus_abtest%22%3A%22d01d3cb6691dc56b13e4d5f81e432e8f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Kitchen Tools Set - Warehouse QA",
+        "price": 31.48,
+        "shipFee": 15,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?abbucket=11&id=987698460388&mi_id=0000wy5b3-ekq7tXvEyDKMsnuPM0G8SWCcDK8-slFfB0yZI&ns=1&priceTId=213e05e717629171449537788e10d6&skuId=6116201567056&spm=a21n57.1.hoverItem.30&utparam=%7B%22aplus_abtest%22%3A%22d01d3cb6691dc56b13e4d5f81e432e8f%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-23",
+    "slug": "dog-toy-swaying-treat-ball-puzzle-interactive-pet-toy-cat-toy",
+    "title": "Dog Toy Swaying Treat Ball Puzzle Interactive Pet Toy for Dogs and Cats Self-Entertainment Shaking Treat Dispenser",
+    "brand": "Pet Toys",
+    "categoryId": "cat-3",
+    "cover": "/狗狗玩具摇摆漏食球益智比熊边牧自嗨解闷摇晃益智漏食器猫咪玩具.png",
+    "gallery": [
+      "/狗狗玩具摇摆漏食球益智比熊边牧自嗨解闷摇晃益智漏食器猫咪玩具-2.png"
+    ],
+    "priceGuide": {
+      "min": 7.65,
+      "max": 7.8,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Pet Toy",
+      "Dog Toy",
+      "Cat Toy",
+      "Treat Ball",
+      "Puzzle",
+      "Interactive",
+      "Swaying",
+      "Treat Dispenser"
+    ],
+    "description": "Interactive swaying treat ball puzzle toy for dogs and cats. Features shaking motion to dispense treats, stimulating pets' interest and providing mental exercise. Perfect for keeping pets entertained and engaged. Available in multiple color options and combo sets with additional toys.",
+    "specs": {
+      "size": "Standard",
+      "color": "Blue, Pink",
+      "material": "Plastic",
+      "type": "Treat Dispenser, Puzzle Toy",
+      "suitable": "Dogs, Cats"
+    },
+    "skuOptions": [
+      {
+        "name": "Color & Combo",
+        "values": [
+          "Blue [Swaying Treat Ball - Stimulate Interest]",
+          "Pink [Swaying Treat Ball - Stimulate Interest]",
+          "Blue Puzzle + Beef Treats 100g",
+          "Pink Puzzle + Beef Treats 100g",
+          "Beef Treats 100g",
+          "Blue Puzzle + Single Ear Ball",
+          "Pink Puzzle + Single Ear Ball",
+          "Blue Puzzle + Rope Knot Slipper",
+          "Pink Puzzle + Rope Knot Slipper",
+          "Blue Puzzle + Bone + Dental Spike Ball",
+          "Pink Puzzle + Bone + Dental Spike Ball"
+        ]
+      }
+    ],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Dog Treat Ball Toy - Fast Delivery",
+        "price": 7.65,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=921468338905&mi_id=0000lBEORfWvXrFViZ2kKeexnWFDu9ky_GmHhRoxDhsPHAQ&ns=1&priceTId=213e09bf17629173883741536e0e43&skuId=5964171079972&spm=a21n57.1.hoverItem.23&utparam=%7B%22aplus_abtest%22%3A%2299f22a0c67d65b5afa7d2663f4b93602%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Dog Treat Ball Toy - App Available",
+        "price": 7.42,
+        "shipFee": 5,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=921468338905&mi_id=0000lBEORfWvXrFViZ2kKeexnWFDu9ky_GmHhRoxDhsPHAQ&ns=1&priceTId=213e09bf17629173883741536e0e43&skuId=5964171079972&spm=a21n57.1.hoverItem.23&utparam=%7B%22aplus_abtest%22%3A%2299f22a0c67d65b5afa7d2663f4b93602%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Dog Treat Ball Toy - Low Price Route",
+        "price": 8.03,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=921468338905&mi_id=0000lBEORfWvXrFViZ2kKeexnWFDu9ky_GmHhRoxDhsPHAQ&ns=1&priceTId=213e09bf17629173883741536e0e43&skuId=5964171079972&spm=a21n57.1.hoverItem.23&utparam=%7B%22aplus_abtest%22%3A%2299f22a0c67d65b5afa7d2663f4b93602%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Dog Treat Ball Toy - Clean UX",
+        "price": 7.27,
+        "shipFee": 8,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=921468338905&mi_id=0000lBEORfWvXrFViZ2kKeexnWFDu9ky_GmHhRoxDhsPHAQ&ns=1&priceTId=213e09bf17629173883741536e0e43&skuId=5964171079972&spm=a21n57.1.hoverItem.23&utparam=%7B%22aplus_abtest%22%3A%2299f22a0c67d65b5afa7d2663f4b93602%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Dog Treat Ball Toy - Multiple Payments",
+        "price": 8.24,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=921468338905&mi_id=0000lBEORfWvXrFViZ2kKeexnWFDu9ky_GmHhRoxDhsPHAQ&ns=1&priceTId=213e09bf17629173883741536e0e43&skuId=5964171079972&spm=a21n57.1.hoverItem.23&utparam=%7B%22aplus_abtest%22%3A%2299f22a0c67d65b5afa7d2663f4b93602%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Dog Treat Ball Toy - Warehouse QA",
+        "price": 7.06,
+        "shipFee": 10,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://item.taobao.com/item.htm?abbucket=11&id=921468338905&mi_id=0000lBEORfWvXrFViZ2kKeexnWFDu9ky_GmHhRoxDhsPHAQ&ns=1&priceTId=213e09bf17629173883741536e0e43&skuId=5964171079972&spm=a21n57.1.hoverItem.23&utparam=%7B%22aplus_abtest%22%3A%2299f22a0c67d65b5afa7d2663f4b93602%22%7D&xxc=taobaoSearch",
+        "inStock": true
+      }
+    ]
+  },
+  {
+    "id": "prod-24",
+    "slug": "keychron-pbt-dye-sublimation-keycap-set-oem-height-low-profile-mechanical-keyboard",
+    "title": "Keychron PBT Dye Sublimation Keycap Set OEM Height Low Profile ABS Backlit Mechanical Keyboard Replacement Full Set",
+    "brand": "Keychron",
+    "categoryId": "cat-5",
+    "cover": "/Keychron PBT热升华键帽OEM高度矮轴ABS透光机械键盘增补小全套.png",
+    "gallery": [],
+    "priceGuide": {
+      "min": 81.34,
+      "max": 98,
+      "currency": "CNY"
+    },
+    "tags": [
+      "Keychron",
+      "PBT Keycaps",
+      "Dye Sublimation",
+      "OEM Height",
+      "Low Profile",
+      "ABS",
+      "Backlit",
+      "Mechanical Keyboard",
+      "Replacement"
+    ],
+    "description": "Keychron PBT dye sublimation keycap set with OEM height profile. Compatible with low profile mechanical keyboards. Features ABS backlit material for enhanced visibility. Complete replacement set for mechanical keyboards with high-quality PBT material and durable dye sublimation printing.",
+    "specs": {
+      "size": "Full Set",
+      "color": "Various",
+      "material": "PBT, ABS",
+      "height": "OEM Height",
+      "profile": "Low Profile",
+      "compatibility": "Low Profile Mechanical Keyboards",
+      "printing": "Dye Sublimation"
+    },
+    "skuOptions": [],
+    "createdAt": "2024-12-21T00:00:00Z",
+    "offers": [
+      {
+        "agentId": "kakobuy",
+        "title": "Keychron PBT Keycaps - Fast Delivery",
+        "price": 81.34,
+        "shipFee": 0,
+        "estDays": 5,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1329700094%3AN%3A9Q6dFxV1gl7ybWO3eOFKlLb%2BDLHI60Ye%3A12b4c29da383da33e1d5a8ceb9a19bd9&ali_trackid=1_12b4c29da383da33e1d5a8ceb9a19bd9&id=717885528180&mi_id=0000bkCOGp4Ronbsp11FvpLSfMeUC0PGykYLkg3-hWf77bg&mm_sceneid=1_0_1299980157_0&priceTId=213e09bf17629174954091192e0e43&skuId=5007968296057&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22e06962db055ec3a706f4a17ca79388ff%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "mulebuy",
+        "title": "Keychron PBT Keycaps - App Available",
+        "price": 78.9,
+        "shipFee": 10,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1329700094%3AN%3A9Q6dFxV1gl7ybWO3eOFKlLb%2BDLHI60Ye%3A12b4c29da383da33e1d5a8ceb9a19bd9&ali_trackid=1_12b4c29da383da33e1d5a8ceb9a19bd9&id=717885528180&mi_id=0000bkCOGp4Ronbsp11FvpLSfMeUC0PGykYLkg3-hWf77bg&mm_sceneid=1_0_1299980157_0&priceTId=213e09bf17629174954091192e0e43&skuId=5007968296057&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22e06962db055ec3a706f4a17ca79388ff%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "hipobuy",
+        "title": "Keychron PBT Keycaps - Low Price Route",
+        "price": 85.41,
+        "shipFee": 0,
+        "estDays": 7,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1329700094%3AN%3A9Q6dFxV1gl7ybWO3eOFKlLb%2BDLHI60Ye%3A12b4c29da383da33e1d5a8ceb9a19bd9&ali_trackid=1_12b4c29da383da33e1d5a8ceb9a19bd9&id=717885528180&mi_id=0000bkCOGp4Ronbsp11FvpLSfMeUC0PGykYLkg3-hWf77bg&mm_sceneid=1_0_1299980157_0&priceTId=213e09bf17629174954091192e0e43&skuId=5007968296057&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22e06962db055ec3a706f4a17ca79388ff%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "rizzitgo",
+        "title": "Keychron PBT Keycaps - Clean UX",
+        "price": 77.27,
+        "shipFee": 15,
+        "estDays": 6,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1329700094%3AN%3A9Q6dFxV1gl7ybWO3eOFKlLb%2BDLHI60Ye%3A12b4c29da383da33e1d5a8ceb9a19bd9&ali_trackid=1_12b4c29da383da33e1d5a8ceb9a19bd9&id=717885528180&mi_id=0000bkCOGp4Ronbsp11FvpLSfMeUC0PGykYLkg3-hWf77bg&mm_sceneid=1_0_1299980157_0&priceTId=213e09bf17629174954091192e0e43&skuId=5007968296057&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22e06962db055ec3a706f4a17ca79388ff%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "eastmallbuy",
+        "title": "Keychron PBT Keycaps - Multiple Payments",
+        "price": 88.14,
+        "shipFee": 0,
+        "estDays": 8,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1329700094%3AN%3A9Q6dFxV1gl7ybWO3eOFKlLb%2BDLHI60Ye%3A12b4c29da383da33e1d5a8ceb9a19bd9&ali_trackid=1_12b4c29da383da33e1d5a8ceb9a19bd9&id=717885528180&mi_id=0000bkCOGp4Ronbsp11FvpLSfMeUC0PGykYLkg3-hWf77bg&mm_sceneid=1_0_1299980157_0&priceTId=213e09bf17629174954091192e0e43&skuId=5007968296057&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22e06962db055ec3a706f4a17ca79388ff%22%7D&xxc=ad_ztc",
+        "inStock": true
+      },
+      {
+        "agentId": "tigbuy",
+        "title": "Keychron PBT Keycaps - Warehouse QA",
+        "price": 75.65,
+        "shipFee": 20,
+        "estDays": 9,
+        "currency": "CNY",
+        "link": "https://detail.tmall.com/item.htm?ali_refid=a3_420434_1006%3A1329700094%3AN%3A9Q6dFxV1gl7ybWO3eOFKlLb%2BDLHI60Ye%3A12b4c29da383da33e1d5a8ceb9a19bd9&ali_trackid=1_12b4c29da383da33e1d5a8ceb9a19bd9&id=717885528180&mi_id=0000bkCOGp4Ronbsp11FvpLSfMeUC0PGykYLkg3-hWf77bg&mm_sceneid=1_0_1299980157_0&priceTId=213e09bf17629174954091192e0e43&skuId=5007968296057&spm=a21n57.1.hoverItem.2&utparam=%7B%22aplus_abtest%22%3A%22e06962db055ec3a706f4a17ca79388ff%22%7D&xxc=ad_ztc",
+        "inStock": true
+      }
     ]
   }
 ]
-

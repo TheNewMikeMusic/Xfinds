@@ -1,88 +1,214 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Category, Product } from '@/lib/data'
+import { useState } from 'react'
 
 interface CategoryGridProps {
-  categories: { key: string; name: string }[]
+  categories: Array<Category & { productCount: number; sampleProducts: Product[] }>
+  locale: string
 }
 
-export function CategoryGrid({ categories }: CategoryGridProps) {
-  const [mounted, setMounted] = useState(false)
+export function CategoryGrid({ categories, locale }: CategoryGridProps) {
   const shouldReduceMotion = useReducedMotion()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: mounted && !shouldReduceMotion ? 0.08 : 0,
+        staggerChildren: !shouldReduceMotion ? 0.1 : 0,
       },
     },
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, scale: 0.85, y: 30 },
     visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
-      transition: { duration: mounted && !shouldReduceMotion ? 0.4 : 0, ease: 'easeOut' },
+      transition: { 
+        duration: !shouldReduceMotion ? 0.6 : 0, 
+        ease: [0.34, 1.56, 0.64, 1],
+        type: "spring",
+        stiffness: 100,
+      },
     },
-  }
-
-  if (!mounted) {
-    return (
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {categories.map((category) => (
-          <button
-            key={category.key}
-            type="button"
-            aria-label={category.name}
-            className="glass-card relative cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-lg font-semibold text-white focus-ring"
-          >
-            <span className="relative block bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 bg-clip-text text-transparent">
-              {category.name}
-            </span>
-          </button>
-        ))}
-      </div>
-    )
   }
 
   return (
     <motion.div
-      className="grid grid-cols-2 gap-4 md:grid-cols-4"
+      className="flex flex-wrap justify-center gap-3 max-w-6xl mx-auto sm:gap-4 md:gap-5"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
-      {categories.map((category) => (
-        <motion.button
-          key={category.key}
+      {categories.map((category, index) => (
+        <motion.div
+          key={category.id}
           variants={cardVariants}
-          type="button"
-          aria-label={category.name}
-          className="glass-card relative cursor-pointer rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-lg font-semibold text-white transition-transform duration-500 will-change-transform focus-ring"
-          whileHover={
-            mounted && !shouldReduceMotion
-              ? {
-                  rotateX: -4,
-                  rotateY: 4,
-                  translateY: -8,
-                }
-              : undefined
-          }
-          style={{ transformStyle: 'preserve-3d' }}
+          className="w-full sm:w-[calc(50%-0.75rem)] md:w-[220px] lg:w-[240px]"
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
         >
-          <span className="relative block bg-gradient-to-r from-sky-200 via-blue-300 to-violet-300 bg-clip-text text-transparent">
-            {category.name}
-          </span>
-          <span className="pointer-events-none absolute inset-x-8 -top-1 h-12 rounded-full bg-gradient-to-r from-sky-300/25 to-violet-300/20 blur-3xl" />
-        </motion.button>
+          <Link
+            href={`/${locale}/search?cat=${category.id}`}
+            className="group relative block overflow-hidden rounded-3xl focus-ring touch-manipulation active:scale-[0.98]"
+          >
+            {/* Liquid Glass Background */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]" />
+            
+            {/* Animated Glass Reflection */}
+            <motion.div
+              className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100"
+              animate={{
+                backgroundPosition: hoveredIndex === index ? ['0% 0%', '100% 100%'] : '0% 0%',
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut',
+              }}
+            />
+
+            {/* Left/Right Product Images with Zoom & Crop */}
+            {category.sampleProducts.length > 0 && (
+              <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl">
+                <div className="grid grid-cols-2 h-full gap-px">
+                  {category.sampleProducts.slice(0, 2).map((product, idx) => (
+                    <motion.div
+                      key={product.id}
+                      className="relative overflow-hidden bg-gradient-to-br from-gray-800/30 to-gray-900/50"
+                      whileHover={hoveredIndex === index ? {
+                        scale: 1.05,
+                        transition: { duration: 0.4, ease: 'easeOut' }
+                      } : {}}
+                    >
+                      {product.cover && (
+                        <>
+                          <Image
+                            src={product.cover}
+                            alt=""
+                            fill
+                            className="object-cover transition-all duration-700 group-hover:scale-125 group-hover:brightness-110"
+                            sizes="(max-width: 640px) 50vw, 240px"
+                          />
+                          
+                          {/* Liquid Glass Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          
+                          {/* Animated Shine Sweep */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                            initial={{ x: '-100%' }}
+                            animate={hoveredIndex === index ? {
+                              x: ['-100%', '200%'],
+                            } : { x: '-100%' }}
+                            transition={{
+                              duration: 1.5,
+                              repeat: Infinity,
+                              repeatDelay: 2,
+                              ease: 'easeInOut',
+                            }}
+                          />
+                        </>
+                      )}
+                      
+                      {/* Glass Border Glow */}
+                      <div className={`absolute top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/60 to-transparent ${idx === 0 ? 'right-0' : 'left-0'} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]`} />
+                    </motion.div>
+                  ))}
+                </div>
+                
+                {/* Floating Glass Particles Effect */}
+                {hoveredIndex === index && (
+                  <>
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 rounded-full bg-white/60 blur-[2px]"
+                        initial={{
+                          x: `${20 + i * 15}%`,
+                          y: '100%',
+                          opacity: 0,
+                        }}
+                        animate={{
+                          y: '-20%',
+                          opacity: [0, 1, 0],
+                          scale: [0, 1.5, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: i * 0.3,
+                          ease: 'easeOut',
+                        }}
+                      />
+                    ))}
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* Category Info with Liquid Glass Effect */}
+            <div className="relative p-4 text-center bg-gradient-to-t from-black/60 via-black/40 to-transparent backdrop-blur-sm rounded-b-3xl">
+              {/* Glass Refraction Lines */}
+              <div className="absolute inset-0 rounded-b-3xl bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <motion.h3
+                className="text-sm font-bold text-white relative z-10"
+                animate={hoveredIndex === index ? {
+                  background: 'linear-gradient(135deg, #67e8f9, #3b82f6, #a855f7)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                } : {
+                  color: '#ffffff',
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {category.name}
+              </motion.h3>
+            </div>
+
+            {/* Liquid Glass Edge Highlights */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            {/* Floating Glow Orbs */}
+            <motion.div
+              className="absolute top-3 right-3 w-3 h-3 rounded-full bg-cyan-400/0 blur-md"
+              animate={hoveredIndex === index ? {
+                backgroundColor: 'rgba(103, 232, 249, 0.4)',
+                scale: [1, 1.5, 1],
+                opacity: [0.4, 0.8, 0.4],
+              } : {
+                backgroundColor: 'rgba(103, 232, 249, 0)',
+                scale: 1,
+                opacity: 0,
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-purple-400/0 blur-md"
+              animate={hoveredIndex === index ? {
+                backgroundColor: 'rgba(168, 85, 247, 0.4)',
+                scale: [1, 1.5, 1],
+                opacity: [0.4, 0.8, 0.4],
+              } : {
+                backgroundColor: 'rgba(168, 85, 247, 0)',
+                scale: 1,
+                opacity: 0,
+              }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+            />
+          </Link>
+        </motion.div>
       ))}
     </motion.div>
   )

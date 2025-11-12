@@ -37,6 +37,11 @@ export interface ProductOffer {
   inStock: boolean
 }
 
+export interface ProductSKUOption {
+  name: string // e.g., "Color", "Size"
+  values: string[] // e.g., ["Black", "White", "Red"]
+}
+
 export interface Product {
   id: string
   slug: string
@@ -53,10 +58,9 @@ export interface Product {
   tags: string[]
   description?: string
   specs: {
-    size?: string
-    color?: string
-    material?: string
+    [key: string]: string | undefined
   }
+  skuOptions?: ProductSKUOption[] // Optional SKU options like color, size
   createdAt: string
   offers: ProductOffer[]
 }
@@ -67,13 +71,74 @@ export function readAgents(): Agent[] {
   return JSON.parse(fileContents)
 }
 
-let agentsCache: Agent[] | null = null
+// Cache with TTL (Time To Live)
+interface CacheEntry<T> {
+  data: T
+  timestamp: number
+  ttl: number
+}
+
+let agentsCache: CacheEntry<Agent[]> | null = null
+let categoriesCache: CacheEntry<Category[]> | null = null
+let productsCache: CacheEntry<Product[]> | null = null
+
+const CACHE_TTL = 5 * 60 * 1000 // 5 minutes
+
+function isCacheValid<T>(cache: CacheEntry<T> | null): boolean {
+  if (!cache) return false
+  return Date.now() - cache.timestamp < cache.ttl
+}
+
+function getCachedData<T>(
+  cache: CacheEntry<T> | null,
+  fetcher: () => T,
+  ttl: number = CACHE_TTL
+): T {
+  if (isCacheValid(cache)) {
+    return cache!.data
+  }
+  const data = fetcher()
+  return data
+}
 
 export function getAgents(): Agent[] {
-  if (!agentsCache) {
-    agentsCache = readAgents()
+  if (!isCacheValid(agentsCache)) {
+    agentsCache = {
+      data: readAgents(),
+      timestamp: Date.now(),
+      ttl: CACHE_TTL,
+    }
   }
-  return agentsCache
+  return agentsCache!.data
+}
+
+export function getCategories(): Category[] {
+  if (!isCacheValid(categoriesCache)) {
+    categoriesCache = {
+      data: readCategories(),
+      timestamp: Date.now(),
+      ttl: CACHE_TTL,
+    }
+  }
+  return categoriesCache!.data
+}
+
+export function getProducts(): Product[] {
+  if (!isCacheValid(productsCache)) {
+    productsCache = {
+      data: readProducts(),
+      timestamp: Date.now(),
+      ttl: CACHE_TTL,
+    }
+  }
+  return productsCache!.data
+}
+
+// Invalidate cache when data is modified
+export function invalidateCache(): void {
+  agentsCache = null
+  categoriesCache = null
+  productsCache = null
 }
 
 export function readCategories(): Category[] {
@@ -89,25 +154,61 @@ export function readProducts(): Product[] {
 }
 
 export function getProductBySlug(slug: string): Product | null {
-  const products = readProducts()
+  const products = getProducts()
   return products.find((p) => p.slug === slug) || null
 }
 
+export function getProductById(id: string): Product | null {
+  const products = getProducts()
+  return products.find((p) => p.id === id) || null
+}
+
 export function getAgentById(id: string): Agent | null {
-  const agents = readAgents()
+  const agents = getAgents()
   return agents.find((a) => a.id === id) || null
 }
 
 export function getCategoryById(id: string): Category | null {
-  const categories = readCategories()
+  const categories = getCategories()
   return categories.find((c) => c.id === id) || null
 }
 
 export function getFeaturedProducts(limit: number = 6): Product[] {
-  const products = readProducts()
+  const products = getProducts()
   return products
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .slice(0, limit)
+}
+
+export function getProductsByCategory(categoryId: string, limit: number = 3): Product[] {
+  const products = getProducts()
+  return products
+    .filter((p) => p.categoryId === categoryId)
+    .filter((p) => p.cover && !p.cover.includes('/images/products/') && !p.cover.includes('example.com'))
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    .slice(0, limit)
+}
+
+export function getCategoriesWithProducts(): Array<Category & { productCount: number; sampleProducts: Product[] }> {
+  const categories = getCategories()
+  const products = getProducts()
+  const validProducts = products.filter((p) => p.cover && !p.cover.includes('/images/products/') && !p.cover.includes('example.com'))
+  
+  return categories
+    .map((category) => {
+      const categoryProducts = validProducts.filter((p) => p.categoryId === category.id)
+      // Prefer products with clean backgrounds (prioritize newer products, but try to get variety)
+      const sortedProducts = categoryProducts
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      
+      return {
+        ...category,
+        productCount: categoryProducts.length,
+        sampleProducts: sortedProducts.slice(0, 2), // Only need 2 products for left/right layout
+      }
+    })
+    .filter((cat) => cat.productCount > 0)
+    .sort((a, b) => b.productCount - a.productCount)
 }
 
 // Development-only write functions
@@ -120,6 +221,8 @@ export function writeProduct(product: Product): void {
   const products = readProducts()
   products.push(product)
   writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8')
+  // Invalidate cache after write
+  invalidateCache()
 }
 
 export function writeProducts(products: Product[]): void {
@@ -129,5 +232,7 @@ export function writeProducts(products: Product[]): void {
 
   const filePath = join(DATA_DIR, 'products.json')
   writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8')
+  // Invalidate cache after write
+  invalidateCache()
 }
 

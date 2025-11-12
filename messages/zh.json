@@ -54,7 +54,11 @@
     "selectCategory": "选择分类",
     "selectAgent": "选择代理",
     "all": "全部",
-    "offers": "{count} 个报价"
+    "offers": "{count} 个报价",
+    "remove": "移除",
+    "noImage": "无图片",
+    "bestFrom": "最佳报价来自 {agent}",
+    "viewOnAgent": "在 {agent} 查看"
   },
   "product": {
     "specs": "规格",
@@ -64,12 +68,15 @@
     "offers": "代理报价",
     "price": "价格",
     "shipping": "运费",
+    "viewShippingDetails": "查看运费明细",
     "estimatedDays": "预计天数",
     "total": "总计",
     "inStock": "有货",
     "outOfStock": "缺货",
     "addToCompare": "添加到比较",
     "addToCart": "加入购物车",
+    "addToList": "加入购物车",
+    "buyOnAgent": "在{agent}购买",
     "viewOnAgent": "在代理网站查看",
     "copyLink": "复制链接",
     "days": "天",
@@ -81,16 +88,84 @@
     "priceMaxLabel": "最高报价",
     "offerCountLabel": "共有 {count} 个实时报价",
     "viewCategory": "查看该分类更多商品",
-    "tagsTitle": "热门标签"
+    "viewSource": "访问产品来源",
+    "noSourceAvailable": "来源链接不可用",
+    "selectOptions": "选择选项",
+    "pleaseSelectAllOptions": "请先选择所有选项后再加入购物车",
+    "tagsTitle": "热门标签",
+    "compareAgents": "比较代理",
+    "collapseComparison": "收起比较",
+    "rank": "排名",
+    "score": "得分",
+    "selectAgent": "选择",
+    "noAgentsAvailable": "暂无可用代理",
+    "noAgentsDesc": "此商品目前没有可用的代理报价，请稍后再试或查看其他商品。",
+    "agentLoadError": "无法加载代理信息",
+    "agentLoadErrorDesc": "网络连接可能有问题，请刷新页面重试。",
+    "retry": "重试",
+    "scoreReasons": {
+      "best_value": "最佳性价比",
+      "fast_delivery": "快速配送",
+      "promo_available": "促销优惠",
+      "high_rating": "高评分代理",
+      "good_option": "不错的选择"
+    }
+  },
+  "redirect": {
+    "title": "即将跳转到代理网站",
+    "description": "您将在代理网站上完成支付。Xfinds不处理任何支付信息。",
+    "dontShowAgain": "不再显示此提示",
+    "continue": "继续",
+    "cancel": "取消"
+  },
+  "shippingDetail": {
+    "title": "运费明细 - {agent}",
+    "description": "运费成本和计算方法的详细说明",
+    "summary": "运费摘要",
+    "shippingFee": "运费",
+    "estimatedShipping": "预估运费",
+    "dimensions": "尺寸与重量",
+    "itemWeight": "商品重量",
+    "totalWeight": "总重量",
+    "itemVolume": "商品体积",
+    "totalVolume": "总体积",
+    "itemBreakdown": "商品明细",
+    "weight": "重量",
+    "volume": "体积",
+    "noDimensions": "尺寸信息不可用",
+    "calculationMethod": "计算方法",
+    "singleItemMethod": "运费基于代理提供的单个商品运费。",
+    "multiItemMethod": "运费通过累加各商品的运费计算。实际运费可能因包裹合并而有所不同。",
+    "noWeightWarning": "部分商品缺少重量信息，运费估算可能不够准确。",
+    "agentInfo": "代理信息",
+    "deliverySpeed": "配送速度",
+    "rating": "评分",
+    "disclaimer": "注意：运费是基于现有信息的估算值。实际运费可能因包裹合并、海关等因素而有所不同。请在代理网站上确认最终运费。"
+  },
+  "assistant": {
+    "suggestions": "节省建议",
+    "noSuggestions": "当前分组已是最优",
+    "noSuggestionsDesc": "您的商品分组已经是最经济的组合，无需调整。",
+    "apply": "应用建议",
+    "dismiss": "忽略",
+    "savings": "节省",
+    "before": "变更前",
+    "after": "变更后",
+    "shipping": "运费",
+    "promoOptimization": "促销优化",
+    "agentSwitch": "代理切换",
+    "splitParcel": "拆分包裹",
+    "savingsApplied": "已节省约{amount}（相比之前的分组）"
   },
   "cart": {
     "title": "购物车",
     "empty": "购物车为空",
-    "emptyDesc": "添加一些产品到购物车",
+    "emptyDesc": "添加一些商品到购物车，然后使用智能助手优化运费。",
     "browseProducts": "浏览产品",
     "summary": "订单摘要",
     "itemCount": "商品数量",
     "total": "总计",
+    "estimatedTotal": "预估总成本",
     "note": "请注意：Xfinds 是一个比较平台。您将被重定向到各个代理网站完成购买。",
     "openAll": "打开所有链接",
     "opening": "正在打开...",
@@ -100,7 +175,20 @@
     "productId": "产品 ID",
     "agentId": "代理 ID",
     "price": "价格",
-    "shipping": "运费"
+    "shipping": "运费",
+    "viewShippingDetails": "查看运费明细",
+    "checkoutAtAgent": "在{agent}结账",
+    "switchAgent": "切换代理",
+    "optimizeWithAssistant": "使用助手优化",
+    "hideAssistant": "隐藏助手",
+    "itemsInGroup": "{count} 件商品",
+    "subtotal": "小计",
+    "groupShipping": "运费",
+    "groupTotal": "组总计",
+    "totalWeight": "总重量",
+    "weightUnknown": "重量未知",
+    "shippingEstimate": "运费估算",
+    "shippingInquiry": "运费待询"
   },
   "compare": {
     "title": "产品比较",
@@ -130,6 +218,7 @@
   },
   "agent": {
     "recommended": "推荐",
+    "rating": "评分",
     "copyLink": "复制链接",
     "linkCopied": "链接已复制到剪贴板",
     "enter": "进入",
@@ -137,6 +226,9 @@
     "features": "特色",
     "copied": "已复制",
     "copyFailed": "复制链接失败"
+  },
+  "common": {
+    "recommended": "推荐"
   },
   "auth": {
     "login": {
@@ -149,7 +241,11 @@
       "noAccount": "还没有账户？",
       "register": "注册",
       "error": "登录失败",
-      "genericError": "发生错误，请重试"
+      "genericError": "发生错误，请重试",
+      "emailNotVerified": "您的邮箱尚未验证",
+      "resendVerification": "重新发送验证邮件",
+      "enterEmailFirst": "请先输入邮箱地址",
+      "sending": "发送中..."
     },
     "register": {
       "title": "注册",
@@ -163,7 +259,11 @@
       "login": "登录",
       "passwordMismatch": "密码不匹配",
       "error": "注册失败",
-      "genericError": "发生错误，请重试"
+      "genericError": "发生错误，请重试",
+      "verificationSent": "验证邮件已发送",
+      "checkEmail": "请检查您的邮箱（或查看控制台）以完成验证",
+      "demoMode": "Demo模式：验证链接",
+      "redirecting": "3秒后自动跳转到用户中心..."
     },
     "validation": {
       "invalidEmail": "请输入有效的邮箱地址",
@@ -194,7 +294,146 @@
     "agentDirectory": "代理目录",
     "searchProducts": "搜索产品",
     "copyright": "© {year} Xfinds. All rights reserved.",
-    "language": "语言"
+    "language": "语言",
+    "company": "公司",
+    "aboutUs": "关于我们",
+    "contact": "联系我们",
+    "description": "您值得信赖的产品搜索和代理比较平台。发现、比较并找到最佳优惠。"
+  },
+  "about": {
+    "hero": {
+      "title": "关于 Xfinds",
+      "subtitle": "通过全面的产品搜索和代理比较，赋能智能购物决策"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "description": "通过提供透明、全面和可靠的产品信息和代理比较，彻底改变在线购物体验，使用户能够做出明智的购买决策并获得卓越的购物体验。"
+    },
+    "story": {
+      "title": "我们的故事",
+      "paragraph1": "Xfinds 的成立源于一个简单而强大的愿景：让在线购物更简单、更智能、更透明。我们认识到消费者在应对复杂的产品选择、价格变化和代理服务时遇到了困难。",
+      "paragraph2": "我们的平台聚合了来自多个值得信赖的代理服务商的产品信息，为用户提供全面的比较、详细的规格说明和透明的价格。我们相信每个购物者都应该获得准确的信息和公平的比较。",
+      "paragraph3": "如今，Xfinds 为全球数千名用户提供服务，帮助他们发现产品、比较价格并做出明智的购买决策。我们不断创新和改进平台，以更好地服务我们的社区。"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "innovation": {
+        "title": "创新",
+        "description": "我们不断创新，通过技术提供前沿功能并改善用户体验。"
+      },
+      "userFirst": {
+        "title": "用户至上",
+        "description": "用户是我们一切工作的核心。我们优先考虑他们的需求、反馈和满意度。"
+      },
+      "transparency": {
+        "title": "透明",
+        "description": "我们相信诚实、透明的信息以及与用户和合作伙伴的清晰沟通。"
+      },
+      "efficiency": {
+        "title": "高效",
+        "description": "我们简化购物流程，为用户节省寻找最佳产品和优惠的时间和精力。"
+      },
+      "global": {
+        "title": "全球覆盖",
+        "description": "我们为全球用户提供服务，打破壁垒，让全球产品触手可及。"
+      },
+      "excellence": {
+        "title": "卓越",
+        "description": "我们在服务的各个方面追求卓越，从数据准确性到用户体验。"
+      }
+    },
+    "whatWeDo": {
+      "title": "我们的服务",
+      "productSearch": {
+        "title": "产品搜索",
+        "description": "我们强大的搜索引擎帮助您通过高级筛选和排序选项在多个类别中找到产品。"
+      },
+      "priceComparison": {
+        "title": "价格比较",
+        "description": "比较不同代理服务商的价格，找到最佳优惠并在购买时省钱。"
+      },
+      "agentDirectory": {
+        "title": "代理目录",
+        "description": "浏览和比较值得信赖的代理服务商，查看评分、评论和详细的服务信息。"
+      },
+      "smartTools": {
+        "title": "智能购物工具",
+        "description": "使用我们的智能购物车优化、比较功能和个性化推荐来增强您的购物体验。"
+      }
+    },
+    "cta": {
+      "title": "加入我们的社区",
+      "description": "立即开始发现产品、比较价格并做出更明智的购物决策。",
+      "exploreProducts": "探索产品",
+      "contactUs": "联系我们"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "联系我们",
+      "subtitle": "我们随时为您提供帮助。如有任何问题、反馈或疑虑，请随时与我们联系。"
+    },
+    "methods": {
+      "title": "联系方式",
+      "email": {
+        "title": "一般支持",
+        "description": "用于一般咨询、账户问题或产品问题。"
+      },
+      "general": {
+        "title": "一般咨询",
+        "description": "用于业务咨询、合作伙伴关系或媒体请求。"
+      },
+      "support": {
+        "title": "技术支持",
+        "description": "用于技术问题、错误报告或功能请求。"
+      },
+      "security": {
+        "title": "安全与隐私",
+        "description": "用于安全问题、隐私问题或数据保护咨询。"
+      }
+    },
+    "hours": {
+      "title": "支持时间",
+      "monday": "星期一",
+      "tuesday": "星期二",
+      "wednesday": "星期三",
+      "thursday": "星期四",
+      "friday": "星期五",
+      "saturday": "星期六",
+      "sunday": "星期日",
+      "closed": "休息",
+      "note": "所有时间均为 UTC 时间。我们会在工作日的 24-48 小时内回复。"
+    },
+    "faq": {
+      "title": "常见问题",
+      "question1": {
+        "title": "如何创建账户？",
+        "answer": "点击导航菜单中的\"注册\"，提供您的邮箱并创建密码。您将收到验证邮件以完成注册。"
+      },
+      "question2": {
+        "title": "Xfinds 是免费的吗？",
+        "answer": "是的，Xfinds 完全免费使用。我们为用户免费提供产品搜索和比较服务。"
+      },
+      "question3": {
+        "title": "价格信息的准确性如何？",
+        "answer": "我们努力提供准确的价格信息，但价格可能会有所变化。在完成购买之前，请务必在代理网站上验证最终价格。"
+      }
+    },
+    "additional": {
+      "title": "其他信息",
+      "response": {
+        "title": "响应时间",
+        "description": "我们通常在工作日的 24-48 小时内回复咨询。对于紧急事项，请将您的邮件标记为紧急。"
+      },
+      "feedback": {
+        "title": "反馈与建议",
+        "description": "我们重视您的反馈！如果您有改进我们平台的建议或遇到任何问题，请随时与我们联系。"
+      },
+      "partnership": {
+        "title": "合作伙伴关系与业务",
+        "description": "有兴趣与 Xfinds 合作或有业务咨询？请发送邮件至 info@xfinds.com，我们会及时回复。"
+      }
+    }
   },
   "errors": {
     "404": {
@@ -213,6 +452,46 @@
     "next": "下一页"
   },
   "dashboard": {
+    "title": "用户中心",
+    "subtitle": "管理您的账户信息和设置",
+    "overview": "概览",
+    "profile": "个人资料",
+    "settings": "设置",
+    "name": "姓名",
+    "email": "邮箱",
+    "verification": "邮箱验证",
+    "verified": "已验证",
+    "notVerified": "未验证",
+    "accountInfo": "账户信息",
+    "memberSince": "注册时间",
+    "notSet": "未设置",
+    "loading": "加载中...",
+    "loadError": "无法加载用户信息",
+    "editProfile": "编辑个人资料",
+    "editProfileDesc": "更新您的个人信息",
+    "personalInfo": "个人信息",
+    "emailCannotChange": "邮箱地址无法修改",
+    "save": "保存",
+    "saving": "保存中...",
+    "profileUpdated": "个人资料已更新",
+    "updateFailed": "更新失败",
+    "emailVerification": "邮箱验证",
+    "verificationStatus": "验证状态",
+    "verificationStatusDesc": "验证您的邮箱以确保账户安全",
+    "verifyEmail": "请验证您的邮箱",
+    "verifyEmailDesc": "点击重新发送按钮获取验证链接",
+    "resend": "重新发送",
+    "sending": "发送中...",
+    "verificationSent": "验证邮件已发送，请查看控制台",
+    "resendFailed": "发送失败，请重试",
+    "changePassword": "修改密码",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认密码",
+    "passwordMismatch": "密码不匹配",
+    "passwordTooShort": "密码至少需要8个字符",
+    "passwordUpdated": "密码已更新",
+    "updatePassword": "更新密码",
     "upload": {
       "title": "上传新产品",
       "productTitle": "产品标题",
@@ -227,7 +506,31 @@
       "image": "产品图片",
       "submit": "创建产品",
       "submitting": "创建中...",
-      "devOnly": "此功能仅在开发模式下可用"
+      "devOnly": "此功能仅在开发模式下可用",
+      "validation": {
+        "titleRequired": "标题不能为空",
+        "brandRequired": "品牌不能为空",
+        "categoryRequired": "请选择分类",
+        "slugRequired": "Slug不能为空",
+        "priceMinInvalid": "最低价格必须大于0",
+        "priceMaxInvalid": "最高价格必须大于最低价格",
+        "validationFailed": "表单验证失败",
+        "createSuccess": "产品创建成功！",
+        "createFailed": "创建失败",
+        "unknownError": "未知错误",
+        "errorOccurred": "发生错误，请重试"
+      },
+      "selectCategory": "选择分类"
     }
+  },
+  "currency": {
+    "title": "货币",
+    "selectCurrency": "选择货币",
+    "autoDetect": "自动检测",
+    "autoDetectDesc": "根据您的位置自动检测货币",
+    "ratesUpdated": "汇率已更新",
+    "ratesError": "加载汇率失败",
+    "convertedFrom": "换算自",
+    "originalPrice": "原价"
   }
 }

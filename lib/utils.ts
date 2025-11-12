@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+// Deprecated: Use PriceDisplay component or formatPrice from lib/currency instead
 export function formatPrice(amount: number, currency: string = 'CNY'): string {
   return new Intl.NumberFormat('zh-CN', {
     style: 'currency',

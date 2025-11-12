@@ -27,6 +27,8 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false)
   const [formError, setFormError] = useState('')
   const [touched, setTouched] = useState({ email: false, password: false, confirm: false })
+  const [registered, setRegistered] = useState(false)
+  const [verificationToken, setVerificationToken] = useState<string | null>(null)
 
   const passwordStrength = evaluatePasswordStrength(password)
 
@@ -78,8 +80,14 @@ export default function RegisterPage() {
       const data = await res.json()
 
       if (res.ok) {
-        router.push(`/${locale}`)
-        router.refresh()
+        // Show verification message
+        setRegistered(true)
+        setVerificationToken(data.user?.verificationToken || null)
+        // Still redirect but show message
+        setTimeout(() => {
+          router.push(`/${locale}/dashboard`)
+          router.refresh()
+        }, 3000)
       } else {
         setFormError(data.error || t('error'))
       }
@@ -100,19 +108,47 @@ export default function RegisterPage() {
             <CardDescription className="text-gray-400">{t('subtitle')}</CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <AnimatePresence>
-                {formError && (
-                  <motion.div
-                    className="flex items-center gap-2 rounded-2xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-300"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                  >
-                    {formError}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            {registered ? (
+              <div className="space-y-4">
+                <motion.div
+                  className="rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-center"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    {t('verificationSent')}
+                  </h3>
+                  <p className="mb-4 text-sm text-gray-300">{t('checkEmail')}</p>
+                  {verificationToken && (
+                    <div className="mt-4 rounded-lg bg-gray-800/50 p-3">
+                      <p className="mb-2 text-xs text-gray-400">{t('demoMode')}</p>
+                      <a
+                        href={`/api/auth/verify-email?token=${verificationToken}`}
+                        className="break-all text-sm text-blue-300 hover:text-blue-200"
+                      >
+                        {typeof window !== 'undefined'
+                          ? `${window.location.origin}/api/auth/verify-email?token=${verificationToken}`
+                          : `/api/auth/verify-email?token=${verificationToken}`}
+                      </a>
+                    </div>
+                  )}
+                  <p className="mt-4 text-xs text-gray-400">{t('redirecting')}</p>
+                </motion.div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <AnimatePresence>
+                  {formError && (
+                    <motion.div
+                      className="flex items-center gap-2 rounded-2xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-300"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                    >
+                      {formError}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
               <FloatingInput
                 id="email"
@@ -177,7 +213,8 @@ export default function RegisterPage() {
                   {t('login')}
                 </Link>
               </p>
-            </form>
+              </form>
+            )}
           </CardContent>
         </Card>
       </main>

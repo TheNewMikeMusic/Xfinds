@@ -33,15 +33,17 @@ npm install
 
 2. 复制环境变量文件：
 ```bash
-cp .env.local.example .env.local
+cp .env.example .env.local
 ```
 
-3. 启动开发服务器：
+3. 编辑 `.env.local` 文件，设置必需的环境变量（见下方环境变量说明）
+
+4. 启动开发服务器：
 ```bash
 npm run dev
 ```
 
-4. 打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+5. 打开浏览器访问 [http://localhost:3000](http://localhost:3000)
 
 ## 项目结构
 
@@ -71,14 +73,30 @@ Xfinds-1/
 
 ## 环境变量
 
-创建 `.env.local` 文件并配置以下变量：
+创建 `.env.local` 文件并配置以下变量（参考 `.env.example`）：
 
-```
-AUTH_MODE=stub
-ADMIN_TOKEN=your-dev-token-here
-NODE_ENV=development
-JWT_SECRET=your-jwt-secret-here
-```
+### 必需变量
+
+- `JWT_SECRET` - JWT签名密钥（生产环境必须至少32个字符）
+  - 开发环境可以使用默认值
+  - 生产环境必须设置强密码：`openssl rand -base64 32`
+
+### 可选变量
+
+- `NODE_ENV` - 环境模式 (`development` | `production`)，默认 `development`
+- `AUTH_MODE` - 认证模式，默认 `stub`
+- `ADMIN_TOKEN` - 管理员令牌（用于生产环境的admin API）
+- `APP_URL` - 应用URL（用于邮件链接），默认 `http://localhost:3000`
+- `NEXT_PUBLIC_APP_URL` - 公共应用URL，默认 `http://localhost:3000`
+- `EXCHANGE_RATE_API` - 汇率API端点，默认使用免费API
+
+### 生产环境注意事项
+
+⚠️ **重要**: 在生产环境部署前，请确保：
+1. `JWT_SECRET` 已设置为强密码（至少32个字符）
+2. `NODE_ENV=production`
+3. `ADMIN_TOKEN` 已设置（如果使用admin功能）
+4. 所有敏感信息不在代码中硬编码
 
 ## 许可证
 

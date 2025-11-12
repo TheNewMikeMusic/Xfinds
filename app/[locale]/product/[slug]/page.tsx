@@ -35,21 +35,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-1 container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <MediaGallery cover={product.cover} gallery={product.gallery} title={product.title} />
-          <div className="space-y-6">
-            <ProductSummary product={product} category={category} locale={locale} />
+      <main className="flex-1 container mx-auto px-3 py-6 sm:px-4 sm:py-8">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2 lg:items-start">
+          <div className="lg:sticky lg:top-8">
+            <MediaGallery cover={product.cover} gallery={product.gallery} title={product.title} />
+          </div>
+          <div className="space-y-4">
+            <ProductSummary product={product} category={category} locale={locale} agents={agents} />
             <Specs specs={product.specs} />
           </div>
         </div>
 
-        {/* Agent Offers */}
-        <div className="mt-12">
+        {/* Agent Offers - Full width below */}
+        <div className="mt-8">
           <AgentOfferList
             offers={product.offers}
             agents={agents}
             productId={product.id}
+            product={product}
           />
         </div>
       </main>

@@ -14,49 +14,52 @@ import { Category, Agent } from '@/lib/data'
 import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { FloatingInput } from '@/components/ui/floating-input'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { Button } from '@/components/ui/button'
+import { Filter } from 'lucide-react'
 
 interface FiltersPanelProps {
   categories: Category[]
   agents: Agent[]
-  onFilterChange: (filters: {
-    categoryId?: string
-    agentId?: string
-    minPrice?: number
-    maxPrice?: number
-  }) => void
+  mobile?: boolean
 }
 
 export function FiltersPanel({
   categories,
   agents,
-  onFilterChange,
+  mobile = false,
 }: FiltersPanelProps) {
   const t = useTranslations('search')
   const router = useRouter()
   const searchParams = useSearchParams()
   const params = useParams()
   const locale = (params?.locale as string) || 'en'
-  const [mounted, setMounted] = useState(false)
   
-  const [categoryId, setCategoryId] = useState<string>('')
-  const [agentId, setAgentId] = useState<string>('')
+  // Initialize state with consistent defaults to prevent hydration mismatch
+  const [categoryId, setCategoryId] = useState<string>('all')
+  const [agentId, setAgentId] = useState<string>('all')
   const [minPrice, setMinPrice] = useState<string>('')
   const [maxPrice, setMaxPrice] = useState<string>('')
   const [priceTouched, setPriceTouched] = useState({ min: false, max: false })
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    setIsMounted(true)
     if (searchParams) {
-      setCategoryId(searchParams.get('cat') || '')
-      setAgentId(searchParams.get('agent') || '')
-      setMinPrice(searchParams.get('minPrice') || '')
-      setMaxPrice(searchParams.get('maxPrice') || '')
+      const cat = searchParams.get('cat') || 'all'
+      const agent = searchParams.get('agent') || 'all'
+      const min = searchParams.get('minPrice') || ''
+      const max = searchParams.get('maxPrice') || ''
+      
+      setCategoryId(cat)
+      setAgentId(agent)
+      setMinPrice(min)
+      setMaxPrice(max)
     }
   }, [searchParams])
 
   const updateUrl = (updates: Record<string, string | null>) => {
-    if (!mounted || !searchParams) return
+    if (!searchParams) return
     const urlParams = new URLSearchParams(searchParams.toString())
     Object.entries(updates).forEach(([key, value]) => {
       if (value === null || value === '') {
@@ -68,24 +71,6 @@ export function FiltersPanel({
     router.push(`/${locale}/search?${urlParams.toString()}`)
   }
 
-  if (!mounted) {
-    return (
-      <Card className="glass space-y-4">
-        <CardHeader>
-          <CardTitle>{t('filters')}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {[...Array(3)].map((_, index) => (
-            <div key={index} className="space-y-2">
-              <Skeleton className="h-4 w-1/3" />
-              <Skeleton className="h-12 w-full" />
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-    )
-  }
-
   const hasPriceRange = minPrice !== '' || maxPrice !== ''
   const minValue = Number(minPrice)
   const maxValue = Number(maxPrice)
@@ -94,19 +79,16 @@ export function FiltersPanel({
   const priceError = priceRangeInvalid ? t('priceRangeError') : ''
   const priceHint = priceError ? undefined : t('priceRangeHint')
 
-  return (
-    <Card className="glass border-blue-600/30 bg-gray-900/80 shadow-[0_20px_60px_rgba(2,6,23,0.45)]">
-      <CardHeader>
-        <CardTitle>{t('filters')}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
+  const filtersContent = (
+    <div className="space-y-4">
         <div className="space-y-2">
           <p className="text-sm text-gray-400">{t('category')}</p>
           <Select
-            value={categoryId}
+            value={categoryId || 'all'}
             onValueChange={(value) => {
-              setCategoryId(value)
-              updateUrl({ cat: value || null })
+              const newValue = value === 'all' ? 'all' : value
+              setCategoryId(newValue)
+              updateUrl({ cat: value === 'all' ? null : value })
             }}
           >
             <SelectTrigger
@@ -117,7 +99,7 @@ export function FiltersPanel({
               <SelectValue placeholder={t('selectCategory')} />
             </SelectTrigger>
             <SelectContent className="glass border-blue-600/40 bg-gray-900/95">
-              <SelectItem value="">{t('all')}</SelectItem>
+              <SelectItem value="all">{t('all')}</SelectItem>
               {categories.map((cat) => (
                 <SelectItem key={cat.id} value={cat.id} className="capitalize">
                   {cat.icon} {cat.name}
@@ -130,10 +112,11 @@ export function FiltersPanel({
         <div className="space-y-2">
           <p className="text-sm text-gray-400">{t('agent')}</p>
           <Select
-            value={agentId}
+            value={agentId || 'all'}
             onValueChange={(value) => {
-              setAgentId(value)
-              updateUrl({ agent: value || null })
+              const newValue = value === 'all' ? 'all' : value
+              setAgentId(newValue)
+              updateUrl({ agent: value === 'all' ? null : value })
             }}
           >
             <SelectTrigger
@@ -144,7 +127,7 @@ export function FiltersPanel({
               <SelectValue placeholder={t('selectAgent')} />
             </SelectTrigger>
             <SelectContent className="glass border-blue-600/40 bg-gray-900/95">
-              <SelectItem value="">{t('all')}</SelectItem>
+              <SelectItem value="all">{t('all')}</SelectItem>
               {agents.map((agent) => (
                 <SelectItem key={agent.id} value={agent.id}>
                   {agent.name}
@@ -209,6 +192,37 @@ export function FiltersPanel({
             />
           </div>
         </div>
+    </div>
+  )
+
+  if (mobile) {
+    return (
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" className="w-full glass border-blue-600/30 bg-gray-900/80 touch-manipulation">
+            <Filter className="h-4 w-4 mr-2" />
+            {t('filters')}
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="glass border-white/10 bg-[#0b1024]/95 backdrop-blur-2xl w-[85vw] sm:w-[400px] overflow-y-auto">
+          <SheetHeader>
+            <SheetTitle className="text-white">{t('filters')}</SheetTitle>
+          </SheetHeader>
+          <div className="mt-6">
+            {filtersContent}
+          </div>
+        </SheetContent>
+      </Sheet>
+    )
+  }
+
+  return (
+    <Card className="glass border-blue-600/30 bg-gray-900/80 shadow-[0_20px_60px_rgba(2,6,23,0.45)]">
+      <CardHeader>
+        <CardTitle>{t('filters')}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {filtersContent}
       </CardContent>
     </Card>
   )

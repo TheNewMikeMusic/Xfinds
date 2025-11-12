@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Space_Grotesk, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import dynamic from 'next/dynamic'
 
@@ -9,7 +9,16 @@ const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => ({ d
   ssr: false,
 })
 
-const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
+})
 
 export const metadata: Metadata = {
   title: 'Xfinds - Product Search & Agent Comparison',
@@ -27,7 +36,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
+      <body 
+        className={`${spaceGrotesk.variable} ${plexMono.variable} font-sans`}
+        suppressHydrationWarning
+      >
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

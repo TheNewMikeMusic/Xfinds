@@ -63,21 +63,26 @@ async function SearchContent({ params, searchParams }: SearchPageProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-1 container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Filters Sidebar */}
-          <aside className="lg:col-span-1">
+      <main className="flex-1 container mx-auto px-3 py-6 sm:px-4 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* Filters Sidebar - Desktop */}
+          <aside className="hidden lg:block lg:col-span-1">
             <FiltersPanel
               categories={categories}
               agents={agents}
-              onFilterChange={() => {
-                // Filter changes are handled via URL params
-              }}
             />
           </aside>
 
           {/* Results */}
           <div className="lg:col-span-3">
+            {/* Mobile Filters Button */}
+            <div className="lg:hidden mb-4">
+              <FiltersPanel
+                categories={categories}
+                agents={agents}
+                mobile
+              />
+            </div>
             <SearchResults
               products={paginatedProducts}
               categories={categories}
@@ -104,14 +109,17 @@ export default function SearchPage(props: SearchPageProps) {
       fallback={
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-1 container mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-              <aside className="lg:col-span-1">
+          <main className="flex-1 container mx-auto px-3 py-6 sm:px-4 sm:py-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
+              <aside className="hidden lg:block lg:col-span-1">
                 <Skeleton className="h-96 w-full" />
               </aside>
               <div className="lg:col-span-3">
+                <div className="lg:hidden mb-4">
+                  <Skeleton className="h-12 w-full" />
+                </div>
                 <Skeleton className="h-12 w-full mb-6" />
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
                   {[...Array(6)].map((_, i) => (
                     <ProductCardSkeleton key={i} />
                   ))}

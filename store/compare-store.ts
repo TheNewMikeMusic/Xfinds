@@ -41,6 +41,7 @@ export const useCompareStore = create<CompareStore>()(
     }),
     {
       name: 'xfinds-compare',
+      skipHydration: true, // Skip hydration to prevent SSR mismatch
     }
   )
 )

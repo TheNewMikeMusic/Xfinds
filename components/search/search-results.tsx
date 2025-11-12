@@ -56,10 +56,10 @@ export function SearchResults({
 
   return (
     <>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold mb-2">{t('title')}</h1>
-          <p className="text-gray-400">
+          <h1 className="text-xl sm:text-2xl font-bold mb-2">{t('title')}</h1>
+          <p className="text-sm sm:text-base text-gray-400">
             {t('found', { count: totalCount })}
           </p>
         </div>
@@ -91,9 +91,9 @@ export function SearchResults({
         />
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3 mt-6">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} locale={locale} />
+              <ProductCard key={product.id} product={product} locale={locale} agents={agents} />
             ))}
           </div>
           <Pagination

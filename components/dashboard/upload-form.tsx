@@ -15,19 +15,23 @@ import {
 } from '@/components/ui/select'
 import { Category } from '@/lib/data'
 import { z } from 'zod'
+import { useTranslations } from 'next-intl'
 
-const productSchema = z.object({
-  title: z.string().min(1, '标题不能为空'),
-  brand: z.string().min(1, '品牌不能为空'),
-  categoryId: z.string().min(1, '请选择分类'),
-  slug: z.string().min(1, 'Slug不能为空'),
-  priceMin: z.number().min(0, '最低价格必须大于0'),
-  priceMax: z.number().min(0, '最高价格必须大于最低价格'),
-  tags: z.string().optional(),
-})
+function createProductSchema(t: (key: string) => string) {
+  return z.object({
+    title: z.string().min(1, t('validation.titleRequired')),
+    brand: z.string().min(1, t('validation.brandRequired')),
+    categoryId: z.string().min(1, t('validation.categoryRequired')),
+    slug: z.string().min(1, t('validation.slugRequired')),
+    priceMin: z.number().min(0, t('validation.priceMinInvalid')),
+    priceMax: z.number().min(0, t('validation.priceMaxInvalid')),
+    tags: z.string().optional(),
+  })
+}
 
 export function UploadForm() {
   const router = useRouter()
+  const t = useTranslations('dashboard.upload')
   const [loading, setLoading] = useState(false)
   const [categories, setCategories] = useState<Category[]>([])
   const [formData, setFormData] = useState({
@@ -54,6 +58,7 @@ export function UploadForm() {
 
     try {
       // Validate form
+      const productSchema = createProductSchema(t)
       const validation = productSchema.safeParse({
         title: formData.title,
         brand: formData.brand,
@@ -65,7 +70,7 @@ export function UploadForm() {
       })
 
       if (!validation.success) {
-        alert('表单验证失败: ' + validation.error.errors[0].message)
+        alert(t('validation.validationFailed') + ': ' + validation.error.errors[0].message)
         setLoading(false)
         return
       }
@@ -114,15 +119,15 @@ export function UploadForm() {
       })
 
       if (productRes.ok) {
-        alert('产品创建成功！')
+        alert(t('validation.createSuccess'))
         router.push(`/product/${formData.slug}`)
       } else {
         const error = await productRes.json()
-        alert('创建失败: ' + (error.message || '未知错误'))
+        alert(t('validation.createFailed') + ': ' + (error.message || t('validation.unknownError')))
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('发生错误，请重试')
+      alert(t('validation.errorOccurred'))
     } finally {
       setLoading(false)
     }
@@ -131,12 +136,12 @@ export function UploadForm() {
   return (
     <Card className="glass max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>上传新产品</CardTitle>
+        <CardTitle>{t('title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label htmlFor="title">产品标题</Label>
+            <Label htmlFor="title">{t('productTitle')}</Label>
             <Input
               id="title"
               value={formData.title}
@@ -148,7 +153,7 @@ export function UploadForm() {
           </div>
 
           <div>
-            <Label htmlFor="brand">品牌</Label>
+            <Label htmlFor="brand">{t('brand')}</Label>
             <Input
               id="brand"
               value={formData.brand}
@@ -160,7 +165,7 @@ export function UploadForm() {
           </div>
 
           <div>
-            <Label htmlFor="categoryId">分类</Label>
+            <Label htmlFor="categoryId">{t('category')}</Label>
             <Select
               value={formData.categoryId}
               onValueChange={(value) =>
@@ -168,7 +173,7 @@ export function UploadForm() {
               }
             >
               <SelectTrigger id="categoryId">
-                <SelectValue placeholder="选择分类" />
+                <SelectValue placeholder={t('selectCategory')} />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((cat) => (
@@ -181,7 +186,7 @@ export function UploadForm() {
           </div>
 
           <div>
-            <Label htmlFor="slug">Slug (URL)</Label>
+            <Label htmlFor="slug">{t('slug')}</Label>
             <Input
               id="slug"
               value={formData.slug}
@@ -189,13 +194,13 @@ export function UploadForm() {
                 setFormData({ ...formData, slug: e.target.value })
               }
               required
-              placeholder="product-slug"
+              placeholder={t('slugPlaceholder')}
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="priceMin">最低价格</Label>
+              <Label htmlFor="priceMin">{t('minPrice')}</Label>
               <Input
                 id="priceMin"
                 type="number"
@@ -207,7 +212,7 @@ export function UploadForm() {
               />
             </div>
             <div>
-              <Label htmlFor="priceMax">最高价格</Label>
+              <Label htmlFor="priceMax">{t('maxPrice')}</Label>
               <Input
                 id="priceMax"
                 type="number"
@@ -221,19 +226,19 @@ export function UploadForm() {
           </div>
 
           <div>
-            <Label htmlFor="tags">标签 (逗号分隔)</Label>
+            <Label htmlFor="tags">{t('tags')}</Label>
             <Input
               id="tags"
               value={formData.tags}
               onChange={(e) =>
                 setFormData({ ...formData, tags: e.target.value })
               }
-              placeholder="tag1, tag2, tag3"
+              placeholder={t('tagsPlaceholder')}
             />
           </div>
 
           <div>
-            <Label htmlFor="image">产品图片</Label>
+            <Label htmlFor="image">{t('image')}</Label>
             <Input
               id="image"
               type="file"
@@ -248,7 +253,7 @@ export function UploadForm() {
           </div>
 
           <Button type="submit" disabled={loading} className="w-full">
-            {loading ? '创建中...' : '创建产品'}
+            {loading ? t('submitting') : t('submit')}
           </Button>
         </form>
       </CardContent>
