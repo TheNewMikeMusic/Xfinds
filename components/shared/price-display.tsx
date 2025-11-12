@@ -42,7 +42,7 @@ export function PriceDisplay({
       <span className={cn('font-semibold text-white', sizeClasses[size])}>
         {formatted.converted}
       </span>
-      <span className={cn('text-xs text-gray-400 mt-0.5', sizeClasses[size])}>
+      <span className="text-xs text-gray-400 mt-0.5">
         {t('convertedFrom')} {formatted.original}
       </span>
     </div>

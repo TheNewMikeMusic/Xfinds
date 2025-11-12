@@ -93,11 +93,11 @@ export function ProductCard({ product, locale, agents = [], priority = false }: 
               {product.title}
             </h3>
             <p className="mb-2 text-xs text-gray-400 sm:text-sm">{product.brand}</p>
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-baseline justify-between mb-2 gap-2">
               <div className={cn('text-blue-300 text-base sm:text-xl', isDeal && 'animate-[priceFlash_1.8s_ease-in-out_infinite]')}>
                 <PriceDisplay amount={minPrice} originalCurrency={currency as any} size="lg" />
               </div>
-              <span className="text-xs text-gray-500">
+              <span className="text-xs text-gray-500 whitespace-nowrap">
                 {t('offers', { count: product.offers.length })}
               </span>
             </div>
