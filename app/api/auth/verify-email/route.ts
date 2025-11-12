@@ -4,6 +4,9 @@ import { cookies } from 'next/headers'
 import { SignJWT } from 'jose'
 import { env } from '@/lib/env'
 
+// Force dynamic rendering since we use cookies
+export const dynamic = 'force-dynamic'
+
 const SECRET = new TextEncoder().encode(env.jwtSecret)
 
 export async function GET(request: NextRequest) {

@@ -13,6 +13,9 @@ import { env } from '@/lib/env'
 import { logger } from '@/lib/logger'
 import { z } from 'zod'
 
+// Force dynamic rendering since we use cookies
+export const dynamic = 'force-dynamic'
+
 const SECRET = new TextEncoder().encode(env.jwtSecret)
 
 const MAX_REQUEST_SIZE = 10 * 1024 // 10KB
