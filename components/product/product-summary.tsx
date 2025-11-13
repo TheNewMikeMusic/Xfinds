@@ -152,7 +152,6 @@ export function ProductSummary({ product, category, locale, agents = [] }: Produ
             href={`/${locale}/search?cat=${category.id}`}
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-cyan-100 transition-colors hover:border-white/40"
           >
-            <span aria-hidden="true">{category.icon}</span>
             {category.name}
           </Link>
         )}

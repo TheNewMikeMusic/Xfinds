@@ -100,7 +100,7 @@ export function FiltersPanel({
               <SelectItem value="all" className="text-white">{t('all')}</SelectItem>
               {categories.map((cat) => (
                 <SelectItem key={cat.id} value={cat.id} className="capitalize text-white">
-                  {cat.icon} {cat.name}
+                  {cat.name}
                 </SelectItem>
               ))}
             </SelectContent>
