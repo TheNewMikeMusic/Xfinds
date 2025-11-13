@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { EmptyState } from '@/components/shared/empty-state'
 import { useCompareStore } from '@/store/compare-store'
-import { formatPrice } from '@/lib/utils'
+import { formatPrice } from '@/lib/currency'
+import { CurrencyCode } from '@/store/currency-store'
 import { ExternalLink, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Agent, getAgents } from '@/lib/data'
@@ -140,16 +141,16 @@ export default function ComparePage() {
                         </td>
                         <td className="p-4">
                           <span className="font-semibold text-blue-400">
-                            {formatPrice(offer.price, offer.currency)}
+                            {formatPrice(offer.price, offer.currency as CurrencyCode)}
                           </span>
                         </td>
                         <td className="p-4">
-                          {formatPrice(offer.shipFee, offer.currency)}
+                          {formatPrice(offer.shipFee, offer.currency as CurrencyCode)}
                         </td>
                         <td className="p-4">{offer.estDays} {t('days')}</td>
                         <td className="p-4">
                           <span className="font-bold text-lg">
-                            {formatPrice(total, offer.currency)}
+                            {formatPrice(total, offer.currency as CurrencyCode)}
                           </span>
                         </td>
                         <td className="p-4">

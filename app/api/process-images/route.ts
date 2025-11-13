@@ -6,6 +6,7 @@ import sharp from 'sharp'
 import { generateSafeFilename, extractFilenameInfo, createFilenameMapping } from '@/lib/image-utils'
 import { createErrorResponse, createSuccessResponse, AppError } from '@/lib/api-utils'
 import { env } from '@/lib/env'
+import { logger } from '@/lib/logger'
 
 const PUBLIC_DIR = join(process.cwd(), 'public')
 const OUTPUT_DIR = join(PUBLIC_DIR, 'images', 'optimized')
@@ -120,7 +121,7 @@ async function scanDirectory(dir: string, baseDir: string = PUBLIC_DIR): Promise
       }
     }
   } catch (error) {
-    console.error(`Error scanning directory ${dir}:`, error)
+    logger.error(`Error scanning directory ${dir}`, error)
   }
   
   return files

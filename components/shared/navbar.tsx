@@ -127,9 +127,9 @@ export function Navbar() {
           : 'bg-transparent backdrop-blur-xl'
       )}
     >
-      <div className="container mx-auto flex h-14 items-center justify-between px-3 sm:px-4 sm:h-16">
+      <div className="container mx-auto flex h-14 items-center justify-between px-3 sm:px-4 sm:h-16 md:grid md:grid-cols-3 md:justify-items-stretch">
         {/* Back Button & Logo */}
-        <div className="flex items-center gap-1.5 sm:gap-3 min-w-0 flex-1 overflow-hidden">
+        <div className="flex items-center gap-1.5 sm:gap-3 min-w-0 flex-shrink-0 overflow-hidden md:col-start-1">
           {!isHomePage && (
             <Button
               variant="ghost"
@@ -169,10 +169,10 @@ export function Navbar() {
         </div>
 
         {/* Desktop Search */}
-        <form onSubmit={handleSearch} className="hidden max-w-md flex-1 px-4 md:flex">
+        <form onSubmit={handleSearch} className="hidden md:flex justify-center items-center md:col-start-2 px-4 w-full">
           <div
             className={cn(
-              'group relative w-full rounded-full border border-white/5 bg-white/5 transition-all duration-300',
+              'group relative w-full max-w-md rounded-full border border-white/5 bg-white/5 transition-all duration-300',
               'focus-within:border-lime-300/80 focus-within:shadow-[0_0_50px_rgba(94,243,140,0.35)]',
               isDesktopSearchFocused && 'border-lime-200/80 shadow-[0_0_50px_rgba(94,243,140,0.35)]'
             )}
@@ -195,16 +195,9 @@ export function Navbar() {
         </form>
 
         {/* Right Actions */}
-        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 flex-shrink-0">
-          {/* Currency Selector - Desktop */}
-          <div className="hidden sm:block">
-            <CurrencySelector variant="compact" />
-          </div>
-          
-          {/* Currency Selector - Mobile */}
-          <div className="sm:hidden">
-            <CurrencySelector variant="icon" />
-          </div>
+        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 flex-shrink-0 md:col-start-3 md:justify-end">
+          {/* Currency Selector */}
+          <CurrencySelector variant="icon" />
           
           {/* Mobile Search */}
           <Sheet>

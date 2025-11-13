@@ -1,4 +1,3 @@
-import { NextRequest } from 'next/server'
 import { createErrorResponse, createSuccessResponse } from '@/lib/api-utils'
 import { logger } from '@/lib/logger'
 import { env } from '@/lib/env'
@@ -13,7 +12,7 @@ interface ExchangeRateResponse {
  * GET /api/exchange-rates
  * Fetch exchange rates from free API
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const response = await fetch(env.exchangeRateApi, {
       next: { revalidate: 3600 }, // Cache for 1 hour
