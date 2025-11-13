@@ -20,6 +20,34 @@ fi
 cd "$PROJECT_DIR"
 
 echo ""
+echo "=== 先更新脚本本身（如果脚本有更新） ==="
+# 先尝试获取最新代码（不合并），这样脚本可以更新自己
+GITHUB_TOKEN="${GITHUB_TOKEN:-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}"
+GITHUB_REPO_AUTH="https://${GITHUB_TOKEN}@github.com/TheNewMikeMusic/Xfinds.git"
+
+# 尝试 fetch 最新代码
+git fetch origin main 2>/dev/null || git fetch "$GITHUB_REPO_AUTH" main 2>/dev/null || echo "⚠️  无法获取远程更新，继续使用当前脚本..."
+
+# 检查脚本是否有更新（比较本地和远程版本）
+if git rev-parse --verify origin/main >/dev/null 2>&1; then
+    SCRIPT_LOCAL_HASH=$(git hash-object scripts/deploy/quick-update.sh 2>/dev/null || echo "")
+    SCRIPT_REMOTE_HASH=$(git ls-tree origin/main scripts/deploy/quick-update.sh 2>/dev/null | awk '{print $3}' || echo "")
+    
+    if [ -n "$SCRIPT_REMOTE_HASH" ] && [ "$SCRIPT_LOCAL_HASH" != "$SCRIPT_REMOTE_HASH" ]; then
+        echo "检测到脚本有更新，正在更新..."
+        git checkout origin/main -- scripts/deploy/quick-update.sh 2>/dev/null || echo "⚠️  无法更新脚本，继续使用当前版本..."
+        chmod +x scripts/deploy/quick-update.sh
+        echo "✅ 脚本已更新，重新执行..."
+        # 重新执行更新后的脚本
+        exec ./scripts/deploy/quick-update.sh
+    else
+        echo "脚本已是最新版本"
+    fi
+else
+    echo "无法检查脚本版本，继续执行..."
+fi
+
+echo ""
 echo "=== 停止 PM2 进程 ==="
 pm2 stop xfinds 2>/dev/null || true
 
