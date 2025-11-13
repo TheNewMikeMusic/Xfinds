@@ -178,7 +178,7 @@ export function Navbar() {
               !isHomePage ? "h-5 sm:h-8" : "h-8"
             )}>
               <Image
-                src="/Xfinds logo.png"
+                src="/Xfinds logo2.png"
                 alt="Xfinds logo"
                 width={96}
                 height={32}

@@ -67,7 +67,7 @@ EOF
 fi
 
 echo ""
-echo "=== 清理构建和缓存（预防 Sharp 错误） ==="
+echo "=== 清理构建和缓存 ==="
 rm -rf .next
 rm -rf node_modules/.cache
 
@@ -76,7 +76,7 @@ echo "=== 安装依赖 ==="
 npm install
 
 echo ""
-echo "=== 确保 Sharp 正确安装（预防图片优化错误） ==="
+echo "=== 确保 Sharp 正确安装（用于图片上传处理） ==="
 npm install sharp@latest --force || echo "Sharp 安装警告，继续..."
 
 echo ""

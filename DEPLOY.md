@@ -88,7 +88,7 @@ EOF
 fi
 
 echo ""
-echo "=== 清理构建和缓存（预防 Sharp 错误） ==="
+echo "=== 清理构建和缓存 ==="
 rm -rf .next
 rm -rf node_modules/.cache
 
@@ -97,7 +97,7 @@ echo "=== 安装依赖 ==="
 npm install
 
 echo ""
-echo "=== 确保 Sharp 正确安装（预防图片优化错误） ==="
+echo "=== 确保 Sharp 正确安装（用于图片上传处理） ==="
 npm install sharp@latest --force || echo "Sharp 安装警告，继续..."
 
 echo ""
@@ -245,11 +245,13 @@ cd /var/www/xfinds && git pull origin main && chmod +x scripts/deploy/quick-upda
 
 **快速更新脚本功能**：
 - ✅ 拉取最新代码
-- ✅ 清理构建缓存（预防 Sharp 错误）
+- ✅ 清理构建缓存
 - ✅ 安装依赖更新
 - ✅ 重新构建项目
 - ✅ 重启 PM2 应用
 - ✅ 验证部署状态
+
+**注意**：图片优化已禁用（`unoptimized: true`），因为图片已手动压缩，首次加载更快。
 
 **适用场景**：
 - 日常代码更新

@@ -29,8 +29,8 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year cache
     dangerouslyAllowSVG: true,
-    // Add error handling for image optimization
-    unoptimized: false,
+    // 禁用图片优化，因为图片已经手动压缩过了
+    unoptimized: true,
     // Note: contentDispositionType and contentSecurityPolicy only apply to optimized images via /_next/image
     // app/icon.svg is handled automatically by Next.js and bypasses image optimization
   },
