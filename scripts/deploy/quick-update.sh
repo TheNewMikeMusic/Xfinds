@@ -37,15 +37,44 @@ if [[ "$CURRENT_REMOTE" != *"${GITHUB_TOKEN}"* ]] && [[ "$CURRENT_REMOTE" != *"@
 fi
 
 echo ""
+echo "=== 检查并处理本地更改 ==="
+# 检查是否有未提交的更改
+if ! git diff-index --quiet HEAD --; then
+    echo "⚠️  检测到本地未提交的更改，正在保存..."
+    # 保存本地更改到 stash
+    git stash save "自动保存于 $(date +%Y%m%d-%H%M%S)" || echo "⚠️  Stash 失败，继续..."
+fi
+
+# 检查是否有未跟踪的文件（通常是构建产物，可以忽略）
+UNTRACKED=$(git ls-files --others --exclude-standard | wc -l)
+if [ "$UNTRACKED" -gt 0 ]; then
+    echo "ℹ️  发现 $UNTRACKED 个未跟踪的文件（通常是构建产物，将被保留）"
+fi
+
+echo ""
 echo "=== 拉取最新代码 ==="
-git pull origin main || {
-    echo "⚠️  Git pull 失败，尝试使用 token 认证..."
-    git pull "$GITHUB_REPO_AUTH" main || {
-        echo "❌ 错误: 无法拉取代码，请检查："
+# 先尝试重置到远程状态（丢弃本地更改，使用远程版本）
+git fetch origin main || {
+    echo "⚠️  Git fetch 失败，尝试使用 token 认证..."
+    git fetch "$GITHUB_REPO_AUTH" main || {
+        echo "❌ 错误: 无法获取远程代码，请检查："
         echo "  1. 网络连接"
         echo "  2. GitHub Token 是否有效"
         echo "  3. 仓库权限"
         exit 1
+    }
+}
+
+# 重置到远程 main 分支（丢弃本地更改）
+echo "重置到远程 main 分支..."
+git reset --hard origin/main || {
+    echo "⚠️  重置失败，尝试合并..."
+    git pull origin main --no-edit || {
+        echo "⚠️  合并失败，尝试强制重置..."
+        git reset --hard origin/main || {
+            echo "❌ 错误: 无法更新代码"
+            exit 1
+        }
     }
 }
 
