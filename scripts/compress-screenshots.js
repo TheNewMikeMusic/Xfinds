@@ -9,20 +9,21 @@ async function compressImages() {
   
   for (const file of files) {
     const inputPath = path.join(screenshotDir, file);
-    const outputPath = path.join(screenshotDir, file.replace('.png', '_compressed.png'));
+    const tempPath = path.join(screenshotDir, 'temp_' + file);
     
     const originalSize = fs.statSync(inputPath).size;
     
+    // 使用更安全的压缩方式
     await sharp(inputPath)
-      .resize(1920, null, { withoutEnlargement: true }) // 限制最大宽度为1920
-      .png({ quality: 80, compressionLevel: 9 })
-      .toFile(outputPath);
+      .resize(1600, null, { withoutEnlargement: true, fit: 'inside' })
+      .png({ compressionLevel: 9, palette: true })
+      .toFile(tempPath);
     
-    const newSize = fs.statSync(outputPath).size;
+    const newSize = fs.statSync(tempPath).size;
     
     // 替换原文件
     fs.unlinkSync(inputPath);
-    fs.renameSync(outputPath, inputPath);
+    fs.renameSync(tempPath, inputPath);
     
     console.log(`${file}: ${(originalSize / 1024 / 1024).toFixed(2)} MB -> ${(newSize / 1024 / 1024).toFixed(2)} MB`);
   }
