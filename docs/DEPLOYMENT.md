@@ -133,3 +133,4 @@ pm2 restart xfinds
 - Verify Nginx config: `nginx -t`
 - Check port binding: `netstat -tulpn | grep 8000`
 
+

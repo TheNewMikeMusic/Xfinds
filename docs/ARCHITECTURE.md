@@ -136,3 +136,4 @@ UI Update
 - Use CSS variables for theme colors
 - Implement `prefers-reduced-motion` support
 
+

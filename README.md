@@ -17,40 +17,6 @@
 
 ---
 
-## 📸 Screenshots
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="100%" />
-  <p><em>Homepage - Modern glassmorphic design with intuitive navigation</em></p>
-</div>
-
-<div align="center">
-  <table>
-    <tr>
-      <td width="50%">
-        <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Search Results" width="100%" />
-        <p align="center"><em>Search & Filter Products</em></p>
-      </td>
-      <td width="50%">
-        <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Product Details" width="100%" />
-        <p align="center"><em>Product Details Page</em></p>
-      </td>
-    </tr>
-    <tr>
-      <td width="50%">
-        <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Agent Comparison" width="100%" />
-        <p align="center"><em>Agent Price Comparison</em></p>
-      </td>
-      <td width="50%">
-        <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_124531_340.png" alt="Shopping Cart" width="100%" />
-        <p align="center"><em>Smart Shopping Cart</em></p>
-      </td>
-    </tr>
-  </table>
-</div>
-
----
-
 ## ✨ Features
 
 ### 🔍 Smart Product Search
@@ -76,7 +42,6 @@
 ### 🌐 Internationalization
 - **Multi-language** - Full support for English and Chinese
 - **Locale-aware** - Currency and date formatting based on user location
-- **RTL Ready** - Architecture supports right-to-left languages
 
 ### 🎨 Modern UI/UX
 - **Glassmorphic Design** - Beautiful frosted glass effects
@@ -92,10 +57,10 @@
 |----------|-------------|
 | **Framework** | Next.js 14 (App Router) |
 | **Language** | TypeScript 5.4 |
-| **Styling** | Tailwind CSS 3.4, CSS Variables |
+| **Styling** | Tailwind CSS 3.4 |
 | **UI Components** | Radix UI, shadcn/ui |
 | **State Management** | Zustand |
-| **Search** | Fuse.js (fuzzy search) |
+| **Search** | Fuse.js |
 | **Animations** | Framer Motion |
 | **i18n** | next-intl |
 | **Image Processing** | Sharp |
@@ -132,22 +97,6 @@ npm install
 cp .env.example .env.local
 ```
 
-Edit `.env.local` with your configuration:
-
-```env
-# App
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-
-# Authentication
-JWT_SECRET=your-super-secret-jwt-key
-
-# Email (optional)
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=your-email@example.com
-SMTP_PASS=your-email-password
-```
-
 4. **Start the development server**
 
 ```bash
@@ -175,61 +124,16 @@ xfinds/
 │   │   ├── dashboard/        # User dashboard
 │   │   └── auth/             # Authentication pages
 │   └── api/                  # API routes
-│       ├── products/         # Product endpoints
-│       ├── agents/           # Agent endpoints
-│       ├── auth/             # Auth endpoints
-│       └── exchange-rates/   # Currency rates
 ├── components/               # React components
 │   ├── ui/                   # Base UI components (shadcn)
-│   ├── shared/               # Shared/common components
-│   ├── home/                 # Homepage components
-│   ├── search/               # Search page components
-│   ├── product/              # Product page components
-│   ├── cart/                 # Cart components
-│   └── dashboard/            # Dashboard components
+│   ├── shared/               # Shared components
+│   └── ...                   # Feature-specific components
 ├── lib/                      # Utility functions
-│   ├── auth.ts               # Authentication helpers
-│   ├── cart.ts               # Cart logic
-│   ├── currency.ts           # Currency conversion
-│   ├── fuse.ts               # Search configuration
-│   └── utils.ts              # General utilities
 ├── store/                    # Zustand stores
-│   ├── cart-store.ts         # Cart state
-│   ├── compare-store.ts      # Comparison state
-│   ├── currency-store.ts     # Currency state
-│   └── theme-store.ts        # Theme state
 ├── messages/                 # i18n translations
-│   ├── en.json               # English
-│   └── zh.json               # Chinese
 ├── data/                     # Static JSON data
-│   ├── products.json         # Product catalog
-│   ├── agents.json           # Agent information
-│   └── categories.json       # Categories
 ├── public/                   # Static assets
-│   ├── images/               # Product images
-│   ├── agents/               # Agent logos
-│   └── ScreenShot/           # App screenshots
 └── tests/                    # Test files
-    ├── unit/                 # Unit tests
-    └── e2e/                  # E2E tests
-```
-
----
-
-## 🧪 Testing
-
-```bash
-# Run unit tests
-npm run test
-
-# Run unit tests in watch mode
-npm run test:watch
-
-# Run E2E tests
-npm run test:e2e
-
-# Run E2E tests with UI
-npm run test:e2e:ui
 ```
 
 ---
@@ -245,7 +149,6 @@ npm run test:e2e:ui
 | `npm run type-check` | Run TypeScript compiler check |
 | `npm run test` | Run unit tests |
 | `npm run test:e2e` | Run E2E tests |
-| `npm run process-images` | Optimize images |
 
 ---
 
@@ -264,7 +167,7 @@ npm run test:e2e:ui
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -284,7 +187,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Website**: [xfinds.cc](https://xfinds.cc)
 - **Issues**: [GitHub Issues](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/issues)
-- **Email**: support@xfinds.cc
 
 ---
 

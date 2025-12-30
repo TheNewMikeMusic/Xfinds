@@ -102,3 +102,8 @@ temp/
 *.tmp
 *.temp
 *.bak
+
+# ===========================================
+# Production Config (keep private)
+# ===========================================
+ecosystem.config.js
