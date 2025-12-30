@@ -1,6 +1,7 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="Xfinds" width="80" />
+<!-- Use the logo stored in public/ to avoid broken images in GitHub preview -->
+<img src="/ScreenShot/logo.svg" alt="Xfinds" width="80" />
 
 # Xfinds
 
@@ -16,7 +17,8 @@ Modern product search and agent comparison with a fast glassmorphic UI. Built fo
 <a href="https://xfinds.cc"><b>Live Demo</b></a> · <a href="docs/ARCHITECTURE.md"><b>Architecture</b></a> · <a href="https://github.com/TheNewMikeMusic/Xfinds/issues"><b>Issues</b></a> · <a href="CONTRIBUTING.md"><b>Contribute</b></a>
 
 <br />
-<img src="assets/hero-preview.png" alt="Xfinds preview" width="900" />
+<!-- Homepage hero -->
+<img src="/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds homepage" width="900" />
 
 </div>
 
@@ -43,15 +45,19 @@ Modern product search and agent comparison with a fast glassmorphic UI. Built fo
 - Security headers and edge-safe middleware enabled by default.
 - Testing setup ready: Vitest and Playwright configs included.
 
-## Screenshots / GIFs
+## Screenshots
 <div align="center">
-  <img src="assets/hero-preview.png" alt="Homepage" width="85%" />
+  <!-- Homepage hero -->
+  <img src="/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage search hero" width="88%" />
   <br /><br />
-  <img src="assets/feature-search.png" alt="Search and filter" width="85%" />
+  <!-- Product detail -->
+  <img src="/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail with agent offers" width="88%" />
   <br /><br />
-  <img src="assets/feature-compare.png" alt="Agent comparison" width="85%" />
+  <!-- Agent comparison -->
+  <img src="/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison table" width="88%" />
   <br /><br />
-  <img src="assets/feature-cart.png" alt="Cart and batch actions" width="85%" />
+  <!-- Featured products grid -->
+  <img src="/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products grid" width="88%" />
 </div>
 
 ## Quick Start
