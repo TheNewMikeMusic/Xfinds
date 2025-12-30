@@ -13,6 +13,37 @@
 
 [Live Demo](https://xfinds.cc) · [Report Bug](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/issues) · [Request Feature](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/issues)
 
+<img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="100%" />
+
+</div>
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+<table>
+<tr>
+<td width="50%">
+<img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_114122_459.png" alt="Search Results" width="100%" />
+<p align="center"><em>Search & Filter Products</em></p>
+</td>
+<td width="50%">
+<img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124445_841.png" alt="Product Details" width="100%" />
+<p align="center"><em>Product Details Page</em></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124517_559.png" alt="Agent Comparison" width="100%" />
+<p align="center"><em>Agent Price Comparison</em></p>
+</td>
+<td width="50%">
+<img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124531_340.png" alt="Shopping Cart" width="100%" />
+<p align="center"><em>Smart Shopping Cart</em></p>
+</td>
+</tr>
+</table>
 </div>
 
 ---
