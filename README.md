@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/Xfinds_logo2.png" alt="Xfinds" width="120" />
+<img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/Xfinds_logo2.png" alt="Xfinds" width="120" />
 
 # Xfinds
 
@@ -18,7 +18,7 @@ Compare prices across multiple shopping agents, find the best deals, and streaml
 
 <br />
 
-<img src="public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="900" />
+<img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="900" />
 
 </div>
 
@@ -41,13 +41,13 @@ Xfinds is an open-source platform that aggregates product listings from multiple
 ## Screenshots
 
 <div align="center">
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage with search" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage with search" width="88%" />
   <br /><br />
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail page" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail page" width="88%" />
   <br /><br />
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison" width="88%" />
   <br /><br />
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products" width="88%" />
 </div>
 
 ## Quick Start
