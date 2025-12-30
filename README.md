@@ -1,7 +1,7 @@
 <div align="center">
 
-<!-- Use a space-free filename to avoid URL encoding issues on GitHub -->
-<img src="./public/logo.png" alt="Xfinds" width="80" />
+<!-- Use the transparent logo (no spaces) -->
+<img src="./public/Xfinds_logo2.png" alt="Xfinds" width="120" />
 
 # Xfinds
 
