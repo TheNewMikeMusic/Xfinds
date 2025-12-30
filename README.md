@@ -26,6 +26,10 @@ Xfinds is a **consumer-facing platform** designed to bring transparency to the f
 
 **Xfinds** 是一个面向 C 端的跨境购物决策平台。通过整合多家代理商数据，为用户提供统一检索、横向比价与成本优化方案，让复杂的全球购物流程变得透明且高效。
 
+> [!IMPORTANT]
+> **Disclaimer | 项目声明**: This repository is a **frontend demonstration template**. All products and agent data are local/mocked for UI/UX display. For commercial use, developers must integrate their own live APIs.  
+> 本项目目前为**前端演示模板**。所有商品与代理商数据均为本地 Mock 数据，仅供交互演示。如需投入实际商用，开发者需自行对接真实的后端 API。
+
 ---
 
 ### Key Capabilities | 核心能力
