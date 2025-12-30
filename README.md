@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/Xfinds_logo2.png" alt="Xfinds" width="120" />
+<img src="./public/Xfinds_logo2.png" alt="Xfinds" width="120" />
 
 # Xfinds
 
@@ -14,11 +14,11 @@ Compare prices across multiple shopping agents, find the best deals, and streaml
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-[**Live Demo**](https://xfinds.cc) · [**Documentation**](docs/ARCHITECTURE.md) · [**Report Bug**](https://github.com/TheNewMikeMusic/Xfinds/issues) · [**Request Feature**](https://github.com/TheNewMikeMusic/Xfinds/issues)
+[**Live Demo**](https://xfinds.cc) · [**Documentation**](docs/ARCHITECTURE.md) · [**Report Bug**](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/issues) · [**Request Feature**](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/issues)
 
 <br />
 
-<img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="900" />
+<img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="900" />
 
 </div>
 
@@ -41,13 +41,13 @@ Xfinds is an open-source platform that aggregates product listings from multiple
 ## Screenshots
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage with search" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage with search" width="88%" />
   <br /><br />
-  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail page" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail page" width="88%" />
   <br /><br />
-  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison" width="88%" />
   <br /><br />
-  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/Xfinds/main/public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products" width="88%" />
+  <img src="https://raw.githubusercontent.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/main/public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products" width="88%" />
 </div>
 
 ## Quick Start
@@ -61,8 +61,8 @@ Xfinds is an open-source platform that aggregates product listings from multiple
 
 ```bash
 # Clone the repository
-git clone https://github.com/TheNewMikeMusic/Xfinds.git
-cd Xfinds
+git clone https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison.git
+cd xfinds-cross-border-freight-comparison
 
 # Install dependencies
 npm install
@@ -156,7 +156,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 <div align="center">
 
-**[Website](https://xfinds.cc)** · **[GitHub](https://github.com/TheNewMikeMusic/Xfinds)** · **[Issues](https://github.com/TheNewMikeMusic/Xfinds/issues)**
+**[Website](https://xfinds.cc)** · **[GitHub](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison)** · **[Issues](https://github.com/TheNewMikeMusic/xfinds-cross-border-freight-comparison/issues)**
 
 Made with ❤️ by the Xfinds team
 
