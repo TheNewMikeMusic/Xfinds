@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
-import { defaultLocale } from '@/i18n'
+import { defaultLocale } from '@/i18n.config'
 import { useTranslations } from 'next-intl'
 
 export function Footer() {

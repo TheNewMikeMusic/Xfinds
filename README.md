@@ -1,119 +1,114 @@
+<div align="center">
+
+<img src="assets/logo.png" alt="Xfinds" width="80" />
+
 # Xfinds
 
-A modern dark-themed product search and agent comparison web application, inspired by plug4.me and uufinds, built with Next.js, TypeScript, Tailwind, Framer Motion, and shadcn/ui. Features liquid glass aesthetics, smooth animations, and intelligent keyword search powered by Fuse.js.
+### Open-source agent search and comparison for faster, clearer buying decisions.
 
-## Features
+Modern product search and agent comparison with a fast glassmorphic UI. Built for engineers who want a transparent, extensible, self-hostable marketplace experience.
 
-- 🔍 **Smart Search**: Fuzzy search using Fuse.js with keyword, category, and agent filtering
-- 🛍️ **Product Comparison**: Side-by-side comparison of offers from different agents
-- 🛒 **Shopping Cart**: Save selected product offers and batch open agent links
-- 👥 **Agent Directory**: Browse all partner agent service providers
-- 📤 **Product Upload**: Upload new products in development mode (dev environment only)
-- 🔐 **User Authentication**: Stub mode quick authentication system
-- 🌐 **Multi-language Support**: Chinese (default) and English interface
-- 🎨 **Liquid Glass Aesthetics**: Dark theme, frosted glass effects, micro-interaction animations
+[![Next.js](https://img.shields.io/badge/Next.js_14-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Tech Stack
+<a href="https://xfinds.cc"><b>Live Demo</b></a> · <a href="docs/ARCHITECTURE.md"><b>Architecture</b></a> · <a href="https://github.com/TheNewMikeMusic/Xfinds/issues"><b>Issues</b></a> · <a href="CONTRIBUTING.md"><b>Contribute</b></a>
 
-- **Framework**: Next.js 14+ (App Router)
-- **Language**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS v3.4
-- **UI Components**: shadcn/ui
-- **Animation**: Framer Motion
-- **State Management**: Zustand
-- **Search**: Fuse.js
-- **Internationalization**: next-intl
+<br />
+<img src="assets/hero-preview.png" alt="Xfinds preview" width="900" />
+
+</div>
+
+---
+
+## Why Xfinds
+- Search once and see every agent offer in one view.
+- Transparent pricing with side-by-side comparison and live currency conversion.
+- Built for speed: glass UI, smooth motion, tuned for fast interactions.
+- Global ready: English and Chinese today; add locales easily.
+- Open-source first: MIT licensed, API-friendly, and simple to self-host.
+
+## Feature Highlights
+- Smart fuzzy search (Fuse.js) with category, price, and agent filters.
+- Agent comparison to judge price versus service quality.
+- Saved picks and batch-open flows for checkout readiness.
+- Locale-prefixed routes with edge-safe i18n middleware.
+- Tailwind + shadcn/ui + Framer Motion for crisp, responsive UX.
+- API routes for products, agents, uploads, and revalidation.
+
+## Trust Signals (open-source matters)
+- MIT license; no lock-in.
+- Typed codebase (TypeScript) with clear architecture docs.
+- Security headers and edge-safe middleware enabled by default.
+- Testing setup ready: Vitest and Playwright configs included.
+
+## Screenshots / GIFs
+<div align="center">
+  <img src="assets/hero-preview.png" alt="Homepage" width="85%" />
+  <br /><br />
+  <img src="assets/feature-search.png" alt="Search and filter" width="85%" />
+  <br /><br />
+  <img src="assets/feature-compare.png" alt="Agent comparison" width="85%" />
+  <br /><br />
+  <img src="assets/feature-cart.png" alt="Cart and batch actions" width="85%" />
+</div>
 
 ## Quick Start
-
-1. Install dependencies:
 ```bash
+# Clone
+git clone https://github.com/TheNewMikeMusic/Xfinds.git
+cd Xfinds
+
+# Install
 npm install
-```
 
-2. Copy environment variables file:
-```bash
+# Env
 cp .env.example .env.local
-```
 
-3. Edit `.env.local` file and set required environment variables (see Environment Variables section below)
-
-4. Start the development server:
-```bash
+# Dev server
 npm run dev
+# open http://localhost:3000
 ```
 
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000)
-
-## Project Structure
-
-```
-Xfinds/
-├── app/                    # Next.js App Router pages
-├── components/             # React components
-│   ├── ui/                # shadcn/ui base components
-│   ├── shared/            # Shared components (Navbar, Footer, etc.)
-│   ├── search/            # Search-related components
-│   ├── product/           # Product-related components
-│   └── ...
-├── lib/                    # Utility functions and libraries
-├── store/                  # Zustand state management
-├── data/                   # JSON data files
-├── docs/                   # Project documentation
-│   ├── deployment/        # Deployment-related docs
-│   └── troubleshooting/   # Troubleshooting docs
-├── scripts/                # Script files
-│   ├── deploy/            # Deployment scripts
-│   └── process-images.ts  # Image processing script
-├── public/                 # Static assets
-├── DEPLOY.md              # Deployment guide (quick reference)
-├── setup-https.sh         # HTTPS configuration script
-└── nginx.conf             # Nginx configuration file
+### Production build
+```bash
+npm run build
+npm run start   # defaults to http://localhost:8000
 ```
 
-## Development
+## Architecture at a glance
+- app/ : Next.js App Router (locale-prefixed routes and API)
+- components/ : UI and shared components
+- hooks/ : Reusable hooks
+- store/ : Zustand stores
+- lib/ : Utilities (i18n, helpers)
+- messages/ : Translations
+- assets/ : Static assets and screenshots
+- scripts/ : Build and image utilities
+- docs/ : Architecture, deployment, guides
 
-- `npm run dev` - Start development server
-- `npm run build` - Build production version
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Type checking
+## Tech Stack
+| Area | Tech |
+| --- | --- |
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| UI | Tailwind CSS, shadcn/ui, Framer Motion |
+| State | Zustand |
+| Search | Fuse.js |
+| Auth/Crypto | jose, bcryptjs |
+| Testing | Vitest, Playwright |
 
-## Deployment
+## Documentation and Links
+- [Architecture](docs/ARCHITECTURE.md)
+- [Deployment](docs/DEPLOYMENT.md)
+- [Contributing](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
 
-For detailed deployment instructions, see the [`DEPLOY.md`](./DEPLOY.md) file.
-
-Quick deployment:
-1. Check [`DEPLOY.md`](./DEPLOY.md) for one-click deployment commands
-2. For issues, see the [`docs/troubleshooting/`](./docs/troubleshooting/) directory
-
-## Environment Variables
-
-Create `.env.local` file and configure the following variables (refer to `.env.example`):
-
-### Required Variables
-
-- `JWT_SECRET` - JWT signing secret (must be at least 32 characters in production)
-  - Development environment can use default value
-  - Production environment must set a strong password: `openssl rand -base64 32`
-
-### Optional Variables
-
-- `NODE_ENV` - Environment mode (`development` | `production`), default `development`
-- `AUTH_MODE` - Authentication mode, default `stub`
-- `ADMIN_TOKEN` - Admin token (for admin API in production)
-- `APP_URL` - Application URL (for email links), default `http://localhost:3000`
-- `NEXT_PUBLIC_APP_URL` - Public application URL, default `http://localhost:3000`
-- `EXCHANGE_RATE_API` - Exchange rate API endpoint, default uses free API
-
-### Production Environment Notes
-
-⚠️ **Important**: Before deploying to production, ensure:
-1. `JWT_SECRET` is set to a strong password (at least 32 characters)
-2. `NODE_ENV=production`
-3. `ADMIN_TOKEN` is set (if using admin features)
-4. All sensitive information is not hardcoded in the code
+## Community
+- Issues and ideas: use GitHub Issues to report and propose.
+- Pull requests: start with a small PR; follow the Contributing guide.
+- Roadmap: see milestones and changelog for what is coming next.
 
 ## License
-
-MIT
+MIT (c) Xfinds

@@ -1,8 +1,8 @@
 import { getRequestConfig } from 'next-intl/server'
-import { notFound } from 'next/navigation'
 
-export const locales = ['en', 'zh'] as const
-export const defaultLocale = 'en' as const
+import { defaultLocale, locales } from './i18n.config'
+
+export { defaultLocale, locales }
 
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale

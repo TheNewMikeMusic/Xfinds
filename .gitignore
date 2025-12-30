@@ -1,48 +1,103 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# ===========================================
+# Dependencies
+# ===========================================
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+# ===========================================
+# Testing
+# ===========================================
 /coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*.local
-.env
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# uploads
-/public/uploads/*
-!/public/uploads/.gitkeep
-
-# data (user-generated)
-/data/users.json
-
-# playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# ===========================================
+# Next.js
+# ===========================================
+/.next/
+/out/
+/build
+
+# ===========================================
+# Environment Variables
+# ===========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===========================================
+# IDE & Editor
+# ===========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===========================================
+# OS Files
+# ===========================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===========================================
+# Debug & Logs
+# ===========================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+logs/
+
+# ===========================================
+# Security & Secrets
+# ===========================================
+*.pem
+*.key
+*.crt
+*.p12
+secrets/
+.secrets
+
+# ===========================================
+# Deployment Scripts (keep private)
+# ===========================================
+deploy-*.sh
+server-*.sh
+*-deploy.sh
+*.ps1
+
+# ===========================================
+# TypeScript
+# ===========================================
+*.tsbuildinfo
+next-env.d.ts
+
+# ===========================================
+# Vercel
+# ===========================================
+.vercel
+
+# ===========================================
+# User Generated Data
+# ===========================================
+/public/uploads/*
+!/public/uploads/.gitkeep
+/data/users.json
+
+# ===========================================
+# Temporary Files
+# ===========================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
