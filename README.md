@@ -1,148 +1,156 @@
 # Xfinds
 
-### Professional Cross-Border Shopping Agent Aggregator & Comparison Platform
-### 专业级跨境购物代理聚合与比价平台
+<div align="center">
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+**Professional Cross-Border Shopping Agent Aggregator & Comparison Platform**
+**企业级跨境购物代理聚合与全球比价系统**
+
+[![Next.js](https://img.shields.io/badge/Framework-Next.js%2014-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript%205.4-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%203.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-Xfinds is a modern, open-source cross-border shopping agent aggregator. By integrating real-time data from multiple freight agents, it provides users with a one-stop service for price comparison, inventory checking, and shipping estimation. Built with Next.js 14 App Router and featuring a glassmorphic design, it offers a premium cross-platform user experience.
-
-Xfinds 是一个现代化的开源跨境购物代理聚合平台。它通过整合多个货运代理的实时数据，为用户提供一站式的价格比对、库存查询及物流估算服务。项目采用先进的 Next.js 14 App Router 架构，结合毛玻璃设计语言（Glassmorphism），打造极致的跨端交互体验。
-
-[Live Demo | 官方演示](https://xfinds.cc) · [Report Bug | 反馈问题](https://github.com/TheNewMikeMusic/Xfinds/issues) · [Request Feature | 功能请求](https://github.com/TheNewMikeMusic/Xfinds/issues)
+[Official Demo | 官方演示](https://xfinds.cc) · [Issue Tracker | 问题反馈](https://github.com/TheNewMikeMusic/Xfinds/issues) · [Roadmap | 发展路线](https://github.com/TheNewMikeMusic/Xfinds/milestones)
 
 ---
 
-## Showcase | 项目展示
+Xfinds is a high-performance, open-source aggregator designed for the global e-commerce ecosystem. It provides a unified interface for real-time price comparison, logistics estimation, and smart cart optimization across multiple shipping agents (Kakobuy, Mulebuy, TigBuy, etc.). Built with a focus on scalability, accessibility, and modern aesthetics (Glassmorphism), Xfinds empowers users to make data-driven cross-border purchasing decisions.
 
-<div align="center">
-  <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage - Dark Mode" width="100%" style="border-radius: 8px; margin-bottom: 20px;" />
+Xfinds 是一款专为全球跨境电商生态设计的高性能、开源聚合平台。它通过统一的标准化接口，实现了多家货运代理商（如 Kakobuy, Mulebuy, TigBuy 等）的实时价格对比、物流费用估算及智能购物车优化。项目核心关注可扩展性、无障碍体验及现代感十足的“毛玻璃”视觉语言，致力于为用户提供数据驱动的跨境购物决策支持。
+
 </div>
 
-| Product Grid (Light Mode) | Product Details & Variants |
+---
+
+## 🏗️ Architectural Excellence | 架构愿景
+
+### Design Philosophy | 设计理念
+- **Glassmorphic UI**: High-end frosted glass aesthetics with smooth micro-interactions powered by Framer Motion.  
+  **毛玻璃视觉语言**：基于高质量磨砂玻璃美学，辅以 Framer Motion 实现的细腻微交互。
+- **Modular Design**: A component-based architecture using Radix UI primitives for maximum reusability.  
+  **模块化设计**：基于 Radix UI 原语构建的组件化架构，确保高度可复用性。
+- **User-Centric**: Seamless transition between dark/light themes and full mobile responsiveness.  
+  **以用户为中心**：深浅色主题平滑切换，深度适配全端移动响应式需求。
+
+---
+
+## 📸 System Showcase | 系统演示
+
+<div align="center">
+  <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Banner" width="100%" style="border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);" />
+</div>
+
+<br/>
+
+| **High-Precision Search | 高精度搜索** | **Rich Variant Selector | 变体选择器** |
 | :---: | :---: |
-| <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124517_559.png" width="100%" /> | <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_114122_459.png" width="100%" /> |
-| 首页商品网格（日间模式） | 商品详情与变体选择 |
+| <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124517_559.png" width="100%" style="border-radius: 8px;" /> | <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_114122_459.png" width="100%" style="border-radius: 8px;" /> |
+| _Fuzzy Matching & Filtering_ | _SKU & Media Gallery Management_ |
 
-| Agent Price Comparison | Smart Shopping Cart |
+| **Comparative Analysis | 竞价分析** | **Optimized Checkout | 结算优化** |
 | :---: | :---: |
-| <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124445_841.png" width="100%" /> | <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124531_340.png" width="100%" /> |
-| 代理商价格比对 | 智能购物车结算 |
+| <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124445_841.png" width="100%" style="border-radius: 8px;" /> | <img src="https://pub-b2cc1d944b2d43e88716eeaa7d223086.r2.dev/ScreenShot_2025-12-30_124531_340.png" width="100%" style="border-radius: 8px;" /> |
+| _Real-time Price Engine_ | _Smart Cart Logic_ |
 
 ---
 
-## Core Features | 核心特性
+## 🚀 Core Capabilities | 核心功能
 
-- **Multi-Agent Price Engine**: Supports Kakobuy, Mulebuy, TigBuy, HippoBuy and more. Real-time comparison of product prices and shipping costs.  
-  **多代理比价引擎**：支持 Kakobuy, Mulebuy, TigBuy, HippoBuy 等多家主流代理商，实时对比商品价格与运费。
-- **Smart Fuzzy Search**: High-performance fuzzy search powered by Fuse.js. Accurate matches even with typos.  
-  **智能模糊搜索**：基于 Fuse.js 实现的高性能模糊搜索，即使输入存在拼写错误也能精准匹配。
-- **Dynamic Exchange Rates**: Real-time updates for CNY, USD, EUR, GBP, JPY, KRW. Automatic price conversion.  
-  **动态汇率系统**：实时更新 CNY, USD, EUR, GBP, JPY, KRW 等主流货币汇率，自动完成价格转换。
-- **Ultra-Responsive UI**: Built with Radix UI and shadcn/ui. Exceptional performance across mobile, tablet, and desktop.  
-  **极致响应式 UI**：采用 Radix UI 与 shadcn/ui 组件库，在移动端、平板与桌面端均有出色表现。
-- **Dark Mode Support**: Deeply adapted dark/light themes for an ergonomic visual experience.  
-  **深色模式支持**：深度适配深浅色主题，提供符合人眼工程学的视觉体验。
-- **I18n Architecture**: Native support for English and Chinese with flexible localization configurations.  
-  **国际化架构**：原生支持中英双语，灵活的本地化配置。
+- **🚀 Multi-Agent Intelligence**: Standardized data mapping for 6+ major shipping agents with sub-second price calculation.  
+  **多代理智能路由**：标准化整合 6+ 主流代理数据，实现毫秒级比价计算。
+- **🔍 Enterprise Fuzzy Search**: Advanced search capabilities powered by Fuse.js with customizable weights and relevance ranking.  
+  **企业级模糊搜索**：基于 Fuse.js 的高阶搜索，支持自定义权重分配与相关性排序。
+- **💱 Real-time Financial Engine**: Integration with global exchange rate APIs for accurate CNY/USD/EUR/JPY conversions.  
+  **实时金融引擎**：对接全球汇率 API，提供极度精准的多币种实时换算。
+- **🌐 Internationalization (i18n)**: Fully localized experience in English and Chinese with RTL support considerations.  
+  **国际化深度适配**：中英全界面深度汉化，具备良好的本地化扩展性。
+- **⚡ Performance Optimized**: Zero-layout shift (CLS) focus, optimized image delivery via Sharp, and App Router caching.  
+  **极致性能优化**：关注零布局抖动（CLS），采用 Sharp 图像预处理与 App Router 级缓存。
 
 ---
 
-## Tech Stack | 技术栈
+## 🛠️ Tech Stack | 技术选型
 
-| Category | Technology |
-| :--- | :--- |
-| **Framework** | Next.js 14 (App Router), React 18 |
-| **Language** | TypeScript 5.4 (Strict Mode) |
-| **Styling** | Tailwind CSS 3.4, Framer Motion (Animation) |
-| **UI Components** | shadcn/ui, Radix UI |
-| **State Management** | Zustand |
-| **Data Handling** | Fuse.js (Search), Sharp (Image Optimization) |
-| **Internationalization** | next-intl |
-| **Authentication** | JWT (jose), bcryptjs |
-| **Testing** | Vitest, Playwright |
+| Stack | Technology | Reason |
+| :--- | :--- | :--- |
+| **Framework** | **Next.js 14** | Server-side rendering (SSR) & optimized routing. |
+| **Language** | **TypeScript** | Type-safety & enterprise scalability. |
+| **Styling** | **Tailwind CSS** | Atomic CSS approach for rapid UI development. |
+| **Motion** | **Framer Motion** | Industry-standard declarative animations. |
+| **Components** | **shadcn/ui** | Accessible, unstyled components based on Radix UI. |
+| **State** | **Zustand** | Lightweight, reactive client-side state management. |
+| **Testing** | **Playwright** | Robust end-to-end testing for critical user flows. |
 
 ---
 
-## Quick Start | 快速开始
+## 📦 Getting Started | 快速开始
 
-### Prerequisites | 环境准备
+### Environment | 环境要求
+- **Runtime**: Node.js 18.x or 20.x (LTS recommended)
+- **Package Manager**: npm 9+ or pnpm 8+
 
-- Node.js 18.0+
-- npm 9.0+ / yarn 1.22+
-
-### Installation | 安装步骤
-
-1. **Clone the repository | 克隆仓库**
+### Setup | 安装部署
+1. **Repository Cloning**
    ```bash
    git clone https://github.com/TheNewMikeMusic/Xfinds.git
-   cd Xfinds
    ```
-
-2. **Install dependencies | 安装依赖**
+2. **Dependency Installation**
    ```bash
    npm install
    ```
-
-3. **Set up environment variables | 配置环境变量**
+3. **Environment Configuration**
    ```bash
-   cp .env.example .env.local
+   cp .env.example .env.local # Update your API keys here
    ```
-
-4. **Start development server | 启动开发服务器**
+4. **Development Execution**
    ```bash
    npm run dev
    ```
 
-5. **Access the project | 访问项目**
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
 ---
 
-## Project Structure | 项目结构
+## 📂 Engineering Excellence | 项目结构
 
 ```text
 Xfinds/
-├── app/                  # Next.js App Router (Routes & API)
-│   ├── [locale]/         # Internationalized routes
-│   └── api/              # Backend API endpoints
-├── components/           # React business components
-│   ├── ui/               # Base UI components (shadcn)
-│   └── shared/           # Shared reusable components
-├── lib/                  # Utilities and business logic
-├── store/                # Zustand global state management
-├── messages/             # i18n translation files
-├── data/                 # Static data files (JSON)
-└── public/               # Static assets (Images, Icons)
+├── app/                  # Enterprise App Router Architecture
+│   ├── [locale]/         # I18n Content Sub-trees
+│   └── api/              # Standardized RESTful Endpoints
+├── components/           # Atomic Design Component Library
+│   ├── ui/               # Low-level Primitives (shadcn/ui)
+│   └── shared/           # High-level Composite Components
+├── lib/                  # Core Business Logic & Infrastructure
+├── store/                # Global State Orchestration (Zustand)
+├── messages/             # Localization Dictionary (JSON)
+├── data/                 # Static Knowledge Base (JSON)
+└── public/               # Optimized Static Assets
 ```
 
 ---
 
-## Contributing | 贡献指南
+## 🤝 Community & Support | 参与贡献
 
-Contributions are highly welcome! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a PR.  
-我们非常欢迎开发者参与贡献。请在提交 PR 前阅读 [贡献文档](CONTRIBUTING.md)。
+We follow the **Standard Open Source Workflow**. Contributions of all sizes are welcome.  
+我们遵循**标准开源开发流**，欢迎任何形式的贡献。
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- 💬 **Join the Discussion**: Use [GitHub Discussions](https://github.com/TheNewMikeMusic/Xfinds/discussions) for questions.
+- 🐛 **Report Issues**: Found a bug? Let us know via the [Issue Tracker](https://github.com/TheNewMikeMusic/Xfinds/issues).
+- 🌟 **Star Support**: If you find Xfinds valuable, please give us a star to support the development!
 
 ---
 
-## License | 开源协议
+## 📄 License | 开源协议
 
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.  
-本项目基于 **MIT License** 协议开源。详情请参阅 [LICENSE](LICENSE) 文件。
+Distributed under the **MIT License**. See `LICENSE` for more information.  
+基于 **MIT License** 协议授权。更多信息请参阅 `LICENSE` 文件。
 
 ---
 
 <div align="center">
-  <p>If you find this project helpful, please give it a ⭐️ Star!</p>
-  <p>如果您觉得这个项目对您有帮助，欢迎给一个 ⭐️ Star！</p>
-  <p>Made with Love by Xfinds Team</p>
+
+**Built with Precision for the Global Shopping Community**
+**为全球购物社区精准打造**
+
+[<img src="https://img.shields.io/badge/Follow-Xfinds-1DA1F2?style=for-the-badge&logo=twitter" />](https://x.com/xfinds)
+
 </div>
