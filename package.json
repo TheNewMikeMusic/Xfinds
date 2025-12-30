@@ -1,7 +1,27 @@
 {
   "name": "xfinds",
   "version": "0.1.0",
-  "private": true,
+  "description": "Open-source shopping agent aggregator for smarter cross-border purchases. Compare prices across multiple agents with a modern glassmorphic UI.",
+  "keywords": [
+    "shopping-agent",
+    "price-comparison",
+    "cross-border",
+    "e-commerce",
+    "nextjs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "Xfinds Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheNewMikeMusic/Xfinds.git"
+  },
+  "homepage": "https://xfinds.cc",
+  "bugs": {
+    "url": "https://github.com/TheNewMikeMusic/Xfinds/issues"
+  },
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

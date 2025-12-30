@@ -60,5 +60,5 @@ _Coming soon_
 
 ---
 
-For more details, see the [GitHub Releases](https://github.com/your-username/xfinds/releases) page.
+For more details, see the [GitHub Releases](https://github.com/TheNewMikeMusic/Xfinds/releases) page.
 

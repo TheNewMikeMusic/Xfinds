@@ -1,120 +1,163 @@
 <div align="center">
 
-<!-- Use the transparent logo (no spaces) -->
 <img src="public/Xfinds_logo2.png" alt="Xfinds" width="120" />
 
 # Xfinds
 
-### Open-source agent search and comparison for faster, clearer buying decisions.
+**Open-source shopping agent aggregator for smarter cross-border purchases**
 
-Modern product search and agent comparison with a fast glassmorphic UI. Built for engineers who want a transparent, extensible, self-hostable marketplace experience.
+A modern product search and agent comparison platform with a premium glassmorphic UI.  
+Compare prices across multiple shopping agents, find the best deals, and streamline your purchasing workflow.
 
 [![Next.js](https://img.shields.io/badge/Next.js_14-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-<a href="https://xfinds.cc"><b>Live Demo</b></a> · <a href="docs/ARCHITECTURE.md"><b>Architecture</b></a> · <a href="https://github.com/TheNewMikeMusic/Xfinds/issues"><b>Issues</b></a> · <a href="CONTRIBUTING.md"><b>Contribute</b></a>
+[**Live Demo**](https://xfinds.cc) · [**Documentation**](docs/ARCHITECTURE.md) · [**Report Bug**](https://github.com/TheNewMikeMusic/Xfinds/issues) · [**Request Feature**](https://github.com/TheNewMikeMusic/Xfinds/issues)
 
 <br />
-<!-- Homepage hero -->
-<img src="public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds homepage" width="900" />
+
+<img src="public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Xfinds Homepage" width="900" />
 
 </div>
 
 ---
 
-## Why Xfinds
-- Search once and see every agent offer in one view.
-- Transparent pricing with side-by-side comparison and live currency conversion.
-- Built for speed: glass UI, smooth motion, tuned for fast interactions.
-- Global ready: English and Chinese today; add locales easily.
-- Open-source first: MIT licensed, API-friendly, and simple to self-host.
+## Overview
 
-## Feature Highlights
-- Smart fuzzy search (Fuse.js) with category, price, and agent filters.
-- Agent comparison to judge price versus service quality.
-- Saved picks and batch-open flows for checkout readiness.
-- Locale-prefixed routes with edge-safe i18n middleware.
-- Tailwind + shadcn/ui + Framer Motion for crisp, responsive UX.
-- API routes for products, agents, uploads, and revalidation.
+Xfinds is an open-source platform that aggregates product listings from multiple shopping agents, enabling users to compare prices, shipping costs, and service quality in one unified interface. Built for transparency, speed, and extensibility.
 
-## Trust Signals (open-source matters)
-- MIT license; no lock-in.
-- Typed codebase (TypeScript) with clear architecture docs.
-- Security headers and edge-safe middleware enabled by default.
-- Testing setup ready: Vitest and Playwright configs included.
+### Key Features
+
+- **Unified Search** — Search once, see offers from all agents in one view
+- **Price Comparison** — Side-by-side comparison with real-time currency conversion
+- **Smart Filters** — Filter by category, price range, agent, and more
+- **Batch Checkout** — Save picks and open multiple agent links at once
+- **Multi-language** — English and Chinese support out of the box
+- **Dark Theme** — Premium glassmorphic UI with smooth animations
+- **Self-hostable** — MIT licensed, API-friendly, easy to deploy
 
 ## Screenshots
+
 <div align="center">
-  <!-- Homepage hero -->
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage search hero" width="88%" />
+  <img src="public/ScreenShot/ScreenShot_2025-12-30_110255_958.png" alt="Homepage with search" width="88%" />
   <br /><br />
-  <!-- Product detail -->
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail with agent offers" width="88%" />
+  <img src="public/ScreenShot/ScreenShot_2025-12-30_114122_459.png" alt="Product detail page" width="88%" />
   <br /><br />
-  <!-- Agent comparison -->
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison table" width="88%" />
+  <img src="public/ScreenShot/ScreenShot_2025-12-30_124445_841.png" alt="Agent comparison" width="88%" />
   <br /><br />
-  <!-- Featured products grid -->
-  <img src="public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products grid" width="88%" />
+  <img src="public/ScreenShot/ScreenShot_2025-12-30_124517_559.png" alt="Featured products" width="88%" />
 </div>
 
 ## Quick Start
+
+### Prerequisites
+
+- Node.js 18.0 or higher
+- npm 9.0 or higher
+
+### Installation
+
 ```bash
-# Clone
+# Clone the repository
 git clone https://github.com/TheNewMikeMusic/Xfinds.git
 cd Xfinds
 
-# Install
+# Install dependencies
 npm install
 
-# Env
+# Set up environment variables
 cp .env.example .env.local
 
-# Dev server
+# Start development server
 npm run dev
-# open http://localhost:3000
 ```
 
-### Production build
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+
 ```bash
 npm run build
-npm run start   # defaults to http://localhost:8000
+npm run start   # Runs on http://localhost:8000
 ```
 
-## Architecture at a glance
-- app/ : Next.js App Router (locale-prefixed routes and API)
-- components/ : UI and shared components
-- hooks/ : Reusable hooks
-- store/ : Zustand stores
-- lib/ : Utilities (i18n, helpers)
-- messages/ : Translations
-- assets/ : Static assets and screenshots
-- scripts/ : Build and image utilities
-- docs/ : Architecture, deployment, guides
-
 ## Tech Stack
-| Area | Tech |
-| --- | --- |
+
+| Category | Technologies |
+|----------|-------------|
 | Framework | Next.js 14 (App Router) |
 | Language | TypeScript |
-| UI | Tailwind CSS, shadcn/ui, Framer Motion |
+| Styling | Tailwind CSS, shadcn/ui |
+| Animation | Framer Motion |
 | State | Zustand |
 | Search | Fuse.js |
-| Auth/Crypto | jose, bcryptjs |
+| Auth | JWT (jose), bcryptjs |
+| i18n | next-intl |
 | Testing | Vitest, Playwright |
 
-## Documentation and Links
-- [Architecture](docs/ARCHITECTURE.md)
-- [Deployment](docs/DEPLOYMENT.md)
-- [Contributing](CONTRIBUTING.md)
-- [Changelog](CHANGELOG.md)
+## Project Structure
 
-## Community
-- Issues and ideas: use GitHub Issues to report and propose.
-- Pull requests: start with a small PR; follow the Contributing guide.
-- Roadmap: see milestones and changelog for what is coming next.
+```
+xfinds/
+├── app/              # Next.js App Router (pages & API routes)
+├── components/       # React components
+│   ├── ui/          # Base UI components (shadcn/ui)
+│   ├── shared/      # Shared components
+│   └── ...          # Feature-specific components
+├── lib/             # Utility functions
+├── store/           # Zustand state stores
+├── data/            # JSON data files
+├── messages/        # i18n translations (en, zh)
+├── public/          # Static assets
+├── scripts/         # Build and utility scripts
+├── tests/           # Unit and E2E tests
+└── docs/            # Documentation
+```
+
+## Documentation
+
+- [Architecture Overview](docs/ARCHITECTURE.md) — System design and data flow
+- [Deployment Guide](docs/DEPLOYMENT.md) — Production deployment instructions
+- [Contributing Guide](CONTRIBUTING.md) — How to contribute
+- [Changelog](CHANGELOG.md) — Version history
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Roadmap
+
+- [ ] Add more shopping agents
+- [ ] Price history tracking
+- [ ] Browser extension
+- [ ] Mobile app (React Native)
+- [ ] API for third-party integrations
 
 ## License
-MIT (c) Xfinds
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/) — The React framework
+- [shadcn/ui](https://ui.shadcn.com/) — Beautiful UI components
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
+- [Framer Motion](https://www.framer.com/motion/) — Animation library
+
+---
+
+<div align="center">
+
+**[Website](https://xfinds.cc)** · **[GitHub](https://github.com/TheNewMikeMusic/Xfinds)** · **[Issues](https://github.com/TheNewMikeMusic/Xfinds/issues)**
+
+Made with ❤️ by the Xfinds team
+
+</div>
